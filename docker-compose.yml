@@ -1,0 +1,10 @@
+services:
+  hstplus-site:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: hstplus-site:latest
+    container_name: hstplus-site
+    ports:
+      - "8080:80"
+    restart: unless-stopped
