@@ -3,115 +3,87 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Chip from '@mui/material/Chip';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import gallery2 from '../assets/gallery2.jpg';
-import Eyebrow from './Eyebrow';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import { courseCatalog, totalCourses } from '../data/courses';
 
 export default function Formacoes() {
-  const [expanded, setExpanded] = useState('panel0');
+  const [tab, setTab] = useState(0);
+  const active = courseCatalog[tab];
 
   return (
-    <Box id="formacoes" sx={{ py: { xs: 9, md: 13 } }}>
+    <Box id="formacoes" sx={{ py: { xs: 8, md: 11 }, bgcolor: '#EFEDE6' }}>
       <Container maxWidth="lg">
-        <Grid container spacing={2} sx={{ mb: 3 }}>
-          <Grid item xs={12} md={7}>
-            <Eyebrow index="04">Nossas Formações</Eyebrow>
-            <Typography variant="h2" sx={{ fontSize: { xs: '2.1rem', md: '2.6rem' }, mb: 2 }}>
-              Catálogo de {totalCourses}+ formações técnicas
-            </Typography>
-            <Typography sx={{ color: 'text.secondary', maxWidth: 640 }}>
-              Formadores experientes, conteúdo personalizado às necessidades do cliente e cargas
-              horárias definidas para formação básica e reciclagem, organizadas por área de
-              actuação.
-            </Typography>
-          </Grid>
-        </Grid>
-
-        <Box
-          component="img"
-          src={gallery2}
-          alt="Sessão de formação em sala com colaboradores"
-          sx={{ width: '100%', aspectRatio: { xs: '16/10', md: '21/6' }, objectFit: 'cover', my: 5 }}
-        />
-
-        <Box>
-          {courseCatalog.map((cat, i) => (
-            <Accordion
-              key={cat.category}
-              expanded={expanded === `panel${i}`}
-              onChange={(_, isExp) => setExpanded(isExp ? `panel${i}` : false)}
-              disableGutters
-              elevation={0}
-              square
-              sx={{
-                border: '1px solid',
-                borderColor: 'divider',
-                borderTop: i === 0 ? '1px solid' : 'none',
-                borderTopColor: 'divider',
-                '&:before': { display: 'none' },
-              }}
-            >
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                sx={{ px: { xs: 2, md: 3 }, py: 1 }}
-              >
-                <Grid container alignItems="center" spacing={2}>
-                  <Grid item xs="auto">
-                    <Typography sx={{ fontFamily: '"Big Shoulders Display"', fontWeight: 800, fontSize: '1.6rem', color: 'primary.main', width: 44 }}>
-                      {String(i + 1).padStart(2, '0')}
-                    </Typography>
-                  </Grid>
-                  <Grid item xs>
-                    <Typography sx={{ fontWeight: 600, fontSize: { xs: '0.92rem', md: '1.02rem' } }}>
-                      {cat.category}
-                    </Typography>
-                  </Grid>
-                  <Grid item xs="auto" sx={{ display: { xs: 'none', sm: 'block' } }}>
-                    <Chip
-                      label={`${cat.courses.length} cursos`}
-                      size="small"
-                      sx={{ fontFamily: '"IBM Plex Mono"', fontSize: '0.68rem', bgcolor: '#EFEDE6' }}
-                    />
-                  </Grid>
-                </Grid>
-              </AccordionSummary>
-              <AccordionDetails sx={{ p: 0 }}>
-                <Table size="small">
-                  <TableHead>
-                    <TableRow sx={{ '& th': { bgcolor: '#EFEDE6', fontFamily: '"IBM Plex Mono"', fontSize: '0.68rem', letterSpacing: '0.04em' } }}>
-                      <TableCell>CURSO</TableCell>
-                      <TableCell align="right">BÁSICO</TableCell>
-                      <TableCell align="right">RECICLAGEM</TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {cat.courses.map((c) => (
-                      <TableRow key={c.name} hover>
-                        <TableCell sx={{ fontSize: '0.85rem' }}>{c.name}</TableCell>
-                        <TableCell align="right" sx={{ fontFamily: '"IBM Plex Mono"', fontSize: '0.8rem', color: 'secondary.dark' }}>
-                          {c.basico}
-                        </TableCell>
-                        <TableCell align="right" sx={{ fontFamily: '"IBM Plex Mono"', fontSize: '0.8rem', color: 'text.secondary' }}>
-                          {c.reciclagem}
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </AccordionDetails>
-            </Accordion>
-          ))}
+        <Box sx={{ textAlign: 'center', mb: 5 }}>
+          <Typography variant="overline" sx={{ color: 'primary.main' }}>
+            02 — Nossas Formações
+          </Typography>
+          <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.4rem' }, mt: 1, mb: 1.5 }}>
+            Catálogo de {totalCourses}+ formações técnicas
+          </Typography>
+          <Typography sx={{ color: 'text.secondary', maxWidth: 560, mx: 'auto' }}>
+            Formadores experientes e conteúdo adaptado à realidade de cada equipa, com cargas
+            horárias definidas para formação básica e reciclagem.
+          </Typography>
         </Box>
+
+        <Tabs
+          value={tab}
+          onChange={(_, v) => setTab(v)}
+          variant="scrollable"
+          scrollButtons="auto"
+          allowScrollButtonsMobile
+          sx={{
+            mb: 4,
+            minHeight: 0,
+            '& .MuiTab-root': {
+              fontSize: '0.72rem',
+              fontFamily: '"IBM Plex Mono"',
+              fontWeight: 600,
+              letterSpacing: '0.03em',
+              minHeight: 0,
+              py: 1.4,
+              px: 2,
+              color: 'text.secondary',
+            },
+            '& .Mui-selected': { color: 'primary.main !important' },
+            '& .MuiTabs-indicator': { bgcolor: 'secondary.main', height: 3 },
+          }}
+        >
+          {courseCatalog.map((c) => (
+            <Tab key={c.category} label={c.category} />
+          ))}
+        </Tabs>
+
+        <Box sx={{ bgcolor: '#fff', p: { xs: 3, md: 5 } }}>
+          <Grid container spacing={1.5}>
+            {active.courses.map((c) => (
+              <Grid item xs={12} sm={6} key={c.name}>
+                <Stack
+                  direction="row"
+                  justifyContent="space-between"
+                  alignItems="center"
+                  spacing={2}
+                  sx={{ py: 1.4, borderBottom: '1px solid', borderColor: 'divider' }}
+                >
+                  <Typography sx={{ fontSize: '0.88rem' }}>{c.name}</Typography>
+                  <Typography sx={{ fontFamily: '"IBM Plex Mono"', fontSize: '0.7rem', color: 'secondary.dark', whiteSpace: 'nowrap' }}>
+                    {c.basico}
+                  </Typography>
+                </Stack>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+
+        <Stack alignItems="center" sx={{ mt: 4 }}>
+          <Button href="#contacto" variant="outlined" color="primary" endIcon={<ArrowOutwardIcon />}>
+            Pedir Calendário de Formações
+          </Button>
+        </Stack>
       </Container>
     </Box>
   );

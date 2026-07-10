@@ -5,64 +5,52 @@ import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
-import GavelIcon from '@mui/icons-material/Gavel';
-import Eyebrow from './Eyebrow';
-import HazardDivider from './HazardDivider';
 import { legal, certifications } from '../data/content';
 
 export default function Legalidade() {
   return (
-    <Box id="certificacoes">
-      <HazardDivider tone="light" height={8} />
-      <Box sx={{ py: { xs: 9, md: 13 }, bgcolor: '#fff' }}>
-        <Container maxWidth="lg">
-          <Eyebrow index="07">Legalidade &amp; Certificações</Eyebrow>
-          <Typography variant="h2" sx={{ fontSize: { xs: '2.1rem', md: '2.6rem' }, mb: 5, maxWidth: 760 }}>
+    <Box id="certificacoes" sx={{ py: { xs: 8, md: 11 }, bgcolor: '#fff' }}>
+      <Container maxWidth="lg">
+        <Box sx={{ textAlign: 'center', mb: 6 }}>
+          <Typography variant="overline" sx={{ color: 'primary.main' }}>
+            07 — Legalidade &amp; Certificações
+          </Typography>
+          <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.4rem' }, mt: 1 }}>
             Transparência, segurança e responsabilidade
           </Typography>
+        </Box>
 
-          <Grid container spacing={5}>
-            <Grid item xs={12} md={5}>
-              <Stack direction="row" spacing={2} sx={{ mb: 3 }}>
-                <GavelIcon sx={{ color: 'primary.main' }} />
-                <Typography sx={{ color: 'text.secondary', fontSize: '0.92rem' }}>{legal.text}</Typography>
-              </Stack>
-              <Stack spacing={0} divider={<Box sx={{ borderBottom: '1px solid', borderColor: 'divider' }} />}>
-                {legal.registrations.map((r) => (
-                  <Stack key={r.label} direction="row" justifyContent="space-between" spacing={2} sx={{ py: 1.5 }}>
-                    <Typography sx={{ fontSize: '0.78rem', color: 'text.secondary', maxWidth: 260 }}>{r.label}</Typography>
-                    <Typography sx={{ fontFamily: '"IBM Plex Mono"', fontSize: '0.82rem', fontWeight: 600, whiteSpace: 'nowrap' }}>
-                      {r.value}
-                    </Typography>
-                  </Stack>
-                ))}
-              </Stack>
+        <Grid container spacing={2} sx={{ mb: 5 }}>
+          {certifications.map((c) => (
+            <Grid item xs={12} sm={6} md={3} key={c.title}>
+              <Paper variant="outlined" sx={{ p: 3, height: '100%', borderColor: 'divider' }}>
+                <VerifiedUserIcon sx={{ color: 'secondary.main', fontSize: 26, mb: 1.5 }} />
+                <Typography sx={{ fontWeight: 700, fontSize: '0.95rem' }}>{c.title}</Typography>
+                <Typography sx={{ fontSize: '0.78rem', color: 'text.secondary', mb: 1 }}>{c.subtitle}</Typography>
+                <Typography sx={{ fontFamily: '"IBM Plex Mono"', fontSize: '0.68rem', color: 'primary.main' }}>{c.code}</Typography>
+              </Paper>
             </Grid>
+          ))}
+        </Grid>
 
-            <Grid item xs={12} md={7}>
-              <Grid container spacing={2}>
-                {certifications.map((c) => (
-                  <Grid item xs={12} sm={6} key={c.title}>
-                    <Paper
-                      variant="outlined"
-                      sx={{ p: 3, height: '100%', borderColor: 'divider', display: 'flex', gap: 2 }}
-                    >
-                      <VerifiedUserIcon sx={{ color: 'secondary.main', fontSize: 30, flexShrink: 0 }} />
-                      <Box>
-                        <Typography sx={{ fontWeight: 700, fontSize: '1rem' }}>{c.title}</Typography>
-                        <Typography sx={{ fontSize: '0.8rem', color: 'text.secondary', mb: 1 }}>{c.subtitle}</Typography>
-                        <Typography sx={{ fontFamily: '"IBM Plex Mono"', fontSize: '0.7rem', color: 'primary.main' }}>
-                          {c.code}
-                        </Typography>
-                      </Box>
-                    </Paper>
-                  </Grid>
-                ))}
-              </Grid>
+        <Stack
+          direction={{ xs: 'column', sm: 'row' }}
+          justifyContent="center"
+          spacing={{ xs: 1, sm: 4 }}
+          sx={{ fontSize: '0.78rem', color: 'text.secondary', textAlign: 'center' }}
+        >
+          <Typography sx={{ fontSize: 'inherit' }}>{legal.text}</Typography>
+        </Stack>
+        <Grid container spacing={2} justifyContent="center" sx={{ mt: 3 }}>
+          {legal.registrations.map((r) => (
+            <Grid item xs={12} sm="auto" key={r.label}>
+              <Typography sx={{ fontSize: '0.72rem', color: 'text.secondary', textAlign: 'center' }}>
+                {r.label}: <strong style={{ fontFamily: '"IBM Plex Mono"' }}>{r.value}</strong>
+              </Typography>
             </Grid>
-          </Grid>
-        </Container>
-      </Box>
+          ))}
+        </Grid>
+      </Container>
     </Box>
   );
 }
