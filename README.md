@@ -1,14 +1,15 @@
 # HST Plus — Landing Page
 
-Site institucional de página única para a **HST Plus, Consultancy & Training**,
-construído a partir do conteúdo do portfólio (PDF) e do catálogo de formações (Excel).
+Site institucional de página única para a **HST Plus, Consultancy & Training**.
+Estrutura inspirada na Above Academy (above.co.mz), mais arejada e com menos blocos de
+imagem/texto, com o conteúdo e identidade visual da HST Plus.
 
 ## Stack
 
 - **React 19 + Vite**
 - **Material UI (MUI)** v5 — tema customizado em `src/theme.js`
 - **Recharts** — gráfico de resultados na secção Referências
-- Fontes: **Big Shoulders Display** (títulos, estilo sinalética industrial), **IBM Plex Sans** (corpo), **IBM Plex Mono** (dados técnicos/duração dos cursos)
+- Fontes: **Big Shoulders Display** (títulos), **IBM Plex Sans** (corpo), **IBM Plex Mono** (dados técnicos)
 
 ## Como correr localmente
 
@@ -21,65 +22,53 @@ npm run preview   # pré-visualiza o build de produção
 
 ## Docker
 
-### Produção (build estático servido por nginx, porta 8080)
-
 ```bash
-docker compose up --build
-# abre http://localhost:8080
+docker compose up --build                             # produção, porta 8080 + API do blog
+docker compose -f docker-compose.dev.yml up --build    # dev com hot-reload, portas 5173 + 4000
 ```
 
-Isto corre o `Dockerfile` (multi-stage): 1) `node:20-alpine` instala dependências com
-`npm ci` e faz `npm run build`; 2) o resultado (`dist/`) é copiado para uma imagem
-`nginx:1.27-alpine`, servido com `nginx.conf` (gzip + cache de assets com hash + fallback
-para `index.html`).
+O `docker-compose.yml` sobe dois serviços: `hstplus-site` (nginx, frontend) e `api`
+(Node/Express — busca publicações do Facebook/Instagram, ver `server/README.md` para
+configurar as credenciais da Meta). O nginx encaminha `/api/*` para o serviço `api`.
 
-### Desenvolvimento (hot-reload, porta 5173)
+## Estrutura da página (ordem no `App.jsx`)
 
-```bash
-docker compose -f docker-compose.dev.yml up --build
-# abre http://localhost:5173
-```
+1. `TopBar` — telefone, email, redes sociais
+2. `Header` — navegação fixa
+3. `Hero` — título + CTA único
+4. `ClientLogos` — logótipos reais dos clientes (Uni-Span, Terminais do Norte, Mota-Engil,
+   TCPI, Manica, LC Power, Gabriel Couto, Protecna, TATA), extraídos do portfólio original
+5. `Solucoes` — 3 pilares (Consultoria / Formação / Inspeção)
+6. `Formacoes` — catálogo de cursos por categoria, em separadores (tabs)
+7. `Stats` — números-chave
+8. `QuemSomos` — missão institucional resumida + valores
+9. `InspecaoQualidade`
+10. `Metodologia` — aulas teóricas vs práticas
+11. `Consultoria` — consultor especializado + serviços
+12. `Legalidade` — certificações e registos legais
+13. `Referencias` — gráfico de resultados
+14. `Blog` — publicações do Facebook/Instagram, via `server/` (ver `server/README.md`)
+15. `Contacto`
+16. `Footer`
+17. `WhatsAppButton` — botão flutuante
 
-Usa `Dockerfile.dev` com `npm run dev`, monta o código como volume (`.:/app`) para
-reflectir alterações instantaneamente, e mantém `node_modules` num volume anónimo para
-não sobrepor o que foi instalado dentro do container. `vite.config.js` já está preparado
-com `host: true` e `watch.usePolling` para o hot-reload funcionar com bind mounts.
+## Nota sobre logótipos de clientes
 
-> Nota: não tenho Docker disponível neste ambiente para testar a build da imagem —
-> os Dockerfiles seguem o padrão multi-stage standard (Node → nginx), mas vale a pena
-> correr `docker compose up --build` e confirmar antes de dar como certo.
-
-## Estrutura
-
-```
-src/
-  theme.js              # paleta, tipografia e tokens MUI
-  data/
-    content.js           # textos institucionais (missão, valores, certificações, clientes...)
-    courses.js            # catálogo de formações (extraído do Excel)
-  components/
-    Header.jsx             # navegação fixa + menu mobile
-    Hero.jsx
-    QuemSomos.jsx           # 01 — missão, visão, valores
-    OQueFazemos.jsx          # 02 — soluções + análise quantitativa
-    InspecaoQualidade.jsx     # 03
-    Formacoes.jsx              # 04 — catálogo de cursos (acordeão)
-    Metodologia.jsx             # 05 — método aplicado
-    Consultoria.jsx               # 06 — consultores especializados
-    Legalidade.jsx                 # 07 — legalidade e certificações
-    Referencias.jsx                 # 08 — clientes + gráfico de resultados
-    Contacto.jsx                     # 09 — fale connosco + rodapé
-    HazardDivider.jsx                 # elemento assinatura (faixa de sinalização)
-    Eyebrow.jsx                        # rótulo numerado de secção
-  assets/                               # imagens extraídas e otimizadas do portfólio
-```
+Os logótipos em `src/assets/clients/` foram extraídos e recortados directamente do
+portfólio em PDF fornecido pela HST Plus (que já os incluía como referências autorizadas
+pelos próprios clientes). Foram identificados por OCR e corte automático — vale a pena
+confirmar com a equipa da HST Plus se algum logótipo precisa de ser substituído por uma
+versão em maior resolução ou mais recente.
 
 ## Próximos passos sugeridos
 
-- Rever os textos e dados em `src/data/` (alguns pontos do PDF original ficaram resumidos).
-- Ligar o botão "Pedir Proposta" a um formulário real (ex: endpoint Node/Express, ou Formspree).
-- Adicionar Google Analytics / Meta Pixel, se aplicável.
-- As referências de clientes (Uni-Span, Mota-Engil, TATA, etc.) foram propositadamente
-  representadas em texto, e não com os logótipos originais extraídos do PDF, para evitar
-  reprodução de marcas de terceiros — substitua por logótipos oficiais com autorização de
-  cada cliente, se desejado.
+- Rever textos/dados em `src/data/`.
+- Ligar "Pedir Proposta" a um formulário real.
+- Confirmar resolução/qualidade final dos logótipos de clientes com a HST Plus.
+- **Depois de testarem as mudanças actuais** (topbar, gradientes, blog/API):
+  - Transições/efeitos de animação entre secções (a definir com a HST Plus).
+  - **Carrossel de imagens**: consolidar as fotos hoje espalhadas pelas secções
+    (`QuemSomos`, `InspecaoQualidade`, etc.) num único carrossel, em vez de dispersas
+    pelo site — reduz ainda mais a sensação de "poluição visual" já resolvida na
+    reestruturação anterior.
+  - Outras mudanças de design que a HST Plus está a desenhar (aguardar especificação).

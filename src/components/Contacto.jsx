@@ -10,19 +10,22 @@ import EmailIcon from '@mui/icons-material/Email';
 import LanguageIcon from '@mui/icons-material/Language';
 import PlaceIcon from '@mui/icons-material/Place';
 import { company } from '../data/content';
+import { gradients } from '../theme';
+import Reveal from './Reveal';
 
 const contactLines = [
   { icon: PhoneIcon, label: `${company.phone1} / ${company.phone2}`, href: `tel:${company.phone1.replace(/\s/g, '')}` },
   { icon: WhatsAppIcon, label: company.whatsapp, href: `https://wa.me/${company.whatsapp.replace(/\D/g, '')}` },
   { icon: EmailIcon, label: company.email, href: `mailto:${company.email}` },
   { icon: LanguageIcon, label: company.web, href: `https://${company.web}` },
-  { icon: PlaceIcon, label: company.address, href: null },
+  { icon: PlaceIcon, label: company.address, href: company.mapUrl },
 ];
 
 export default function Contacto() {
   return (
-    <Box id="contacto" sx={{ py: { xs: 8, md: 11 }, bgcolor: 'primary.dark', color: '#fff' }}>
+    <Box id="contacto" sx={{ py: { xs: 8, md: 11 }, backgroundImage: gradients.dark, color: '#fff' }}>
       <Container maxWidth="lg">
+        <Reveal>
         <Grid container spacing={5} alignItems="center">
           <Grid item xs={12} md={6}>
             <Typography variant="overline" sx={{ color: 'warning.main' }}>
@@ -67,6 +70,7 @@ export default function Contacto() {
             </Stack>
           </Grid>
         </Grid>
+      </Reveal>
       </Container>
     </Box>
   );

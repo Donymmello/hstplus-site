@@ -4,22 +4,33 @@ import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
+import IconButton from '@mui/material/IconButton';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import logo from '../assets/logo.png';
-import { company } from '../data/content';
+import { company, socials } from '../data/content';
+import { gradients } from '../theme';
 
 const quickLinks = [
   { href: '#quem-somos', label: 'Quem Somos' },
+  { href: '#galeria', label: 'Galeria' },
   { href: '#solucoes', label: 'Soluções' },
   { href: '#formacoes', label: 'Formações' },
   { href: '#certificacoes', label: 'Certificações' },
   { href: '#referencias', label: 'Referências' },
+  { href: '#blog', label: 'Blog' },
+];
+
+const socialIcons = [
+  { key: 'facebook', Icon: FacebookIcon, label: 'Facebook' },
+  { key: 'instagram', Icon: InstagramIcon, label: 'Instagram' },
+  { key: 'linkedin', Icon: LinkedInIcon, label: 'LinkedIn' },
 ];
 
 export default function Footer() {
   return (
-    <Box sx={{ bgcolor: '#0E1112', color: 'rgba(255,255,255,0.65)', py: { xs: 6, md: 7 } }}>
+    <Box sx={{ backgroundImage: gradients.footer, color: 'rgba(255,255,255,0.65)', py: { xs: 6, md: 7 } }}>
       <Container maxWidth="lg">
         <Grid container spacing={5}>
           <Grid item xs={12} md={4}>
@@ -31,9 +42,25 @@ export default function Footer() {
               Consultoria, Gestão de Risco, Formação Profissional e Inspeção de Qualidade —
               Moçambique, desde {company.founded}.
             </Typography>
-            <Stack direction="row" spacing={1.5} sx={{ mt: 3 }}>
-              <InstagramIcon fontSize="small" />
-              <FacebookIcon fontSize="small" />
+
+            <Stack direction="row" spacing={1} sx={{ mt: 3 }}>
+              {socialIcons.map(({ key, Icon, label }) => (
+                <IconButton
+                  key={key}
+                  component="a"
+                  href={socials[key] || '#'}
+                  target={socials[key] ? '_blank' : undefined}
+                  rel="noreferrer"
+                  aria-label={label}
+                  sx={{
+                    color: 'rgba(255,255,255,0.75)',
+                    border: '1px solid rgba(255,255,255,0.15)',
+                    '&:hover': { color: '#fff', borderColor: 'rgba(255,255,255,0.4)' },
+                  }}
+                >
+                  <Icon fontSize="medium" />
+                </IconButton>
+              ))}
             </Stack>
           </Grid>
 
@@ -55,9 +82,21 @@ export default function Footer() {
               CONTACTO
             </Typography>
             <Stack spacing={1}>
-              <Typography sx={{ fontSize: '0.82rem' }}>{company.phone1}</Typography>
-              <Typography sx={{ fontSize: '0.82rem' }}>{company.email}</Typography>
-              <Typography sx={{ fontSize: '0.82rem' }}>{company.address}</Typography>
+              <Link href={`tel:${company.phone1.replace(/\s/g, '')}`} underline="hover" sx={{ color: 'inherit', fontSize: '0.82rem' }}>
+                {company.phone1}
+              </Link>
+              <Link href={`mailto:${company.email}`} underline="hover" sx={{ color: 'inherit', fontSize: '0.82rem' }}>
+                {company.email}
+              </Link>
+              <Link
+                href={company.mapUrl}
+                target="_blank"
+                rel="noreferrer"
+                underline="hover"
+                sx={{ color: 'inherit', fontSize: '0.82rem' }}
+              >
+                {company.address}
+              </Link>
             </Stack>
           </Grid>
         </Grid>

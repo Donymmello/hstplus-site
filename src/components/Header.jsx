@@ -10,13 +10,16 @@ import Typography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import logo from '../assets/logo.png';
+import { gradients } from '../theme';
 
 const links = [
   { href: '#quem-somos', label: 'Quem Somos' },
+  { href: '#galeria', label: 'Galeria' },
   { href: '#solucoes', label: 'Soluções' },
   { href: '#formacoes', label: 'Formações' },
   { href: '#certificacoes', label: 'Certificações' },
   { href: '#referencias', label: 'Referências' },
+  { href: '#blog', label: 'Blog' },
   { href: '#contacto', label: 'Contacto' },
 ];
 
@@ -25,7 +28,7 @@ export default function Header() {
 
   return (
     <>
-      <AppBar position="sticky" elevation={0} sx={{ bgcolor: 'primary.dark', top: 0 }}>
+      <AppBar position="sticky" elevation={0} sx={{ backgroundImage: gradients.primary, top: 0 }}>
         <Toolbar sx={{ minHeight: { xs: 64, md: 72 }, px: { xs: 2, md: 5 } }}>
           <Stack
             direction="row"
@@ -75,7 +78,7 @@ export default function Header() {
       </AppBar>
 
       <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
-        <Box sx={{ width: 280, bgcolor: 'primary.dark', height: '100%', color: '#fff', p: 3 }}>
+        <Box sx={{ width: 280, backgroundImage: gradients.primary, height: '100%', color: '#fff', p: 3 }}>
           <Stack direction="row" justifyContent="flex-end">
             <IconButton onClick={() => setOpen(false)} sx={{ color: '#fff' }} aria-label="Fechar menu">
               <CloseIcon />

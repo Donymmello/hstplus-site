@@ -9,8 +9,17 @@ export const company = {
   emailCorporate: 'corporate@hstplus.co.mz',
   web: 'www.hstplus.co.mz',
   address: 'Av. do Trabalho / Rua do Lago Amaramba, R/C Nº 37, Maputo, Moçambique',
+  mapUrl: 'https://maps.app.goo.gl/pXXGxY8xuNazUrueA?g_st=ac',
   nuel: '101 045 706',
   nuit: '400 924 597',
+};
+
+// Preenche com os endereços reais das páginas da HST Plus. Deixa '' (vazio) para
+// esconder o ícone correspondente automaticamente.
+export const socials = {
+  facebook: '',
+  instagram: '',
+  linkedin: '',
 };
 
 export const solutions = [

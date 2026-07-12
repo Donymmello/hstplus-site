@@ -6,6 +6,8 @@ import Stack from '@mui/material/Stack';
 import PolicyIcon from '@mui/icons-material/Policy';
 import SchoolIcon from '@mui/icons-material/School';
 import FactCheckIcon from '@mui/icons-material/FactCheck';
+import { gradients } from '../theme';
+import Reveal from './Reveal';
 
 const pillars = [
   {
@@ -30,8 +32,9 @@ const pillars = [
 
 export default function Solucoes() {
   return (
-    <Box id="solucoes" sx={{ py: { xs: 8, md: 11 } }}>
+    <Box id="solucoes" sx={{ py: { xs: 8, md: 11 }, backgroundImage: gradients.surfaceLight }}>
       <Container maxWidth="lg">
+        <Reveal>
         <Box sx={{ textAlign: 'center', mb: 6 }}>
           <Typography variant="overline" sx={{ color: 'primary.main' }}>
             01 — O Que Fazemos
@@ -64,7 +67,7 @@ export default function Solucoes() {
                   <Stack
                     alignItems="center"
                     justifyContent="center"
-                    sx={{ width: 56, height: 56, bgcolor: 'primary.dark', mb: 3 }}
+                    sx={{ width: 56, height: 56, backgroundImage: gradients.primary, mb: 3 }}
                   >
                     <Icon sx={{ color: 'warning.main', fontSize: 28 }} />
                   </Stack>
@@ -77,6 +80,7 @@ export default function Solucoes() {
             );
           })}
         </Grid>
+      </Reveal>
       </Container>
     </Box>
   );

@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Backend do blog (server/)
+server/.env
+server/cache/*.json
+server/node_modules

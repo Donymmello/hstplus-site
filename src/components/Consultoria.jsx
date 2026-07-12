@@ -7,11 +7,14 @@ import Paper from '@mui/material/Paper';
 import Avatar from '@mui/material/Avatar';
 import EngineeringIcon from '@mui/icons-material/Engineering';
 import { consultants, specializedServices } from '../data/content';
+import { gradients } from '../theme';
+import Reveal from './Reveal';
 
 export default function Consultoria() {
   return (
-    <Box id="consultoria" sx={{ py: { xs: 8, md: 11 }, bgcolor: '#EFEDE6' }}>
+    <Box id="consultoria" sx={{ py: { xs: 8, md: 11 }, backgroundImage: gradients.surfaceAlt }}>
       <Container maxWidth="lg">
+        <Reveal>
         <Box sx={{ textAlign: 'center', mb: 6 }}>
           <Typography variant="overline" sx={{ color: 'primary.main' }}>
             06 — Consultoria Especializada
@@ -66,6 +69,7 @@ export default function Consultoria() {
             </Grid>
           </Grid>
         </Grid>
+      </Reveal>
       </Container>
     </Box>
   );

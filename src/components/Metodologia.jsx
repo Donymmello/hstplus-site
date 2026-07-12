@@ -6,6 +6,8 @@ import Stack from '@mui/material/Stack';
 import Chip from '@mui/material/Chip';
 import CheckIcon from '@mui/icons-material/Check';
 import { methodology, trainingApproach } from '../data/content';
+import { gradients } from '../theme';
+import Reveal from './Reveal';
 
 function List({ items, color }) {
   return (
@@ -22,8 +24,9 @@ function List({ items, color }) {
 
 export default function Metodologia() {
   return (
-    <Box sx={{ py: { xs: 8, md: 11 } }}>
+    <Box sx={{ py: { xs: 8, md: 11 }, backgroundImage: gradients.surfaceLight }}>
       <Container maxWidth="lg">
+        <Reveal>
         <Box sx={{ textAlign: 'center', mb: 6 }}>
           <Typography variant="overline" sx={{ color: 'primary.main' }}>
             05 — Método Aplicado
@@ -56,6 +59,7 @@ export default function Metodologia() {
             </Box>
           </Grid>
         </Grid>
+      </Reveal>
       </Container>
     </Box>
   );

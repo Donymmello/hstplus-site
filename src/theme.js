@@ -16,6 +16,19 @@ export const colors = {
   line: 'rgba(20,24,26,0.12)',
 };
 
+// Gradientes usados em botões, cabeçalhos e secções escuras — mantêm a identidade
+// maroon/verde da marca com um pouco mais de profundidade do que uma cor lisa.
+export const gradients = {
+  primary: `linear-gradient(135deg, ${colors.maroon} 0%, ${colors.maroonDark} 100%)`,
+  secondary: `linear-gradient(135deg, #2E9350 0%, ${colors.safetyGreenDark} 100%)`,
+  dark: `linear-gradient(160deg, ${colors.maroonDark} 0%, #2E0810 55%, ${colors.ink} 130%)`,
+  // Gradientes muito subtis para as secções "claras" — dão profundidade sem
+  // comprometer a legibilidade do texto.
+  surfaceLight: `linear-gradient(180deg, #FFFFFF 0%, ${colors.paper} 100%)`,
+  surfaceAlt: `linear-gradient(180deg, ${colors.paper} 0%, ${colors.paperAlt} 100%)`,
+  footer: `linear-gradient(160deg, #171B1C 0%, #0A0C0D 100%)`,
+};
+
 const theme = createTheme({
   palette: {
     mode: 'light',
@@ -71,6 +84,14 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: { borderRadius: 2, paddingInline: '1.4em', paddingBlock: '0.8em' },
+        containedPrimary: {
+          backgroundImage: gradients.primary,
+          '&:hover': { backgroundImage: gradients.primary, filter: 'brightness(1.08)' },
+        },
+        containedSecondary: {
+          backgroundImage: gradients.secondary,
+          '&:hover': { backgroundImage: gradients.secondary, filter: 'brightness(1.08)' },
+        },
       },
     },
     MuiPaper: { styleOverrides: { root: { backgroundImage: 'none' } } },

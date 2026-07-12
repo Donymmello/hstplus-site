@@ -9,14 +9,17 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import { courseCatalog, totalCourses } from '../data/courses';
+import { gradients } from '../theme';
+import Reveal from './Reveal';
 
 export default function Formacoes() {
   const [tab, setTab] = useState(0);
   const active = courseCatalog[tab];
 
   return (
-    <Box id="formacoes" sx={{ py: { xs: 8, md: 11 }, bgcolor: '#EFEDE6' }}>
+    <Box id="formacoes" sx={{ py: { xs: 8, md: 11 }, backgroundImage: gradients.surfaceAlt }}>
       <Container maxWidth="lg">
+        <Reveal>
         <Box sx={{ textAlign: 'center', mb: 5 }}>
           <Typography variant="overline" sx={{ color: 'primary.main' }}>
             02 — Nossas Formações
@@ -84,6 +87,7 @@ export default function Formacoes() {
             Pedir Calendário de Formações
           </Button>
         </Stack>
+      </Reveal>
       </Container>
     </Box>
   );

@@ -4,6 +4,8 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { company } from '../data/content';
 import { totalCourses } from '../data/courses';
+import { gradients } from '../theme';
+import Reveal from './Reveal';
 
 const stats = [
   { value: `${new Date().getFullYear() - company.founded}+`, label: 'Anos no terreno' },
@@ -14,8 +16,9 @@ const stats = [
 
 export default function Stats() {
   return (
-    <Box sx={{ py: { xs: 6, md: 8 }, bgcolor: '#fff' }}>
+    <Box sx={{ py: { xs: 6, md: 8 }, backgroundImage: gradients.surfaceLight }}>
       <Container maxWidth="lg">
+        <Reveal>
         <Grid container spacing={3}>
           {stats.map((s) => (
             <Grid item xs={6} md={3} key={s.label} sx={{ textAlign: 'center' }}>
@@ -34,6 +37,7 @@ export default function Stats() {
             </Grid>
           ))}
         </Grid>
+      </Reveal>
       </Container>
     </Box>
   );

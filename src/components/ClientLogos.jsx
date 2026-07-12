@@ -12,6 +12,7 @@ import lcpower from '../assets/clients/lcpower.png';
 import gabrielCouto from '../assets/clients/gabriel-couto.jpg';
 import protecna from '../assets/clients/protecna.jpg';
 import tata from '../assets/clients/tata.png';
+import Reveal from './Reveal';
 
 const logos = [
   { src: uniSpan, alt: 'Uni-Span' },
@@ -29,6 +30,7 @@ export default function ClientLogos() {
   return (
     <Box sx={{ py: { xs: 4, md: 5 }, bgcolor: '#fff', borderBottom: '1px solid', borderColor: 'divider' }}>
       <Container maxWidth="lg">
+        <Reveal>
         <Typography sx={{ textAlign: 'center', fontSize: '0.72rem', color: 'text.secondary', letterSpacing: '0.06em', mb: 3 }}>
           EMPRESAS QUE CONFIAM NA HST PLUS
         </Typography>
@@ -52,6 +54,7 @@ export default function ClientLogos() {
             </Grid>
           ))}
         </Grid>
+      </Reveal>
       </Container>
     </Box>
   );

@@ -12,6 +12,8 @@ import {
   Legend,
 } from 'recharts';
 import { resultsChart } from '../data/content';
+import { gradients } from '../theme';
+import Reveal from './Reveal';
 
 function transformData() {
   return resultsChart.labels.map((label, i) => {
@@ -27,8 +29,9 @@ export default function Referencias() {
   const data = transformData();
 
   return (
-    <Box id="referencias" sx={{ py: { xs: 8, md: 11 }, bgcolor: '#EFEDE6' }}>
+    <Box id="referencias" sx={{ py: { xs: 8, md: 11 }, backgroundImage: gradients.surfaceAlt }}>
       <Container maxWidth="lg">
+        <Reveal>
         <Box sx={{ textAlign: 'center', mb: 5 }}>
           <Typography variant="overline" sx={{ color: 'primary.main' }}>
             08 — Resultados
@@ -58,6 +61,7 @@ export default function Referencias() {
             </ResponsiveContainer>
           </Box>
         </Box>
+      </Reveal>
       </Container>
     </Box>
   );

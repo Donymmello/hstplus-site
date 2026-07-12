@@ -7,4 +7,21 @@ services:
     container_name: hstplus-site
     ports:
       - "8080:80"
+    depends_on:
+      - api
     restart: unless-stopped
+
+  api:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    image: hstplus-blog-api:latest
+    container_name: hstplus-blog-api
+    env_file:
+      - ./server/.env
+    volumes:
+      - blog-cache:/app/cache
+    restart: unless-stopped
+
+volumes:
+  blog-cache:

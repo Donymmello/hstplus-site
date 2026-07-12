@@ -4,21 +4,22 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import { company } from '../data/content';
+import { gradients } from '../theme';
+import Reveal from './Reveal';
 
 export default function Hero() {
   return (
     <Box
       id="top"
       sx={{
-        bgcolor: 'primary.dark',
         color: '#fff',
         py: { xs: 9, md: 12 },
         textAlign: 'center',
-        backgroundImage:
-          'radial-gradient(circle at 15% 20%, rgba(255,255,255,0.05), transparent 40%), radial-gradient(circle at 85% 80%, rgba(31,122,61,0.18), transparent 45%)',
+        backgroundImage: `${gradients.dark}, radial-gradient(circle at 15% 20%, rgba(255,255,255,0.05), transparent 40%), radial-gradient(circle at 85% 80%, rgba(31,122,61,0.18), transparent 45%)`,
       }}
     >
       <Container maxWidth="md">
+        <Reveal>
         <Typography variant="overline" sx={{ color: 'warning.main' }}>
           Consultoria · Formação · Inspeção — Moçambique, desde {company.founded}
         </Typography>
@@ -36,6 +37,7 @@ export default function Hero() {
         <Button href="#formacoes" variant="contained" color="secondary" size="large" endIcon={<ArrowOutwardIcon />}>
           Ver Formações
         </Button>
+      </Reveal>
       </Container>
     </Box>
   );
