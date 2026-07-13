@@ -16,3 +16,16 @@ body {
   html { scroll-behavior: auto; }
   * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
 }
+
+/* Zoom lento nas fotos activas do carrossel (Galeria) */
+@keyframes hstKenBurns {
+  from { transform: scale(1); }
+  to { transform: scale(1.09); }
+}
+
+/* Brilho/sweep de luz ao passar o rato nos botões principais */
+@keyframes hstButtonShine {
+  from { transform: translateX(-120%) skewX(-15deg); }
+  to { transform: translateX(220%) skewX(-15deg); }
+}
+

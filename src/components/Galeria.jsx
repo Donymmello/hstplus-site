@@ -80,7 +80,7 @@ export default function Galeria() {
           >
             {slides.map((s, i) => (
               <Box
-                key={s.src}
+                key={`${s.src}-${i === index}`}
                 component="img"
                 src={s.src}
                 alt={s.caption}
@@ -92,6 +92,8 @@ export default function Galeria() {
                   objectFit: 'cover',
                   opacity: i === index ? 1 : 0,
                   transition: 'opacity 0.9s ease',
+                  transformOrigin: 'center',
+                  animation: i === index ? `hstKenBurns ${AUTOPLAY_MS + 900}ms ease-out forwards` : 'none',
                 }}
               />
             ))}

@@ -24,30 +24,32 @@ export default function Legalidade() {
         </Box>
 
         <Grid container spacing={2} sx={{ mb: 5 }}>
-          {certifications.map((c) => (
+          {certifications.map((c, i) => (
             <Grid item xs={12} sm={6} md={3} key={c.title}>
-              <Paper
-                variant="outlined"
-                sx={{
-                  p: 3,
-                  height: '100%',
-                  borderColor: 'divider',
-                  textAlign: 'center',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                }}
-              >
-                <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                  <VerifiedUserIcon sx={{ color: 'secondary.main', fontSize: 30, mb: 1.5 }} />
-                  <Typography sx={{ fontWeight: 700, fontSize: '0.95rem' }}>{c.title}</Typography>
-                  <Typography sx={{ fontSize: '0.78rem', color: 'text.secondary', mb: 1 }}>{c.subtitle}</Typography>
-                </Box>
-                <Typography sx={{ fontFamily: '"IBM Plex Mono"', fontSize: '0.68rem', color: 'primary.main', mt: 1.5 }}>
-                  {c.code}
-                </Typography>
-              </Paper>
+              <Reveal delay={i * 0.1}>
+                <Paper
+                  variant="outlined"
+                  sx={{
+                    p: 3,
+                    height: '100%',
+                    borderColor: 'divider',
+                    textAlign: 'center',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                  }}
+                >
+                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                    <VerifiedUserIcon sx={{ color: 'secondary.main', fontSize: 30, mb: 1.5 }} />
+                    <Typography sx={{ fontWeight: 700, fontSize: '0.95rem' }}>{c.title}</Typography>
+                    <Typography sx={{ fontSize: '0.78rem', color: 'text.secondary', mb: 1 }}>{c.subtitle}</Typography>
+                  </Box>
+                  <Typography sx={{ fontFamily: '"IBM Plex Mono"', fontSize: '0.68rem', color: 'primary.main', mt: 1.5 }}>
+                    {c.code}
+                  </Typography>
+                </Paper>
+              </Reveal>
             </Grid>
           ))}
         </Grid>

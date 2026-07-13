@@ -4,6 +4,7 @@ import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
+import { Link as RouterLink } from 'react-router-dom';
 import IconButton from '@mui/material/IconButton';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -13,13 +14,13 @@ import { company, socials } from '../data/content';
 import { gradients } from '../theme';
 
 const quickLinks = [
-  { href: '#quem-somos', label: 'Quem Somos' },
-  { href: '#galeria', label: 'Galeria' },
-  { href: '#solucoes', label: 'Soluções' },
-  { href: '#formacoes', label: 'Formações' },
-  { href: '#certificacoes', label: 'Certificações' },
-  { href: '#referencias', label: 'Referências' },
-  { href: '#blog', label: 'Blog' },
+  { to: '/#quem-somos', label: 'Quem Somos' },
+  { to: '/galeria', label: 'Galeria' },
+  { to: '/#solucoes', label: 'Soluções' },
+  { to: '/#formacoes', label: 'Formações' },
+  { to: '/#certificacoes', label: 'Certificações' },
+  { to: '/#referencias', label: 'Referências' },
+  { to: '/#blog', label: 'Blog' },
 ];
 
 const socialIcons = [
@@ -70,7 +71,7 @@ export default function Footer() {
             </Typography>
             <Stack spacing={1}>
               {quickLinks.map((l) => (
-                <Link key={l.href} href={l.href} underline="hover" sx={{ color: 'inherit', fontSize: '0.82rem' }}>
+                <Link key={l.to} component={RouterLink} to={l.to} underline="hover" sx={{ color: 'inherit', fontSize: '0.82rem' }}>
                   {l.label}
                 </Link>
               ))}

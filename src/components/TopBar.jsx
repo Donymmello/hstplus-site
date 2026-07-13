@@ -38,7 +38,7 @@ function IconBadge({ children }) {
 export default function TopBar() {
   return (
     <Box sx={{ backgroundImage: gradients.primary, display: { xs: 'none', md: 'block' } }}>
-      <Container maxWidth="{false}">
+      <Container maxWidth="lg">
         {/* Uma única linha flex, largura total, sem Stacks aninhadas — telefone/email
             fixos à esquerda (flex-start), redes sociais fixas à direita (flex-end). */}
         <Box

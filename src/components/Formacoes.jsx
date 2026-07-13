@@ -63,20 +63,22 @@ export default function Formacoes() {
 
         <Box sx={{ bgcolor: '#fff', p: { xs: 3, md: 5 } }}>
           <Grid container spacing={1.5}>
-            {active.courses.map((c) => (
+            {active.courses.map((c, i) => (
               <Grid item xs={12} sm={6} key={c.name}>
-                <Stack
-                  direction="row"
-                  justifyContent="space-between"
-                  alignItems="center"
-                  spacing={2}
-                  sx={{ py: 1.4, borderBottom: '1px solid', borderColor: 'divider' }}
-                >
-                  <Typography sx={{ fontSize: '0.88rem' }}>{c.name}</Typography>
-                  <Typography sx={{ fontFamily: '"IBM Plex Mono"', fontSize: '0.7rem', color: 'secondary.dark', whiteSpace: 'nowrap' }}>
-                    {c.basico}
-                  </Typography>
-                </Stack>
+                <Reveal delay={Math.min(i, 8) * 0.05} y={10}>
+                  <Stack
+                    direction="row"
+                    justifyContent="space-between"
+                    alignItems="center"
+                    spacing={2}
+                    sx={{ py: 1.4, borderBottom: '1px solid', borderColor: 'divider' }}
+                  >
+                    <Typography sx={{ fontSize: '0.88rem' }}>{c.name}</Typography>
+                    <Typography sx={{ fontFamily: '"IBM Plex Mono"', fontSize: '0.7rem', color: 'secondary.dark', whiteSpace: 'nowrap' }}>
+                      {c.basico}
+                    </Typography>
+                  </Stack>
+                </Reveal>
               </Grid>
             ))}
           </Grid>

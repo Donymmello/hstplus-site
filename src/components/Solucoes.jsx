@@ -45,37 +45,39 @@ export default function Solucoes() {
         </Box>
 
         <Grid container spacing={3}>
-          {pillars.map((p) => {
+          {pillars.map((p, i) => {
             const Icon = p.icon;
             return (
               <Grid item xs={12} md={4} key={p.title}>
-                <Box
-                  component="a"
-                  href={p.href}
-                  sx={{
-                    display: 'block',
-                    textDecoration: 'none',
-                    color: 'inherit',
-                    height: '100%',
-                    p: 4,
-                    border: '1px solid',
-                    borderColor: 'divider',
-                    transition: 'border-color 0.2s ease, transform 0.2s ease',
-                    '&:hover': { borderColor: 'secondary.main', transform: 'translateY(-3px)' },
-                  }}
-                >
-                  <Stack
-                    alignItems="center"
-                    justifyContent="center"
-                    sx={{ width: 56, height: 56, backgroundImage: gradients.primary, mb: 3 }}
+                <Reveal delay={i * 0.12}>
+                  <Box
+                    component="a"
+                    href={p.href}
+                    sx={{
+                      display: 'block',
+                      textDecoration: 'none',
+                      color: 'inherit',
+                      height: '100%',
+                      p: 4,
+                      border: '1px solid',
+                      borderColor: 'divider',
+                      transition: 'border-color 0.2s ease, transform 0.2s ease',
+                      '&:hover': { borderColor: 'secondary.main', transform: 'translateY(-3px)' },
+                    }}
                   >
-                    <Icon sx={{ color: 'warning.main', fontSize: 28 }} />
-                  </Stack>
-                  <Typography variant="h4" sx={{ fontSize: '1.3rem', mb: 1.2 }}>
-                    {p.title}
-                  </Typography>
-                  <Typography sx={{ fontSize: '0.9rem', color: 'text.secondary' }}>{p.text}</Typography>
-                </Box>
+                    <Stack
+                      alignItems="center"
+                      justifyContent="center"
+                      sx={{ width: 56, height: 56, backgroundImage: gradients.primary, mb: 3 }}
+                    >
+                      <Icon sx={{ color: 'warning.main', fontSize: 28 }} />
+                    </Stack>
+                    <Typography variant="h4" sx={{ fontSize: '1.3rem', mb: 1.2 }}>
+                      {p.title}
+                    </Typography>
+                    <Typography sx={{ fontSize: '0.9rem', color: 'text.secondary' }}>{p.text}</Typography>
+                  </Box>
+                </Reveal>
               </Grid>
             );
           })}

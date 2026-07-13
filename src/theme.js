@@ -84,6 +84,24 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: { borderRadius: 2, paddingInline: '1.4em', paddingBlock: '0.8em' },
+        contained: {
+          position: 'relative',
+          overflow: 'hidden',
+          '&::after': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '35%',
+            height: '100%',
+            background: 'linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent)',
+            transform: 'translateX(-120%) skewX(-15deg)',
+            pointerEvents: 'none',
+          },
+          '&:hover::after': {
+            animation: 'hstButtonShine 0.85s ease',
+          },
+        },
         containedPrimary: {
           backgroundImage: gradients.primary,
           '&:hover': { backgroundImage: gradients.primary, filter: 'brightness(1.08)' },

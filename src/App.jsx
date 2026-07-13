@@ -1,45 +1,21 @@
-import TopBar from './components/TopBar';
-import Header from './components/Header';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Analytics from './components/Analytics';
-import Hero from './components/Hero';
-import ClientLogos from './components/ClientLogos';
-import Solucoes from './components/Solucoes';
-import Formacoes from './components/Formacoes';
-import Stats from './components/Stats';
-import QuemSomos from './components/QuemSomos';
-import Galeria from './components/Galeria';
-import InspecaoQualidade from './components/InspecaoQualidade';
-import Metodologia from './components/Metodologia';
-import Consultoria from './components/Consultoria';
-import Legalidade from './components/Legalidade';
-import Referencias from './components/Referencias';
-import Blog from './components/Blog';
-import Contacto from './components/Contacto';
-import Footer from './components/Footer';
-import WhatsAppButton from './components/WhatsAppButton';
+import ScrollProgress from './components/ScrollProgress';
+import MainLayout from './layouts/MainLayout';
+import HomePage from './pages/HomePage';
+import GaleriaPage from './pages/GaleriaPage';
 
 export default function App() {
   return (
-    <>
+    <BrowserRouter>
       <Analytics />
-      <TopBar />
-      <Header />
-      <Hero />
-      <ClientLogos />
-      <Solucoes />
-      <Formacoes />
-      <Stats />
-      <QuemSomos />
-      <Galeria />
-      <InspecaoQualidade />
-      <Metodologia />
-      <Consultoria />
-      <Legalidade />
-      <Referencias />
-      <Blog />
-      <Contacto />
-      <Footer />
-      <WhatsAppButton />
-    </>
+      <ScrollProgress />
+      <Routes>
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/galeria" element={<GaleriaPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }

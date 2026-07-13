@@ -31,26 +31,43 @@ O `docker-compose.yml` sobe dois serviços: `hstplus-site` (nginx, frontend) e `
 (Node/Express — busca publicações do Facebook/Instagram, ver `server/README.md` para
 configurar as credenciais da Meta). O nginx encaminha `/api/*` para o serviço `api`.
 
-## Estrutura da página (ordem no `App.jsx`)
+## Estrutura de rotas e páginas
 
-1. `TopBar` — telefone, email, redes sociais
-2. `Header` — navegação fixa
-3. `Hero` — título + CTA único
-4. `ClientLogos` — logótipos reais dos clientes (Uni-Span, Terminais do Norte, Mota-Engil,
-   TCPI, Manica, LC Power, Gabriel Couto, Protecna, TATA), extraídos do portfólio original
-5. `Solucoes` — 3 pilares (Consultoria / Formação / Inspeção)
-6. `Formacoes` — catálogo de cursos por categoria, em separadores (tabs)
-7. `Stats` — números-chave
-8. `QuemSomos` — missão institucional resumida + valores
-9. `InspecaoQualidade`
-10. `Metodologia` — aulas teóricas vs práticas
-11. `Consultoria` — consultor especializado + serviços
-12. `Legalidade` — certificações e registos legais
-13. `Referencias` — gráfico de resultados
-14. `Blog` — publicações do Facebook/Instagram, via `server/` (ver `server/README.md`)
-15. `Contacto`
-16. `Footer`
-17. `WhatsAppButton` — botão flutuante
+O site deixou de ser uma única página — agora usa `react-router-dom`:
+
+- **`/`** (`src/pages/HomePage.jsx`) — todas as secções institucionais, na mesma ordem de sempre
+- **`/galeria`** (`src/pages/GaleriaPage.jsx`) — página própria com grid 3x3 de fotos e lightbox
+  (clicar numa foto amplia, com setas para navegar e tecla/botão fechar)
+
+Ambas as páginas partilham o `src/layouts/MainLayout.jsx` (TopBar, Header, Footer,
+WhatsAppButton) e são envolvidas por `src/components/PageFade.jsx`, que aplica um fade
+leve sempre que se muda de página (Home ↔ Galeria). Navegar para uma âncora de outra
+página (ex: clicar "Certificações" estando em `/galeria`) leva de volta a `/` e faz
+scroll suave até à secção, via `src/hooks/useScrollToHash.js`.
+
+### Secções da Home (ordem em `HomePage.jsx`)
+
+1. `Hero` — título + CTA único
+2. `ClientLogos` — logótipos reais dos clientes
+3. `Solucoes` — 3 pilares (Consultoria / Formação / Inspeção)
+4. `Formacoes` — catálogo de cursos por categoria, em separadores (tabs)
+5. `Stats` — números-chave (com contagem animada)
+6. `QuemSomos` — missão institucional resumida + valores
+7. `GaleriaCTA` — convite para a página `/galeria` (já não mostra fotos aqui)
+8. `InspecaoQualidade`
+9. `Metodologia` — aulas teóricas vs práticas
+10. `Consultoria` — consultor especializado + serviços
+11. `Legalidade` — certificações e registos legais
+12. `Referencias` — gráfico de resultados
+13. `Blog` — publicações do Facebook/Instagram, via `server/` (ver `server/README.md`)
+14. `Contacto`
+
+## Nota sobre as fotos da Galeria
+
+As fotos em `src/assets/gallery/` (usadas em `GaleriaPage.jsx`) são **placeholders** —
+a HST Plus vai enviar o conjunto definitivo. Para trocar: substituir os ficheiros nessa
+pasta e actualizar a lista `photos` no topo de `src/pages/GaleriaPage.jsx` (mantém
+múltiplos de 3 para a grid ficar sempre alinhada).
 
 ## Nota sobre logótipos de clientes
 
@@ -65,10 +82,14 @@ versão em maior resolução ou mais recente.
 - Rever textos/dados em `src/data/`.
 - Ligar "Pedir Proposta" a um formulário real.
 - Confirmar resolução/qualidade final dos logótipos de clientes com a HST Plus.
-- **Depois de testarem as mudanças actuais** (topbar, gradientes, blog/API):
-  - Transições/efeitos de animação entre secções (a definir com a HST Plus).
-  - **Carrossel de imagens**: consolidar as fotos hoje espalhadas pelas secções
-    (`QuemSomos`, `InspecaoQualidade`, etc.) num único carrossel, em vez de dispersas
-    pelo site — reduz ainda mais a sensação de "poluição visual" já resolvida na
-    reestruturação anterior.
-  - Outras mudanças de design que a HST Plus está a desenhar (aguardar especificação).
+- Substituir as fotos placeholder da Galeria pelas definitivas (ver nota acima).
+- **Newsletter**: a HST Plus quer um formulário de subscrição, mas ainda não decidiu como
+  deve funcionar. Opções a discutir quando houver clareza:
+  - Mais simples: embed dum serviço externo (Mailchimp, Brevo/Sendinblue) — sem código
+    adicional no `server/`, mas a lista de subscritores fica gerida fora do site.
+  - Mais integrado: endpoint novo em `server/` (`POST /api/newsletter`) que grava o email
+    (ficheiro/CSV ou tabela simples) e opcionalmente sincroniza com um serviço de email
+    marketing depois — dá mais controlo mas exige mais manutenção.
+  - Ficar apenas com os contactos directos (WhatsApp/telefone/email) que já existem, sem
+    newsletter, se não for prioridade agora.
+- Outras mudanças de design que a HST Plus está a desenhar (aguardar especificação).
