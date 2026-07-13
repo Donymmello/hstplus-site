@@ -12,30 +12,25 @@ import ZoomInIcon from '@mui/icons-material/ZoomIn';
 import { gradients } from '../theme';
 import Reveal from '../components/Reveal';
 
-// NOTA: estas fotos são placeholders — a HST Plus vai enviar o conjunto
-// definitivo para substituir. Basta trocar os ficheiros em
-// src/assets/gallery/ e actualizar esta lista (mantém múltiplos de 3 para a
-// grid ficar sempre alinhada em 3 colunas).
-import riggerAltura from '../assets/gallery/rigger-altura.jpg';
-import formacaoEquipa from '../assets/gallery/formacao-equipa.jpg';
-import inspecaoGancho from '../assets/gallery/inspecao-gancho.jpg';
-import salaFormacao from '../assets/gallery/sala-formacao.jpg';
-import montagemAndaime from '../assets/gallery/montagem-andaime.jpg';
-import conducaoDefensiva from '../assets/gallery/conducao-defensiva.jpg';
-import combateIncendio from '../assets/gallery/combate-incendio.jpg';
-import equipamentosMedicao from '../assets/gallery/equipamentos-medicao.jpg';
-import formacaoSalaManica from '../assets/gallery/formacao-sala-manica.jpg';
+// Fotos fornecidas pela HST Plus (Julho 2026). Para trocar/adicionar: colocar o
+// ficheiro em src/assets/gallery/, importar aqui, e adicionar/editar uma linha
+// na lista `photos` abaixo.
+import formacaoAltura1 from '../assets/gallery/formacao-altura-unispan-1.jpg';
+import avaliacaoEscrita from '../assets/gallery/avaliacao-escrita-unispan.jpg';
+import equipaUnispan1 from '../assets/gallery/equipa-unispan-1.jpg';
+import equipaUnispan2 from '../assets/gallery/equipa-unispan-2.jpg';
+import encerramentoFormacao from '../assets/gallery/encerramento-formacao-unispan.jpg';
+import espacoConfinadoTerminais from '../assets/gallery/espaco-confinado-terminais.jpg';
+import visitaTerreno from '../assets/gallery/visita-terreno-unispan.jpg';
 
 const photos = [
-  { src: riggerAltura, caption: 'Trabalho em altura com equipamento de protecção certificado' },
-  { src: formacaoEquipa, caption: 'Formação prática de segurança em contentor de obra' },
-  { src: salaFormacao, caption: 'Formação teórica em sala — Uni-Span, Temane' },
-  { src: montagemAndaime, caption: 'Montagem e inspecção de andaime' },
-  { src: conducaoDefensiva, caption: 'Formação de condução defensiva — Vale, Tete' },
-  { src: combateIncendio, caption: 'Simulação de combate a incêndio' },
-  { src: inspecaoGancho, caption: 'Inspecção técnica de gancho de elevação de cargas' },
-  { src: equipamentosMedicao, caption: 'Instrumentos de medição e higiene ocupacional' },
-  { src: formacaoSalaManica, caption: 'Formação em sala — Manica Moçambique Terminais' },
+  { src: formacaoAltura1, caption: 'Formação em segurança para trabalho em altura — equipa Uni-Span' },
+  { src: avaliacaoEscrita, caption: 'Avaliação escrita durante a formação — Uni-Span' },
+  { src: equipaUnispan1, caption: 'Equipa formada em Saúde e Segurança no Trabalho — Uni-Span' },
+  { src: equipaUnispan2, caption: 'Formação técnica com a equipa Uni-Span' },
+  { src: encerramentoFormacao, caption: 'Encerramento de formação com a equipa Uni-Span' },
+  { src: espacoConfinadoTerminais, caption: 'Formação de Trabalho em Espaço Confinado — Terminais do Norte' },
+  { src: visitaTerreno, caption: 'Visita técnica ao terreno — equipa Uni-Span' },
 ];
 
 export default function GaleriaPage() {
