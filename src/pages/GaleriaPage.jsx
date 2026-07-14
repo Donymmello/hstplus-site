@@ -64,7 +64,7 @@ export default function GaleriaPage() {
         <Container maxWidth="lg">
           <Grid container spacing={{ xs: 1.5, md: 2 }}>
             {photos.map((p, i) => (
-              <Grid item xs={12} sm={6} md={4} key={p.src}>
+              <Grid size={{ xs: 12, sm: 6, md: 4 }} key={p.src}>
                 <Reveal delay={Math.min(i, 8) * 0.06}>
                   <Box
                     onClick={() => setOpenIndex(i)}

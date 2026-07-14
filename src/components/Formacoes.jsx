@@ -3,93 +3,137 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import { courseCatalog, totalCourses } from '../data/courses';
 import { gradients } from '../theme';
 import Reveal from './Reveal';
+import SectionHeader from './SectionHeader';
 
 export default function Formacoes() {
-  const [tab, setTab] = useState(0);
-  const active = courseCatalog[tab];
+  const [expanded, setExpanded] = useState('panel0');
 
   return (
     <Box id="formacoes" sx={{ py: { xs: 8, md: 11 }, backgroundImage: gradients.surfaceAlt }}>
       <Container maxWidth="lg">
         <Reveal>
-        <Box sx={{ textAlign: 'center', mb: 5 }}>
-          <Typography variant="overline" sx={{ color: 'primary.main' }}>
-            02 — Nossas Formações
-          </Typography>
-          <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.4rem' }, mt: 1, mb: 1.5 }}>
-            Catálogo de {totalCourses}+ formações técnicas
-          </Typography>
-          <Typography sx={{ color: 'text.secondary', maxWidth: 560, mx: 'auto' }}>
+          <SectionHeader
+            index="02"
+            eyebrow="Nossas Formações"
+            title={`Catálogo de ${totalCourses}+ formações técnicas`}
+            align="left"
+            introWidth={640}
+          >
             Formadores experientes e conteúdo adaptado à realidade de cada equipa, com cargas
-            horárias definidas para formação básica e reciclagem.
-          </Typography>
-        </Box>
+            horárias definidas por nível — Básico, Médio e Avançado — organizadas por área de
+            actuação.
+          </SectionHeader>
 
-        <Tabs
-          value={tab}
-          onChange={(_, v) => setTab(v)}
-          variant="scrollable"
-          scrollButtons="auto"
-          allowScrollButtonsMobile
-          sx={{
-            mb: 4,
-            minHeight: 0,
-            '& .MuiTab-root': {
-              fontSize: '0.72rem',
-              fontFamily: '"IBM Plex Mono"',
-              fontWeight: 600,
-              letterSpacing: '0.03em',
-              minHeight: 0,
-              py: 1.4,
-              px: 2,
-              color: 'text.secondary',
-            },
-            '& .Mui-selected': { color: 'primary.main !important' },
-            '& .MuiTabs-indicator': { bgcolor: 'secondary.main', height: 3 },
-          }}
-        >
-          {courseCatalog.map((c) => (
-            <Tab key={c.category} label={c.category} />
-          ))}
-        </Tabs>
-
-        <Box sx={{ bgcolor: '#fff', p: { xs: 3, md: 5 } }}>
-          <Grid container spacing={1.5}>
-            {active.courses.map((c, i) => (
-              <Grid item xs={12} sm={6} key={c.name}>
-                <Reveal delay={Math.min(i, 8) * 0.05} y={10}>
-                  <Stack
-                    direction="row"
-                    justifyContent="space-between"
-                    alignItems="center"
-                    spacing={2}
-                    sx={{ py: 1.4, borderBottom: '1px solid', borderColor: 'divider' }}
-                  >
-                    <Typography sx={{ fontSize: '0.88rem' }}>{c.name}</Typography>
-                    <Typography sx={{ fontFamily: '"IBM Plex Mono"', fontSize: '0.7rem', color: 'secondary.dark', whiteSpace: 'nowrap' }}>
-                      {c.basico}
-                    </Typography>
-                  </Stack>
-                </Reveal>
-              </Grid>
+          <Box>
+            {courseCatalog.map((cat, i) => (
+              <Accordion
+                key={cat.category}
+                expanded={expanded === `panel${i}`}
+                onChange={(_, isExp) => setExpanded(isExp ? `panel${i}` : false)}
+                disableGutters
+                elevation={0}
+                square
+                sx={{
+                  bgcolor: '#fff',
+                  border: '1px solid',
+                  borderColor: 'divider',
+                  borderTop: i === 0 ? '1px solid' : 'none',
+                  borderTopColor: 'divider',
+                  '&:before': { display: 'none' },
+                }}
+              >
+                <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ px: { xs: 2, md: 3 }, py: 1 }}>
+                  <Grid container alignItems="center" spacing={2}>
+                    <Grid size="auto">
+                      <Typography
+                        sx={{
+                          fontFamily: '"Big Shoulders Display"',
+                          fontWeight: 800,
+                          fontSize: '1.6rem',
+                          color: 'primary.main',
+                          width: 44,
+                        }}
+                      >
+                        {String(i + 1).padStart(2, '0')}
+                      </Typography>
+                    </Grid>
+                    <Grid size="grow">
+                      <Typography sx={{ fontWeight: 600, fontSize: { xs: '0.92rem', md: '1.02rem' } }}>
+                        {cat.category}
+                      </Typography>
+                    </Grid>
+                    <Grid size="auto" sx={{ display: { xs: 'none', sm: 'block' } }}>
+                      <Chip
+                        label={`${cat.courses.length} cursos`}
+                        size="small"
+                        sx={{ fontFamily: '"IBM Plex Mono"', fontSize: '0.68rem', bgcolor: '#EFEDE6' }}
+                      />
+                    </Grid>
+                  </Grid>
+                </AccordionSummary>
+                <AccordionDetails sx={{ p: 0 }}>
+                  <Table size="small">
+                    <TableHead>
+                      <TableRow
+                        sx={{
+                          '& th': {
+                            bgcolor: '#EFEDE6',
+                            fontFamily: '"IBM Plex Mono"',
+                            fontSize: '0.68rem',
+                            letterSpacing: '0.04em',
+                          },
+                        }}
+                      >
+                        <TableCell>CURSO</TableCell>
+                        <TableCell align="right">BÁSICO</TableCell>
+                        <TableCell align="right">MÉDIO</TableCell>
+                        <TableCell align="right">AVANÇADO</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {cat.courses.map((c) => (
+                        <TableRow key={c.name} hover>
+                          <TableCell sx={{ fontSize: '0.85rem' }}>{c.name}</TableCell>
+                          <TableCell align="right" sx={{ fontFamily: '"IBM Plex Mono"', fontSize: '0.8rem', color: 'secondary.dark' }}>
+                            {c.basico}
+                          </TableCell>
+                          <TableCell align="right" sx={{ fontFamily: '"IBM Plex Mono"', fontSize: '0.8rem', color: 'primary.main' }}>
+                            {c.medio}
+                          </TableCell>
+                          <TableCell align="right" sx={{ fontFamily: '"IBM Plex Mono"', fontSize: '0.8rem', color: 'text.secondary' }}>
+                            {c.avancado}
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </AccordionDetails>
+              </Accordion>
             ))}
-          </Grid>
-        </Box>
+          </Box>
 
-        <Stack alignItems="center" sx={{ mt: 4 }}>
-          <Button href="#contacto" variant="outlined" color="primary" endIcon={<ArrowOutwardIcon />}>
-            Pedir Calendário de Formações
-          </Button>
-        </Stack>
-      </Reveal>
+          <Stack alignItems="center" sx={{ mt: 4 }}>
+            <Button href="#contacto" variant="outlined" color="primary" endIcon={<ArrowOutwardIcon />}>
+              Pedir Calendário de Formações
+            </Button>
+          </Stack>
+        </Reveal>
       </Container>
     </Box>
   );

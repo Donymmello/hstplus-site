@@ -8,6 +8,7 @@ import CheckIcon from '@mui/icons-material/Check';
 import { methodology, trainingApproach } from '../data/content';
 import { gradients } from '../theme';
 import Reveal from './Reveal';
+import SectionHeader from './SectionHeader';
 
 function List({ items, color }) {
   return (
@@ -27,22 +28,15 @@ export default function Metodologia() {
     <Box sx={{ py: { xs: 8, md: 11 }, backgroundImage: gradients.surfaceLight }}>
       <Container maxWidth="lg">
         <Reveal>
-        <Box sx={{ textAlign: 'center', mb: 6 }}>
-          <Typography variant="overline" sx={{ color: 'primary.main' }}>
-            05 — Método Aplicado
-          </Typography>
-          <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.4rem' }, mt: 1, mb: 2 }}>
-            Aulas teóricas e práticas, para cada participante
-          </Typography>
-          <Stack direction="row" spacing={1} justifyContent="center" flexWrap="wrap" useFlexGap>
-            {trainingApproach.map((t) => (
-              <Chip key={t.title} label={t.title} size="small" sx={{ bgcolor: '#EFEDE6', fontWeight: 600 }} />
-            ))}
-          </Stack>
-        </Box>
+        <SectionHeader index="05" eyebrow="Método Aplicado" title="Aulas teóricas e práticas, para cada participante" mb={0} />
+        <Stack direction="row" spacing={1} justifyContent="center" flexWrap="wrap" useFlexGap sx={{ mt: 2, mb: 5 }}>
+          {trainingApproach.map((t) => (
+            <Chip key={t.title} label={t.title} size="small" sx={{ bgcolor: '#fff', fontWeight: 600 }} />
+          ))}
+        </Stack>
 
         <Grid container spacing={4}>
-          <Grid item xs={12} md={6}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <Box sx={{ bgcolor: '#EFEDE6', p: { xs: 3, md: 4 }, height: '100%', borderTop: '3px solid', borderTopColor: 'primary.main' }}>
               <Typography variant="h4" sx={{ fontSize: '1.15rem', mb: 2.5 }}>
                 Nas aulas teóricas
@@ -50,7 +44,7 @@ export default function Metodologia() {
               <List items={methodology.teorica} color="#7A1420" />
             </Box>
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <Box sx={{ bgcolor: '#EFEDE6', p: { xs: 3, md: 4 }, height: '100%', borderTop: '3px solid', borderTopColor: 'secondary.main' }}>
               <Typography variant="h4" sx={{ fontSize: '1.15rem', mb: 2.5 }}>
                 Nas aulas práticas

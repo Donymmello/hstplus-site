@@ -8,24 +8,18 @@ import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 import { legal, certifications } from '../data/content';
 import { gradients } from '../theme';
 import Reveal from './Reveal';
+import SectionHeader from './SectionHeader';
 
 export default function Legalidade() {
   return (
     <Box id="certificacoes" sx={{ py: { xs: 8, md: 11 }, backgroundImage: gradients.surfaceLight }}>
       <Container maxWidth="lg">
         <Reveal>
-        <Box sx={{ textAlign: 'center', mb: 6 }}>
-          <Typography variant="overline" sx={{ color: 'primary.main' }}>
-            07 — Legalidade &amp; Certificações
-          </Typography>
-          <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.4rem' }, mt: 1 }}>
-            Transparência, segurança e responsabilidade
-          </Typography>
-        </Box>
+        <SectionHeader index="07" eyebrow="Legalidade &amp; Certificações" title="Transparência, segurança e responsabilidade" mb={6} />
 
         <Grid container spacing={2} sx={{ mb: 5 }}>
           {certifications.map((c, i) => (
-            <Grid item xs={12} sm={6} md={3} key={c.title}>
+            <Grid size={{ xs: 12, sm: 6, md: 3 }} key={c.title}>
               <Reveal delay={i * 0.1}>
                 <Paper
                   variant="outlined"
@@ -64,7 +58,7 @@ export default function Legalidade() {
         </Stack>
         <Grid container spacing={2} justifyContent="center" sx={{ mt: 3 }}>
           {legal.registrations.map((r) => (
-            <Grid item xs={12} sm="auto" key={r.label}>
+            <Grid size={{ xs: 12, sm: "auto" }} key={r.label}>
               <Typography sx={{ fontSize: '0.72rem', color: 'text.secondary', textAlign: 'center' }}>
                 {r.label}: <strong style={{ fontFamily: '"IBM Plex Mono"' }}>{r.value}</strong>
               </Typography>

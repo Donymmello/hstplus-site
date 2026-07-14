@@ -48,7 +48,7 @@ export default function Solucoes() {
           {pillars.map((p, i) => {
             const Icon = p.icon;
             return (
-              <Grid item xs={12} md={4} key={p.title}>
+              <Grid size={{ xs: 12, md: 4 }} key={p.title}>
                 <Reveal delay={i * 0.12}>
                   <Box
                     component="a"

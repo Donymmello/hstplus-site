@@ -14,6 +14,7 @@ import {
 import { resultsChart } from '../data/content';
 import { gradients } from '../theme';
 import Reveal from './Reveal';
+import SectionHeader from './SectionHeader';
 
 function transformData() {
   return resultsChart.labels.map((label, i) => {
@@ -32,18 +33,10 @@ export default function Referencias() {
     <Box id="referencias" sx={{ py: { xs: 8, md: 11 }, backgroundImage: gradients.surfaceAlt }}>
       <Container maxWidth="lg">
         <Reveal>
-        <Box sx={{ textAlign: 'center', mb: 5 }}>
-          <Typography variant="overline" sx={{ color: 'primary.main' }}>
-            08 — Resultados
-          </Typography>
-          <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.4rem' }, mt: 1, mb: 1.5 }}>
-            Formação e Redução de Acidentes
-          </Typography>
-          <Typography sx={{ color: 'text.secondary', maxWidth: 560, mx: 'auto' }}>
-            Percepção de risco, adesão à formação e evolução do índice de acidentes em algumas das
-            operações onde actuámos.
-          </Typography>
-        </Box>
+        <SectionHeader index="08" eyebrow="Resultados" title="Formação e Redução de Acidentes">
+          Percepção de risco, adesão à formação e evolução do índice de acidentes em algumas das
+          operações onde actuámos.
+        </SectionHeader>
 
         <Box sx={{ bgcolor: '#fff', p: { xs: 2, md: 4 } }}>
           <Box sx={{ width: '100%', height: 360 }}>

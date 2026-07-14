@@ -20,10 +20,9 @@ export default function Stats() {
     <Box sx={{ py: { xs: 6, md: 8 }, backgroundImage: gradients.surfaceLight }}>
       <Container maxWidth="lg">
         <Reveal>
-          {/* CORREÇÃO: Adicionado justifyContent="center" para centralizar a fileira de cards inteira */}
           <Grid container spacing={3} justifyContent="center" alignItems="stretch">
             {stats.map((s, i) => (
-              <Grid item xs={6} md={3} key={s.label}>
+              <Grid size={{ xs: 6, md: 3 }} key={s.label}>
                 <Reveal delay={i * 0.1}>
                   <Box
                     sx={{

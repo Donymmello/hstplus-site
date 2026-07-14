@@ -10,6 +10,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import { socials } from '../data/content';
 import { gradients } from '../theme';
 import Reveal from './Reveal';
+import SectionHeader from './SectionHeader';
 
 const API_URL = `${import.meta.env.VITE_API_URL || '/api'}/posts`;
 
@@ -49,19 +50,12 @@ export default function Blog() {
     <Box id="blog" sx={{ py: { xs: 8, md: 11 }, backgroundImage: gradients.surfaceLight }}>
       <Container maxWidth="lg">
         <Reveal>
-        <Box sx={{ textAlign: 'center', mb: 6 }}>
-          <Typography variant="overline" sx={{ color: 'primary.main' }}>
-            Blog &amp; Actualidade
-          </Typography>
-          <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.4rem' }, mt: 1 }}>
-            Últimas publicações
-          </Typography>
-        </Box>
+        <SectionHeader index="09" eyebrow="Blog &amp; Actualidade" title="Últimas publicações" />
 
         {state.loading && (
           <Grid container spacing={3}>
             {[0, 1, 2].map((i) => (
-              <Grid item xs={12} sm={6} md={4} key={i}>
+              <Grid size={{ xs: 12, sm: 6, md: 4 }} key={i}>
                 <Skeleton variant="rectangular" height={180} />
                 <Skeleton variant="text" sx={{ mt: 1 }} />
                 <Skeleton variant="text" width="60%" />
@@ -107,7 +101,7 @@ export default function Blog() {
             {state.posts.map((p) => {
               const Icon = sourceIcon[p.source] || FacebookIcon;
               return (
-                <Grid item xs={12} sm={6} md={4} key={p.id}>
+                <Grid size={{ xs: 12, sm: 6, md: 4 }} key={p.id}>
                   <Box
                     component="a"
                     href={p.url}

@@ -9,23 +9,17 @@ import EngineeringIcon from '@mui/icons-material/Engineering';
 import { consultants, specializedServices } from '../data/content';
 import { gradients } from '../theme';
 import Reveal from './Reveal';
+import SectionHeader from './SectionHeader';
 
 export default function Consultoria() {
   return (
     <Box id="consultoria" sx={{ py: { xs: 8, md: 11 }, backgroundImage: gradients.surfaceAlt }}>
       <Container maxWidth="lg">
         <Reveal>
-        <Box sx={{ textAlign: 'center', mb: 6 }}>
-          <Typography variant="overline" sx={{ color: 'primary.main' }}>
-            06 — Consultoria Especializada
-          </Typography>
-          <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.4rem' }, mt: 1 }}>
-            Expertise comprovada, a nível nacional e internacional
-          </Typography>
-        </Box>
+        <SectionHeader index="06" eyebrow="Consultoria Especializada" title="Expertise comprovada, a nível nacional e internacional" mb={6} />
 
         <Grid container spacing={4}>
-          <Grid item xs={12} md={5}>
+          <Grid size={{ xs: 12, md: 5 }}>
             {consultants.map((c) => (
               <Paper key={c.name} elevation={0} sx={{ p: 4, bgcolor: '#fff', borderLeft: '4px solid', borderLeftColor: 'primary.main' }}>
                 <Stack direction="row" spacing={2} alignItems="center" sx={{ mb: 2.5 }}>
@@ -50,7 +44,7 @@ export default function Consultoria() {
             ))}
           </Grid>
 
-          <Grid item xs={12} md={7}>
+          <Grid size={{ xs: 12, md: 7 }}>
             <Typography sx={{ color: 'text.secondary', mb: 3 }}>
               Nem todos os riscos no ambiente de trabalho são visíveis. A nossa equipa de
               consultores qualificados identifica ameaças ocultas e promove acções que garantem a
@@ -62,7 +56,7 @@ export default function Consultoria() {
             </Typography>
             <Grid container spacing={1}>
               {specializedServices.map((s) => (
-                <Grid item xs={12} key={s}>
+                <Grid size={{ xs: 12 }} key={s}>
                   <Typography sx={{ fontSize: '0.85rem', color: 'text.secondary' }}>· {s}</Typography>
                 </Grid>
               ))}

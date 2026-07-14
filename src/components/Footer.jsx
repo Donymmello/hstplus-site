@@ -34,7 +34,7 @@ export default function Footer() {
     <Box sx={{ backgroundImage: gradients.footer, color: 'rgba(255,255,255,0.65)', py: { xs: 6, md: 7 } }}>
       <Container maxWidth="lg">
         <Grid container spacing={5}>
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <Stack direction="row" spacing={1.5} alignItems="center" sx={{ mb: 2 }}>
               <Box component="img" src={logo} alt="HST Plus" sx={{ height: 30 }} />
               <Typography sx={{ color: '#fff', fontWeight: 700, fontSize: '0.95rem' }}>HST PLUS</Typography>
@@ -65,7 +65,7 @@ export default function Footer() {
             </Stack>
           </Grid>
 
-          <Grid item xs={6} md={4}>
+          <Grid size={{ xs: 6, md: 4 }}>
             <Typography sx={{ color: '#fff', fontWeight: 700, fontSize: '0.8rem', mb: 2, letterSpacing: '0.04em' }}>
               MENU
             </Typography>
@@ -78,7 +78,7 @@ export default function Footer() {
             </Stack>
           </Grid>
 
-          <Grid item xs={6} md={4}>
+          <Grid size={{ xs: 6, md: 4 }}>
             <Typography sx={{ color: '#fff', fontWeight: 700, fontSize: '0.8rem', mb: 2, letterSpacing: '0.04em' }}>
               CONTACTO
             </Typography>

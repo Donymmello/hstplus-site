@@ -36,7 +36,7 @@ export default function ClientLogos() {
         </Typography>
         <Grid container spacing={{ xs: 2, md: 3 }} justifyContent="center" alignItems="center">
           {logos.map((l) => (
-            <Grid item xs={4} sm={3} md={1.33} key={l.alt} sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Grid size={{ xs: 4, sm: 3, md: 1.33 }} key={l.alt} sx={{ display: 'flex', justifyContent: 'center' }}>
               <Box
                 component="img"
                 src={l.src}
