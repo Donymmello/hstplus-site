@@ -1,0 +1,469 @@
+{
+  "communities": {
+    "0": [
+      "src_components_blog",
+      "src_components_blog_blog",
+      "src_components_blog_formatdate",
+      "src_components_blog_sourceicon",
+      "src_components_clientlogos",
+      "src_components_clientlogos_clientlogos",
+      "src_components_clientlogos_logos",
+      "src_components_contacto",
+      "src_components_contacto_contactlines",
+      "src_components_contacto_contacto",
+      "src_components_counter",
+      "src_components_counter_counter",
+      "src_components_formacoes",
+      "src_components_formacoes_formacoes",
+      "src_components_galeriacta",
+      "src_components_galeriacta_galeriacta",
+      "src_components_inspecaoqualidade",
+      "src_components_inspecaoqualidade_inspecaoqualidade",
+      "src_components_referencias",
+      "src_components_referencias_referencias",
+      "src_components_referencias_transformdata",
+      "src_components_reveal",
+      "src_components_reveal_reveal",
+      "src_components_sectionheader",
+      "src_components_sectionheader_sectioncontainer",
+      "src_components_sectionheader_sectionheader",
+      "src_components_solucoes",
+      "src_components_solucoes_pillars",
+      "src_components_solucoes_solucoes",
+      "src_components_stats",
+      "src_components_stats_stats",
+      "src_data_content_inspectioncategories",
+      "src_data_content_resultschart",
+      "src_data_courses",
+      "src_data_courses_coursecatalog",
+      "src_data_courses_totalcourses",
+      "src_theme",
+      "src_theme_colors",
+      "src_theme_gradients",
+      "src_theme_theme"
+    ],
+    "1": [
+      "oxlintrc",
+      "oxlintrc_plugins",
+      "oxlintrc_rules",
+      "oxlintrc_rules_react_only_export_components",
+      "oxlintrc_rules_react_rules_of_hooks",
+      "oxlintrc_schema",
+      "ref_oxc",
+      "ref_react",
+      "ref_warn",
+      "src_app",
+      "src_app_app",
+      "src_assets_gallery1_jpg",
+      "src_assets_gallery2_jpg",
+      "src_assets_gallery3_jpg",
+      "src_assets_gallery4_jpg",
+      "src_components_analytics",
+      "src_components_analytics_analytics",
+      "src_components_galeria",
+      "src_components_galeria_galeria",
+      "src_components_galeria_slides",
+      "src_components_scrollprogress",
+      "src_components_scrollprogress_scrollprogress",
+      "src_pages_galeriapage",
+      "src_pages_galeriapage_galeriapage",
+      "src_pages_galeriapage_photos"
+    ],
+    "2": [
+      "oxlint",
+      "package",
+      "package_devdependencies",
+      "package_devdependencies_oxlint",
+      "package_devdependencies_types_react",
+      "package_devdependencies_types_react_dom",
+      "package_devdependencies_vite",
+      "package_devdependencies_vitejs_plugin_react",
+      "package_name",
+      "package_private",
+      "package_scripts",
+      "package_scripts_build",
+      "package_scripts_dev",
+      "package_scripts_lint",
+      "package_scripts_preview",
+      "package_type",
+      "package_version",
+      "types_react",
+      "types_react_dom",
+      "vite",
+      "vitejs_plugin_react"
+    ],
+    "3": [
+      "src_assets_about_jpg",
+      "src_assets_gallery5_jpg",
+      "src_components_eyebrow",
+      "src_components_eyebrow_eyebrow",
+      "src_components_legalidade",
+      "src_components_legalidade_legalidade",
+      "src_components_oquefazemos",
+      "src_components_oquefazemos_icons",
+      "src_components_oquefazemos_oquefazemos",
+      "src_data_content",
+      "src_data_content_certifications",
+      "src_data_content_clients",
+      "src_data_content_consultants",
+      "src_data_content_differentiators",
+      "src_data_content_legal",
+      "src_data_content_measuringinstruments",
+      "src_data_content_methodology",
+      "src_data_content_solutions",
+      "src_data_content_specializedservices",
+      "src_data_content_trainingapproach",
+      "src_data_content_values"
+    ],
+    "4": [
+      "cors",
+      "dotenv",
+      "express",
+      "node_cron",
+      "server_package",
+      "server_package_dependencies",
+      "server_package_dependencies_cors",
+      "server_package_dependencies_dotenv",
+      "server_package_dependencies_express",
+      "server_package_dependencies_node_cron",
+      "server_package_engines",
+      "server_package_engines_node",
+      "server_package_name",
+      "server_package_private",
+      "server_package_scripts",
+      "server_package_scripts_dev",
+      "server_package_scripts_fetch_now",
+      "server_package_scripts_start",
+      "server_package_type",
+      "server_package_version"
+    ],
+    "5": [
+      "concept_hst_plus_safety_training",
+      "concept_manica_mozambique",
+      "concept_rigging_lifting",
+      "concept_scaffolding_training",
+      "concept_unispan",
+      "concept_working_at_height",
+      "concept_workplace_safety_training",
+      "index_html",
+      "src_assets_gallery_formacao_altura_unispan_1",
+      "src_assets_gallery_formacao_equipa",
+      "src_assets_gallery_formacao_sala_manica",
+      "src_assets_gallery_inspecao_gancho",
+      "src_assets_gallery_montagem_andaime",
+      "src_assets_gallery_rigger_altura",
+      "src_assets_gallery_sala_formacao",
+      "src_assets_gallery_visita_terreno_unispan",
+      "src_assets_hero1_jpg",
+      "src_assets_hero_png",
+      "src_main_jsx"
+    ],
+    "6": [
+      "src_components_footer",
+      "src_components_footer_footer",
+      "src_components_footer_quicklinks",
+      "src_components_footer_socialicons",
+      "src_components_header",
+      "src_components_header_header",
+      "src_components_header_links",
+      "src_components_pagefade",
+      "src_components_pagefade_pagefade",
+      "src_components_topbar",
+      "src_components_topbar_iconbadge",
+      "src_components_topbar_socialicons",
+      "src_components_topbar_topbar",
+      "src_components_whatsappbutton",
+      "src_components_whatsappbutton_whatsappbutton",
+      "src_data_content_company",
+      "src_data_content_socials",
+      "src_layouts_mainlayout",
+      "src_layouts_mainlayout_mainlayout"
+    ],
+    "7": [
+      "client_gabriel_couto",
+      "client_terminais_do_norte",
+      "client_uni_span",
+      "hst_plus_sociedade_unipessoal",
+      "oshacademy_authorized_provider",
+      "src_assets_clients_gabriel_couto",
+      "src_assets_clients_terminais_do_norte",
+      "src_assets_clients_uni_span",
+      "src_assets_gallery6",
+      "src_assets_gallery_avaliacao_escrita_unispan",
+      "src_assets_gallery_combate_incendio",
+      "src_assets_gallery_conducao_defensiva",
+      "src_assets_gallery_encerramento_formacao_unispan",
+      "src_assets_gallery_equipa_unispan_1",
+      "src_assets_gallery_equipa_unispan_2",
+      "src_assets_gallery_equipamentos_medicao",
+      "src_assets_gallery_espaco_confinado_terminais",
+      "src_assets_logo"
+    ],
+    "8": [
+      "emotion_react",
+      "emotion_styled",
+      "mui_icons_material",
+      "mui_material",
+      "package_dependencies",
+      "package_dependencies_emotion_react",
+      "package_dependencies_emotion_styled",
+      "package_dependencies_mui_icons_material",
+      "package_dependencies_mui_material",
+      "package_dependencies_react",
+      "package_dependencies_react_dom",
+      "package_dependencies_react_router_dom",
+      "package_dependencies_recharts",
+      "react",
+      "react_dom",
+      "react_router_dom",
+      "recharts"
+    ],
+    "9": [
+      "src_assets_cta_jpg",
+      "src_components_consultoria",
+      "src_components_consultoria_consultoria",
+      "src_components_hero",
+      "src_components_hero_hero",
+      "src_components_metodologia",
+      "src_components_metodologia_list",
+      "src_components_metodologia_metodologia",
+      "src_components_photoframe",
+      "src_components_photoframe_photoframe",
+      "src_components_photoframe_tints",
+      "src_components_quemsomos",
+      "src_components_quemsomos_quemsomos",
+      "src_hooks_usescrolltohash",
+      "src_hooks_usescrolltohash_usescrolltohash",
+      "src_pages_homepage",
+      "src_pages_homepage_homepage"
+    ],
+    "10": [
+      "server_src_fetchposts",
+      "server_src_fetchposts_cache_file",
+      "server_src_fetchposts_dirname",
+      "server_src_fetchposts_fetchfacebookposts",
+      "server_src_fetchposts_fetchinstagramposts",
+      "server_src_fetchposts_readcache",
+      "server_src_fetchposts_refreshcache",
+      "server_src_index",
+      "server_src_index_app"
+    ],
+    "11": [
+      "docker_compose_yml",
+      "hstplus_api_service",
+      "hstplus_site_service",
+      "server_readme"
+    ],
+    "12": [
+      "docker_compose_dev_yml",
+      "hstplus_api_service_dev",
+      "hstplus_site_service_dev"
+    ],
+    "13": [
+      "remember_now",
+      "remember_now_10_59_features",
+      "remember_now_19_39_features"
+    ],
+    "14": [
+      "claude",
+      "claude_graphify"
+    ],
+    "15": [
+      "client_lcpower",
+      "src_assets_clients_lcpower"
+    ],
+    "16": [
+      "client_manica",
+      "src_assets_clients_manica"
+    ],
+    "17": [
+      "client_mota_engil",
+      "src_assets_clients_mota_engil"
+    ],
+    "18": [
+      "client_protecna",
+      "src_assets_clients_protecna"
+    ],
+    "19": [
+      "client_tata",
+      "src_assets_clients_tata"
+    ],
+    "20": [
+      "client_tcpi",
+      "src_assets_clients_tcpi"
+    ],
+    "21": [
+      "remember_archive",
+      "remember_archive_archive"
+    ],
+    "22": [
+      "remember_recent",
+      "remember_recent_recent"
+    ],
+    "23": [
+      "remember_today_2026_07_13_done",
+      "remember_today_2026_07_13_done_22_20_features"
+    ],
+    "24": [
+      "remember_today_2026_07_14",
+      "remember_today_2026_07_14_10_32_features"
+    ],
+    "25": [
+      "src_components_hazarddivider",
+      "src_components_hazarddivider_hazarddivider"
+    ],
+    "26": [
+      "readme"
+    ],
+    "27": [
+      "remember_tmp_last_ndc"
+    ],
+    "28": [
+      "vite_config"
+    ]
+  },
+  "cohesion": {
+    "0": 0.10128205128205128,
+    "1": 0.09666666666666666,
+    "2": 0.09523809523809523,
+    "3": 0.12380952380952381,
+    "4": 0.1,
+    "5": 0.14619883040935672,
+    "6": 0.15204678362573099,
+    "7": 0.1503267973856209,
+    "8": 0.11764705882352941,
+    "9": 0.19852941176470587,
+    "10": 0.3333333333333333,
+    "11": 0.6666666666666666,
+    "12": 1.0,
+    "13": 0.6666666666666666,
+    "14": 1.0,
+    "15": 1.0,
+    "16": 1.0,
+    "17": 1.0,
+    "18": 1.0,
+    "19": 1.0,
+    "20": 1.0,
+    "21": 1.0,
+    "22": 1.0,
+    "23": 1.0,
+    "24": 1.0,
+    "25": 1.0,
+    "26": 1.0,
+    "27": 1.0,
+    "28": 1.0
+  },
+  "gods": [
+    {
+      "id": "src_theme_gradients",
+      "label": "gradients",
+      "degree": 15
+    },
+    {
+      "id": "hst_plus_sociedade_unipessoal",
+      "label": "HST-Plus Sociedade Unipessoal Limitada (Sucursal)",
+      "degree": 14
+    },
+    {
+      "id": "src_components_reveal_reveal",
+      "label": "Reveal()",
+      "degree": 13
+    },
+    {
+      "id": "ref_react",
+      "label": "react",
+      "degree": 12
+    },
+    {
+      "id": "src_components_sectionheader_sectionheader",
+      "label": "SectionHeader()",
+      "degree": 7
+    },
+    {
+      "id": "src_data_content_company",
+      "label": "company",
+      "degree": 6
+    },
+    {
+      "id": "client_uni_span",
+      "label": "Uni-Span Formwork & Scaffolding (Client)",
+      "degree": 6
+    },
+    {
+      "id": "package_scripts",
+      "label": "scripts",
+      "degree": 5
+    },
+    {
+      "id": "server_package_scripts",
+      "label": "scripts",
+      "degree": 4
+    },
+    {
+      "id": "server_src_fetchposts_refreshcache",
+      "label": "refreshCache()",
+      "degree": 4
+    }
+  ],
+  "surprises": [
+    {
+      "source": "Worker Climbing Scaffold with Safety Harness (Hero Image 1)",
+      "target": "index.html (Entry HTML)",
+      "source_files": [
+        "src/assets/hero1.jpg",
+        "index.html"
+      ],
+      "confidence": "INFERRED",
+      "relation": "references",
+      "why": "inferred connection - not explicitly stated in source; crosses file types (doc \u2194 image); connects across different repos/directories"
+    },
+    {
+      "source": "Workplace Safety Training Session (Hero Image)",
+      "target": "index.html (Entry HTML)",
+      "source_files": [
+        "src/assets/hero.png",
+        "index.html"
+      ],
+      "confidence": "INFERRED",
+      "relation": "references",
+      "why": "inferred connection - not explicitly stated in source; crosses file types (doc \u2194 image); connects across different repos/directories"
+    },
+    {
+      "source": "index.html (Entry HTML)",
+      "target": "src/main.jsx (React Entry Point)",
+      "source_files": [
+        "index.html",
+        "src/main.jsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "crosses file types (doc \u2194 code); connects across different repos/directories"
+    },
+    {
+      "source": "HST Plus Blog API README",
+      "target": "HST Plus Blog API Docker Service",
+      "source_files": [
+        "server/README.md",
+        "docker-compose.yml"
+      ],
+      "confidence": "INFERRED",
+      "relation": "references",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories"
+    },
+    {
+      "source": "HST-Plus Sociedade Unipessoal Limitada (Sucursal)",
+      "target": "Gabriel Couto (Client)",
+      "source_files": [
+        "src/assets/gallery6.jpg",
+        "src/assets/clients/gabriel-couto.jpg"
+      ],
+      "confidence": "INFERRED",
+      "relation": "references",
+      "why": "inferred connection - not explicitly stated in source; peripheral node `Gabriel Couto (Client)` unexpectedly reaches hub `HST-Plus Sociedade Unipessoal Limitada (Sucursal)`"
+    }
+  ],
+  "tokens": {
+    "input": 5803,
+    "output": 1888
+  }
+}

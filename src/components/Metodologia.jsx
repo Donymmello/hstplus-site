@@ -9,6 +9,9 @@ import { methodology, trainingApproach } from '../data/content';
 import { gradients } from '../theme';
 import Reveal from './Reveal';
 import SectionHeader from './SectionHeader';
+import PhotoFrame from './PhotoFrame';
+import salaFormacao from '../assets/gallery8.jpg';
+import montagemAndaime from '../assets/gallery7.jpg';
 
 function List({ items, color }) {
   return (
@@ -37,19 +40,25 @@ export default function Metodologia() {
 
         <Grid container spacing={4}>
           <Grid size={{ xs: 12, md: 6 }}>
-            <Box sx={{ bgcolor: '#EFEDE6', p: { xs: 3, md: 4 }, height: '100%', borderTop: '3px solid', borderTopColor: 'primary.main' }}>
-              <Typography variant="h4" sx={{ fontSize: '1.15rem', mb: 2.5 }}>
-                Nas aulas teóricas
-              </Typography>
-              <List items={methodology.teorica} color="#7A1420" />
+            <Box sx={{ height: '100%', borderTop: '3px solid', borderTopColor: 'primary.main' }}>
+              <PhotoFrame src={salaFormacao} alt="Formação teórica em sala — Uni-Span, Temane" ratio="16/9" />
+              <Box sx={{ bgcolor: '#EFEDE6', p: { xs: 3, md: 4 } }}>
+                <Typography variant="h4" sx={{ fontSize: '1.15rem', mb: 2.5 }}>
+                  Nas aulas teóricas
+                </Typography>
+                <List items={methodology.teorica} color="#7A1420" />
+              </Box>
             </Box>
           </Grid>
           <Grid size={{ xs: 12, md: 6 }}>
-            <Box sx={{ bgcolor: '#EFEDE6', p: { xs: 3, md: 4 }, height: '100%', borderTop: '3px solid', borderTopColor: 'secondary.main' }}>
-              <Typography variant="h4" sx={{ fontSize: '1.15rem', mb: 2.5 }}>
-                Nas aulas práticas
-              </Typography>
-              <List items={methodology.pratica} color="#1F7A3D" />
+            <Box sx={{ height: '100%', borderTop: '3px solid', borderTopColor: 'secondary.main' }}>
+              <PhotoFrame src={montagemAndaime} alt="Montagem e inspecção de andaime no terreno" ratio="16/9" />
+              <Box sx={{ bgcolor: '#EFEDE6', p: { xs: 3, md: 4 } }}>
+                <Typography variant="h4" sx={{ fontSize: '1.15rem', mb: 2.5 }}>
+                  Nas aulas práticas
+                </Typography>
+                <List items={methodology.pratica} color="#1F7A3D" />
+              </Box>
             </Box>
           </Grid>
         </Grid>

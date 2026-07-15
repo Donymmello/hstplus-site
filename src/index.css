@@ -23,6 +23,12 @@ body {
   to { transform: scale(1.09); }
 }
 
+/* Zoom perpétuo (ida-e-volta) da foto de fundo do Hero */
+@keyframes hstHeroZoom {
+  from { transform: scale(1.02); }
+  to { transform: scale(1.12); }
+}
+
 /* Brilho/sweep de luz ao passar o rato nos botões principais */
 @keyframes hstButtonShine {
   from { transform: translateX(-120%) skewX(-15deg); }

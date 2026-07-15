@@ -1,0 +1,462 @@
+{
+  ".claude/settings.json": {
+    "mtime": 1783946773.1002555,
+    "ast_hash": "2170b28ab90216d17f956db3c05196f6",
+    "semantic_hash": "2170b28ab90216d17f956db3c05196f6"
+  },
+  ".oxlintrc.json": {
+    "mtime": 1783452491.0,
+    "ast_hash": "5e6e3cea3e89137071c142dd7835b0ef",
+    "semantic_hash": "5e6e3cea3e89137071c142dd7835b0ef"
+  },
+  ".remember/tmp/last-ndc.ts": {
+    "mtime": 1784050801.53511,
+    "ast_hash": "b287620b6166705521fb5bd7d050e830",
+    "semantic_hash": "b287620b6166705521fb5bd7d050e830"
+  },
+  ".remember/tmp/last-save.json": {
+    "mtime": 1784050797.7035608,
+    "ast_hash": "8abec6d33e46891a8c7843d3efc43d76",
+    "semantic_hash": "8abec6d33e46891a8c7843d3efc43d76"
+  },
+  "package.json": {
+    "mtime": 1783881662.0,
+    "ast_hash": "78cd9fe23d00b1c2dadd657cd8f70516",
+    "semantic_hash": "78cd9fe23d00b1c2dadd657cd8f70516"
+  },
+  "server/package.json": {
+    "mtime": 1783772980.0,
+    "ast_hash": "ba403b8bca55bcd6b854103388762d9d",
+    "semantic_hash": "ba403b8bca55bcd6b854103388762d9d"
+  },
+  "server/src/fetchPosts.js": {
+    "mtime": 1783772997.0,
+    "ast_hash": "dcf310e16ea6dd7e88f4931f8b44cee6",
+    "semantic_hash": "dcf310e16ea6dd7e88f4931f8b44cee6"
+  },
+  "server/src/index.js": {
+    "mtime": 1783773004.0,
+    "ast_hash": "2dedef530518f8e0c37cbe8ea3440134",
+    "semantic_hash": "2dedef530518f8e0c37cbe8ea3440134"
+  },
+  "src/App.jsx": {
+    "mtime": 1783881747.0,
+    "ast_hash": "a36d7687c880d68723cab185d62e3bef",
+    "semantic_hash": "a36d7687c880d68723cab185d62e3bef"
+  },
+  "src/components/Analytics.jsx": {
+    "mtime": 1783777021.0,
+    "ast_hash": "ad4026f8df5b5c281e713528d86621f6",
+    "semantic_hash": "ad4026f8df5b5c281e713528d86621f6"
+  },
+  "src/components/Blog.jsx": {
+    "mtime": 1783972948.0,
+    "ast_hash": "70a51380ae214da717f6e43c1e155c26",
+    "semantic_hash": "70a51380ae214da717f6e43c1e155c26"
+  },
+  "src/components/ClientLogos.jsx": {
+    "mtime": 1783972948.0,
+    "ast_hash": "7011ba46c775979147bb25ec7741cb65",
+    "semantic_hash": "7011ba46c775979147bb25ec7741cb65"
+  },
+  "src/components/Consultoria.jsx": {
+    "mtime": 1784055222.171431,
+    "ast_hash": "b6dfaec0d11bef5d09035d6c2577586c",
+    "semantic_hash": "b6dfaec0d11bef5d09035d6c2577586c"
+  },
+  "src/components/Contacto.jsx": {
+    "mtime": 1783972948.0,
+    "ast_hash": "86f3c9f726ad343e28a5d30fa0b672e6",
+    "semantic_hash": "86f3c9f726ad343e28a5d30fa0b672e6"
+  },
+  "src/components/Counter.jsx": {
+    "mtime": 1783802593.0,
+    "ast_hash": "f156fbdc2e2881b4e854eab9b429034b",
+    "semantic_hash": "f156fbdc2e2881b4e854eab9b429034b"
+  },
+  "src/components/Eyebrow.jsx": {
+    "mtime": 1783452794.0,
+    "ast_hash": "ba4fce99432fcd399494f381c83b93f6",
+    "semantic_hash": "ba4fce99432fcd399494f381c83b93f6"
+  },
+  "src/components/Footer.jsx": {
+    "mtime": 1783972948.0,
+    "ast_hash": "e801d1bf099d4443f31d3843cd6bd6ce",
+    "semantic_hash": "e801d1bf099d4443f31d3843cd6bd6ce"
+  },
+  "src/components/Formacoes.jsx": {
+    "mtime": 1784021097.0,
+    "ast_hash": "bb2652cfe08bc9690e57a233e744248b",
+    "semantic_hash": "bb2652cfe08bc9690e57a233e744248b"
+  },
+  "src/components/Galeria.jsx": {
+    "mtime": 1783880997.0,
+    "ast_hash": "6f478dff994364b7e5f779a293454f57",
+    "semantic_hash": "6f478dff994364b7e5f779a293454f57"
+  },
+  "src/components/GaleriaCTA.jsx": {
+    "mtime": 1783881697.0,
+    "ast_hash": "c7a34cb4c4fd3f379e6baa6f41178257",
+    "semantic_hash": "c7a34cb4c4fd3f379e6baa6f41178257"
+  },
+  "src/components/HazardDivider.jsx": {
+    "mtime": 1783452789.0,
+    "ast_hash": "029874672c5f9c7a9905066671ac1ee9",
+    "semantic_hash": "029874672c5f9c7a9905066671ac1ee9"
+  },
+  "src/components/Header.jsx": {
+    "mtime": 1783881784.0,
+    "ast_hash": "62bf737db377a61e33847172aac1c815",
+    "semantic_hash": "62bf737db377a61e33847172aac1c815"
+  },
+  "src/components/Hero.jsx": {
+    "mtime": 1784056882.9901547,
+    "ast_hash": "ea7a860bbb66f47977c55a36852b95fb",
+    "semantic_hash": "ea7a860bbb66f47977c55a36852b95fb"
+  },
+  "src/components/InspecaoQualidade.jsx": {
+    "mtime": 1783972948.0,
+    "ast_hash": "5260a03b744d5be228d54477442f3d3b",
+    "semantic_hash": "5260a03b744d5be228d54477442f3d3b"
+  },
+  "src/components/Legalidade.jsx": {
+    "mtime": 1783972948.0,
+    "ast_hash": "f47f3fd7bf25efef511310ab039aa2b9",
+    "semantic_hash": "f47f3fd7bf25efef511310ab039aa2b9"
+  },
+  "src/components/Metodologia.jsx": {
+    "mtime": 1784051923.2212224,
+    "ast_hash": "0d55524e76eae9966c7fe52df9093b3d",
+    "semantic_hash": "0d55524e76eae9966c7fe52df9093b3d"
+  },
+  "src/components/OQueFazemos.jsx": {
+    "mtime": 1783452865.0,
+    "ast_hash": "73f03d43a82b017847bfa72ab87cf09a",
+    "semantic_hash": "73f03d43a82b017847bfa72ab87cf09a"
+  },
+  "src/components/PageFade.jsx": {
+    "mtime": 1783881676.0,
+    "ast_hash": "ba57424951c3c51a9e8aabef49e94350",
+    "semantic_hash": "ba57424951c3c51a9e8aabef49e94350"
+  },
+  "src/components/QuemSomos.jsx": {
+    "mtime": 1784051868.5820386,
+    "ast_hash": "a2858e7ef7e5a9e7b48b5c45b6ba6da9",
+    "semantic_hash": "a2858e7ef7e5a9e7b48b5c45b6ba6da9"
+  },
+  "src/components/Referencias.jsx": {
+    "mtime": 1783932320.0,
+    "ast_hash": "7965e5203e3f60fc6651861518c6ef05",
+    "semantic_hash": "7965e5203e3f60fc6651861518c6ef05"
+  },
+  "src/components/Reveal.jsx": {
+    "mtime": 1783972771.0,
+    "ast_hash": "ff6371bac8970009c748d7dab3ad7239",
+    "semantic_hash": "ff6371bac8970009c748d7dab3ad7239"
+  },
+  "src/components/ScrollProgress.jsx": {
+    "mtime": 1783802680.0,
+    "ast_hash": "619e27a5d8e426c9833ea0441671489e",
+    "semantic_hash": "619e27a5d8e426c9833ea0441671489e"
+  },
+  "src/components/SectionHeader.jsx": {
+    "mtime": 1783932258.0,
+    "ast_hash": "3e98b081641b1af12cebc3e8952114ea",
+    "semantic_hash": "3e98b081641b1af12cebc3e8952114ea"
+  },
+  "src/components/Solucoes.jsx": {
+    "mtime": 1784020903.0,
+    "ast_hash": "c4d656098f0a0898060bc1ce7e88bc49",
+    "semantic_hash": "c4d656098f0a0898060bc1ce7e88bc49"
+  },
+  "src/components/Stats.jsx": {
+    "mtime": 1784020914.0,
+    "ast_hash": "f647c01cfcc8e67daccfa3b01c13cc19",
+    "semantic_hash": "f647c01cfcc8e67daccfa3b01c13cc19"
+  },
+  "src/components/TopBar.jsx": {
+    "mtime": 1783801938.0,
+    "ast_hash": "6f7a421e31b95111016365f91e8bdaba",
+    "semantic_hash": "6f7a421e31b95111016365f91e8bdaba"
+  },
+  "src/components/WhatsAppButton.jsx": {
+    "mtime": 1783708441.0,
+    "ast_hash": "053b9dcc678107bcf746e9c88445907c",
+    "semantic_hash": "053b9dcc678107bcf746e9c88445907c"
+  },
+  "src/data/content.js": {
+    "mtime": 1783772640.0,
+    "ast_hash": "87a3646da805d1d0a58f33ab13ea1604",
+    "semantic_hash": "87a3646da805d1d0a58f33ab13ea1604"
+  },
+  "src/data/courses.js": {
+    "mtime": 1784021077.0,
+    "ast_hash": "1df829200ff31134d09d6ff4825c75fd",
+    "semantic_hash": "1df829200ff31134d09d6ff4825c75fd"
+  },
+  "src/hooks/useScrollToHash.js": {
+    "mtime": 1783881683.0,
+    "ast_hash": "ce7947f82f41c8b3c6c6bed9e070edec",
+    "semantic_hash": "ce7947f82f41c8b3c6c6bed9e070edec"
+  },
+  "src/layouts/MainLayout.jsx": {
+    "mtime": 1783881742.0,
+    "ast_hash": "5ce0e415eb209a7bc9a49e697ade0f9d",
+    "semantic_hash": "5ce0e415eb209a7bc9a49e697ade0f9d"
+  },
+  "src/main.jsx": {
+    "mtime": 1783452782.0,
+    "ast_hash": "1b792b69e197032a88db85f7af89b92a",
+    "semantic_hash": "1b792b69e197032a88db85f7af89b92a"
+  },
+  "src/pages/GaleriaPage.jsx": {
+    "mtime": 1783972948.0,
+    "ast_hash": "7d3a54e4f53a77717ae073b298c3f768",
+    "semantic_hash": "7d3a54e4f53a77717ae073b298c3f768"
+  },
+  "src/pages/HomePage.jsx": {
+    "mtime": 1783881713.0,
+    "ast_hash": "f73828b98a384ccaa4f60dfc02881fef",
+    "semantic_hash": "f73828b98a384ccaa4f60dfc02881fef"
+  },
+  "src/theme.js": {
+    "mtime": 1783802583.0,
+    "ast_hash": "bf9916f8397f2c19c3493f11951de22b",
+    "semantic_hash": "bf9916f8397f2c19c3493f11951de22b"
+  },
+  "vite.config.js": {
+    "mtime": 1783453684.0,
+    "ast_hash": "1eaee881cb098360552196dca99600a0",
+    "semantic_hash": "1eaee881cb098360552196dca99600a0"
+  },
+  ".remember/archive.md": {
+    "mtime": 1784018040.348461,
+    "ast_hash": "90bb8fc380f5c8f5f49476c63e5b280a",
+    "semantic_hash": ""
+  },
+  ".remember/now.md": {
+    "mtime": 1784050795.1439931,
+    "ast_hash": "221500382d620dc9a8cdca2279cf3c38",
+    "semantic_hash": ""
+  },
+  ".remember/recent.md": {
+    "mtime": 1784018040.2573092,
+    "ast_hash": "1c45ca0179c49d2a1c15b73b7be3988d",
+    "semantic_hash": ""
+  },
+  ".remember/today-2026-07-13.done.md": {
+    "mtime": 1783974113.027114,
+    "ast_hash": "459cce982bd2463a2da8a4b3d6f0b760",
+    "semantic_hash": ""
+  },
+  ".remember/today-2026-07-14.md": {
+    "mtime": 1784018086.5705,
+    "ast_hash": "5ccb20a291e2da94880b875b5889048e",
+    "semantic_hash": ""
+  },
+  "CLAUDE.md": {
+    "mtime": 1783946773.0277784,
+    "ast_hash": "8a6643a420fdad6bfb583523bc6cef16",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1783882015.0,
+    "ast_hash": "0ab395b0f8213c9902a29d1444453e68",
+    "semantic_hash": "0ab395b0f8213c9902a29d1444453e68"
+  },
+  "docker-compose.dev.yml": {
+    "mtime": 1783773658.835062,
+    "ast_hash": "82ebce38df70b78751fab91f91161aaf",
+    "semantic_hash": ""
+  },
+  "docker-compose.yml": {
+    "mtime": 1783773710.0727081,
+    "ast_hash": "ab7f804195ea3588b928787f381bd101",
+    "semantic_hash": ""
+  },
+  "index.html": {
+    "mtime": 1783452721.0,
+    "ast_hash": "81833fa61f08d4bd155790301ba17163",
+    "semantic_hash": ""
+  },
+  "server/README.md": {
+    "mtime": 1783773126.0,
+    "ast_hash": "ee3a098ebc7c7f84b698713a44d1aea1",
+    "semantic_hash": ""
+  },
+  "src/assets/about.jpg": {
+    "mtime": 1783452682.0,
+    "ast_hash": "9439fc649d6fb53acd8baa58f111898e",
+    "semantic_hash": "9439fc649d6fb53acd8baa58f111898e"
+  },
+  "src/assets/clients/gabriel-couto.jpg": {
+    "mtime": 1783708202.0,
+    "ast_hash": "9a9753f44bd3717e57b3ca575ed20786",
+    "semantic_hash": "9a9753f44bd3717e57b3ca575ed20786"
+  },
+  "src/assets/clients/lcpower.png": {
+    "mtime": 1783708202.0,
+    "ast_hash": "d6f87d3495014a0d2ad3084c8d9ffd6e",
+    "semantic_hash": "d6f87d3495014a0d2ad3084c8d9ffd6e"
+  },
+  "src/assets/clients/manica.jpg": {
+    "mtime": 1783708202.0,
+    "ast_hash": "ccb2b5827da338b59d43c29cd0d68c0e",
+    "semantic_hash": "ccb2b5827da338b59d43c29cd0d68c0e"
+  },
+  "src/assets/clients/mota-engil.png": {
+    "mtime": 1783708202.0,
+    "ast_hash": "201ae5cf995b46aa2c766cb3e963a4f2",
+    "semantic_hash": "201ae5cf995b46aa2c766cb3e963a4f2"
+  },
+  "src/assets/clients/protecna.jpg": {
+    "mtime": 1783708202.0,
+    "ast_hash": "650da6c0a291d2b5813076a026a632be",
+    "semantic_hash": "650da6c0a291d2b5813076a026a632be"
+  },
+  "src/assets/clients/tata.png": {
+    "mtime": 1783708202.0,
+    "ast_hash": "10b8b2e08c476de8163ba71ec9b56d43",
+    "semantic_hash": "10b8b2e08c476de8163ba71ec9b56d43"
+  },
+  "src/assets/clients/tcpi.png": {
+    "mtime": 1783708202.0,
+    "ast_hash": "85d52c9df3297549dd49a3c2503d30e7",
+    "semantic_hash": "85d52c9df3297549dd49a3c2503d30e7"
+  },
+  "src/assets/clients/terminais-do-norte.png": {
+    "mtime": 1783708202.0,
+    "ast_hash": "1409624a97b5840761fea00c82987a64",
+    "semantic_hash": "1409624a97b5840761fea00c82987a64"
+  },
+  "src/assets/clients/uni-span.png": {
+    "mtime": 1783708202.0,
+    "ast_hash": "35fe7c255c27d647522ab29b0f40fcfb",
+    "semantic_hash": "35fe7c255c27d647522ab29b0f40fcfb"
+  },
+  "src/assets/cta.jpg": {
+    "mtime": 1783452682.0,
+    "ast_hash": "3663eb525efda8dc60125596b928cc67",
+    "semantic_hash": "3663eb525efda8dc60125596b928cc67"
+  },
+  "src/assets/gallery1.jpg": {
+    "mtime": 1783452682.0,
+    "ast_hash": "9f2d113f760c306b90eaf4513c7e71f3",
+    "semantic_hash": "9f2d113f760c306b90eaf4513c7e71f3"
+  },
+  "src/assets/gallery2.jpg": {
+    "mtime": 1783452682.0,
+    "ast_hash": "0cc4bdbc7448c2b2b35533970dadadf4",
+    "semantic_hash": "0cc4bdbc7448c2b2b35533970dadadf4"
+  },
+  "src/assets/gallery3.jpg": {
+    "mtime": 1783452682.0,
+    "ast_hash": "bf0b485720964120152f09844e30991d",
+    "semantic_hash": "bf0b485720964120152f09844e30991d"
+  },
+  "src/assets/gallery4.jpg": {
+    "mtime": 1783452682.0,
+    "ast_hash": "cc93e6ad83c38abed38c6bde6fbb0a45",
+    "semantic_hash": "cc93e6ad83c38abed38c6bde6fbb0a45"
+  },
+  "src/assets/gallery5.jpg": {
+    "mtime": 1783452682.0,
+    "ast_hash": "36ec5e4ffff9a038a30a1624f0023ee4",
+    "semantic_hash": "36ec5e4ffff9a038a30a1624f0023ee4"
+  },
+  "src/assets/gallery6.jpg": {
+    "mtime": 1783452682.0,
+    "ast_hash": "9336ec1db7c15a5cd29887cf2dac9ba8",
+    "semantic_hash": "9336ec1db7c15a5cd29887cf2dac9ba8"
+  },
+  "src/assets/gallery/avaliacao-escrita-unispan.jpg": {
+    "mtime": 1783882220.0,
+    "ast_hash": "81b9301f29db5579033d783a38cedc31",
+    "semantic_hash": "81b9301f29db5579033d783a38cedc31"
+  },
+  "src/assets/gallery/combate-incendio.jpg": {
+    "mtime": 1783800739.0,
+    "ast_hash": "bf0b485720964120152f09844e30991d",
+    "semantic_hash": "bf0b485720964120152f09844e30991d"
+  },
+  "src/assets/gallery/conducao-defensiva.jpg": {
+    "mtime": 1783800739.0,
+    "ast_hash": "cc93e6ad83c38abed38c6bde6fbb0a45",
+    "semantic_hash": "cc93e6ad83c38abed38c6bde6fbb0a45"
+  },
+  "src/assets/gallery/encerramento-formacao-unispan.jpg": {
+    "mtime": 1783882221.0,
+    "ast_hash": "29fb93f0199f43db134d96a8930a3700",
+    "semantic_hash": "29fb93f0199f43db134d96a8930a3700"
+  },
+  "src/assets/gallery/equipa-unispan-1.jpg": {
+    "mtime": 1783882220.0,
+    "ast_hash": "9625e559571319738eed8f012b5a2386",
+    "semantic_hash": "9625e559571319738eed8f012b5a2386"
+  },
+  "src/assets/gallery/equipa-unispan-2.jpg": {
+    "mtime": 1783882220.0,
+    "ast_hash": "72df6eef201addd0679652f7f9246dfb",
+    "semantic_hash": "72df6eef201addd0679652f7f9246dfb"
+  },
+  "src/assets/gallery/equipamentos-medicao.jpg": {
+    "mtime": 1783800739.0,
+    "ast_hash": "36ec5e4ffff9a038a30a1624f0023ee4",
+    "semantic_hash": "36ec5e4ffff9a038a30a1624f0023ee4"
+  },
+  "src/assets/gallery/espaco-confinado-terminais.jpg": {
+    "mtime": 1783882221.0,
+    "ast_hash": "cb369426c751e86ad9d955bbcbcdf480",
+    "semantic_hash": "cb369426c751e86ad9d955bbcbcdf480"
+  },
+  "src/assets/gallery/formacao-altura-unispan-1.jpg": {
+    "mtime": 1783882220.0,
+    "ast_hash": "6cc2134c4c5270e88f9a6da33c7b905b",
+    "semantic_hash": "6cc2134c4c5270e88f9a6da33c7b905b"
+  },
+  "src/assets/gallery/formacao-equipa.jpg": {
+    "mtime": 1783800739.0,
+    "ast_hash": "9439fc649d6fb53acd8baa58f111898e",
+    "semantic_hash": "9439fc649d6fb53acd8baa58f111898e"
+  },
+  "src/assets/gallery/formacao-sala-manica.jpg": {
+    "mtime": 1783881667.0,
+    "ast_hash": "400876846248b6509472b2d3486b0ef1",
+    "semantic_hash": "400876846248b6509472b2d3486b0ef1"
+  },
+  "src/assets/gallery/inspecao-gancho.jpg": {
+    "mtime": 1783800739.0,
+    "ast_hash": "9f2d113f760c306b90eaf4513c7e71f3",
+    "semantic_hash": "9f2d113f760c306b90eaf4513c7e71f3"
+  },
+  "src/assets/gallery/montagem-andaime.jpg": {
+    "mtime": 1783800739.0,
+    "ast_hash": "3663eb525efda8dc60125596b928cc67",
+    "semantic_hash": "3663eb525efda8dc60125596b928cc67"
+  },
+  "src/assets/gallery/rigger-altura.jpg": {
+    "mtime": 1783800739.0,
+    "ast_hash": "878b7e8b53249b6bd96d083874f72658",
+    "semantic_hash": "878b7e8b53249b6bd96d083874f72658"
+  },
+  "src/assets/gallery/sala-formacao.jpg": {
+    "mtime": 1783800740.0,
+    "ast_hash": "b1d0c1c38b929fa90d8492be4b9b1c64",
+    "semantic_hash": "b1d0c1c38b929fa90d8492be4b9b1c64"
+  },
+  "src/assets/gallery/visita-terreno-unispan.jpg": {
+    "mtime": 1783882221.0,
+    "ast_hash": "01523dbc58d4ec8a6f8ecb15ce2ca5c8",
+    "semantic_hash": "01523dbc58d4ec8a6f8ecb15ce2ca5c8"
+  },
+  "src/assets/logo.png": {
+    "mtime": 1783452682.0,
+    "ast_hash": "b8ee841489c60f869a3cfd13f2d5f4c8",
+    "semantic_hash": "b8ee841489c60f869a3cfd13f2d5f4c8"
+  },
+  "src/components/PhotoFrame.jsx": {
+    "mtime": 1784051976.0145912,
+    "ast_hash": "726d613ef20afc9acf1946d7e9dd9c6b",
+    "semantic_hash": "726d613ef20afc9acf1946d7e9dd9c6b"
+  }
+}

@@ -16,11 +16,7 @@ import { gradients } from '../theme';
 const quickLinks = [
   { to: '/#quem-somos', label: 'Quem Somos' },
   { to: '/galeria', label: 'Galeria' },
-  { to: '/#solucoes', label: 'Soluções' },
   { to: '/#formacoes', label: 'Formações' },
-  { to: '/#certificacoes', label: 'Certificações' },
-  { to: '/#referencias', label: 'Referências' },
-  { to: '/#blog', label: 'Blog' },
 ];
 
 const socialIcons = [
