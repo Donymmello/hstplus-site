@@ -3,17 +3,41 @@ import cors from 'cors';
 import cron from 'node-cron';
 import 'dotenv/config';
 import { refreshCache, readCache } from './fetchPosts.js';
+import { saveLead, readLeads } from './leads.js';
 
 const app = express();
 app.use(cors());
+app.use(express.json());
 
 const PORT = process.env.PORT || 4000;
 // Padrão: actualiza a cada 6 horas. Ajustável via .env (CRON_SCHEDULE).
 const CRON_SCHEDULE = process.env.CRON_SCHEDULE || '0 */6 * * *';
+// Chave simples para proteger a leitura dos pedidos (ver .env.example).
+const ADMIN_KEY = process.env.ADMIN_KEY || '';
 
 app.get('/api/posts', async (_req, res) => {
   const cache = await readCache();
   res.json(cache);
+});
+
+// Recebe os pedidos de "Pedir Informações" / "Pedir Cotação" (ver LeadFormDialog.jsx)
+app.post('/api/leads', async (req, res) => {
+  try {
+    const lead = await saveLead(req.body || {});
+    res.status(201).json({ ok: true, id: lead.id });
+  } catch (e) {
+    res.status(e.status || 500).json({ ok: false, error: e.message });
+  }
+});
+
+// Leitura simples dos pedidos recebidos — protegida por chave (?key=...) até
+// haver um painel de administração a sério.
+app.get('/api/leads', async (req, res) => {
+  if (!ADMIN_KEY || req.query.key !== ADMIN_KEY) {
+    return res.status(401).json({ ok: false, error: 'Não autorizado' });
+  }
+  const leads = await readLeads();
+  return res.json({ ok: true, leads });
 });
 
 app.get('/api/health', (_req, res) => res.json({ ok: true }));

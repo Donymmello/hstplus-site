@@ -8,7 +8,6 @@ import GaleriaCTA from '../components/GaleriaCTA';
 import InspecaoQualidade from '../components/InspecaoQualidade';
 import Metodologia from '../components/Metodologia';
 import Consultoria from '../components/Consultoria';
-import Legalidade from '../components/Legalidade';
 import Referencias from '../components/Referencias';
 import Blog from '../components/Blog';
 import Contacto from '../components/Contacto';
@@ -29,7 +28,6 @@ export default function HomePage() {
       <InspecaoQualidade />
       <Metodologia />
       <Consultoria />
-      <Legalidade />
       <Referencias />
       <Blog />
       <Contacto />

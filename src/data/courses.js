@@ -1,10 +1,72 @@
 // Catálogo de formações extraído da planilha "Para_designer1.xlsx"
 //
-// ⚠️ ATENÇÃO: o ficheiro original só tinha "Básico" e "Reciclagem" por curso.
-// Os valores de "medio" e "avancado" abaixo são temporários (calculados como
-// básico +8h e +16h, só para o layout de 3 colunas não ficar vazio) — não são
-// dados reais da HST Plus. Substituir pelos valores certos antes de publicar.
-export const courseCatalog = [
+// ⚠️ ATENÇÃO — dois avisos sobre dados provisórios:
+// 1. O ficheiro original só tinha "Básico" e "Reciclagem" por curso. Os
+//    valores de "medio" e "avancado" abaixo são temporários (básico +8h e
+//    +16h, só para a tabela de 3 colunas não ficar vazia) — não são dados
+//    reais da HST Plus.
+// 2. Os campos "intro" e "objectives" (usados na página de detalhe de cada
+//    curso) são texto genérico gerado por categoria, não texto redigido pela
+//    HST Plus especificamente para cada curso. Servem para o layout da
+//    página de detalhe não ficar vazio — revejam e substituam antes de
+//    publicar.
+
+function slugify(str) {
+  return str
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+}
+
+const categoryIntros = {
+  'Gestão Estratégica e Metodologias (Qualidade & Processos)': (name) =>
+    `O curso de ${name} prepara os participantes para aplicar esta metodologia no dia-a-dia da organização, com foco na melhoria contínua dos processos e no cumprimento dos padrões de qualidade exigidos pelo sector.`,
+  'Prevenção, Diagnóstico e Resposta a Emergências': (name) =>
+    `Este curso capacita os participantes a reconhecer riscos, agir com rapidez e reduzir o impacto de situações de emergência relacionadas com ${name.toLowerCase()}, seguindo procedimentos reconhecidos internacionalmente.`,
+  'Segurança Técnica em Trabalhos de Alto Risco': (name) =>
+    `Formação técnica especializada em ${name}, orientada para colaboradores que operam em ambientes de alto risco, com forte componente prática e foco absoluto em segurança.`,
+  'Operação de Equipamentos e Máquinas Pesadas': (name) =>
+    `Curso prático de ${name}, que garante que o operador fica apto a manusear o equipamento com segurança, eficiência e em conformidade com as normas aplicáveis.`,
+  'Estruturas, Elevação e Montagem': (name) =>
+    `Formação técnica sobre ${name}, essencial para garantir a integridade estrutural e a segurança de todos os envolvidos em operações de elevação e montagem.`,
+};
+
+const categoryObjectives = {
+  'Gestão Estratégica e Metodologias (Qualidade & Processos)': [
+    'Compreender os fundamentos e a importância da metodologia para a organização',
+    'Aplicar as ferramentas e etapas do processo no contexto de trabalho real',
+    'Identificar oportunidades de melhoria contínua',
+    'Envolver a equipa na implementação e sustentação da metodologia',
+  ],
+  'Prevenção, Diagnóstico e Resposta a Emergências': [
+    'Identificar os principais riscos e sinais de alerta',
+    'Conhecer os procedimentos correctos de resposta a emergências',
+    'Aplicar técnicas de primeira intervenção com segurança',
+    'Reduzir o tempo de resposta e o impacto de incidentes',
+  ],
+  'Segurança Técnica em Trabalhos de Alto Risco': [
+    'Conhecer a legislação e as normas de segurança aplicáveis',
+    'Identificar e mitigar riscos específicos da actividade',
+    'Utilizar correctamente os equipamentos de protecção exigidos',
+    'Actuar em conformidade com os procedimentos de segurança da HST Plus',
+  ],
+  'Operação de Equipamentos e Máquinas Pesadas': [
+    'Operar o equipamento com segurança e eficiência',
+    'Realizar verificações e inspecções pré-operacionais',
+    'Reconhecer os limites operacionais e situações de risco',
+    'Cumprir os procedimentos de manutenção básica e reporte de avarias',
+  ],
+  'Estruturas, Elevação e Montagem': [
+    'Aplicar as técnicas correctas de montagem e inspecção',
+    'Verificar a estabilidade e integridade da estrutura',
+    'Seguir os procedimentos de segurança para trabalho em altura',
+    'Identificar não conformidades antes da utilização da estrutura',
+  ],
+};
+
+const rawCatalog = [
   {
     category: 'Gestão Estratégica e Metodologias (Qualidade & Processos)',
     courses: [
@@ -66,4 +128,23 @@ export const courseCatalog = [
   },
 ];
 
+export const courseCatalog = rawCatalog.map((cat) => ({
+  ...cat,
+  courses: cat.courses.map((c) => ({
+    ...c,
+    slug: slugify(c.name),
+    category: cat.category,
+    intro: categoryIntros[cat.category](c.name),
+    objectives: categoryObjectives[cat.category],
+  })),
+}));
+
 export const totalCourses = courseCatalog.reduce((acc, c) => acc + c.courses.length, 0);
+
+/** Lista plana de todos os cursos, cada um já com a sua categoria. */
+export const allCourses = courseCatalog.flatMap((cat) => cat.courses);
+
+/** Procura um curso pelo slug (usado na página de detalhe /formacoes/:slug). */
+export function findCourseBySlug(slug) {
+  return allCourses.find((c) => c.slug === slug) || null;
+}

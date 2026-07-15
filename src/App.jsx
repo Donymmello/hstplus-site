@@ -4,6 +4,7 @@ import ScrollProgress from './components/ScrollProgress';
 import MainLayout from './layouts/MainLayout';
 import HomePage from './pages/HomePage';
 import GaleriaPage from './pages/GaleriaPage';
+import CourseDetailPage from './pages/CourseDetailPage';
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Route element={<MainLayout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/galeria" element={<GaleriaPage />} />
+          <Route path="/formacoes/:slug" element={<CourseDetailPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
