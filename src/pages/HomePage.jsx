@@ -3,6 +3,7 @@ import ClientLogos from '../components/ClientLogos';
 import Solucoes from '../components/Solucoes';
 import Formacoes from '../components/Formacoes';
 import Stats from '../components/Stats';
+import DashboardPreview from '../components/DashboardPreview';
 import QuemSomos from '../components/QuemSomos';
 import GaleriaCTA from '../components/GaleriaCTA';
 import InspecaoQualidade from '../components/InspecaoQualidade';
@@ -23,6 +24,7 @@ export default function HomePage() {
       <Solucoes />
       <Formacoes />
       <Stats />
+      <DashboardPreview />
       <QuemSomos />
       <GaleriaCTA />
       <InspecaoQualidade />

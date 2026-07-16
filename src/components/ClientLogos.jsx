@@ -28,11 +28,11 @@ const logos = [
 
 export default function ClientLogos() {
   return (
-    <Box sx={{ py: { xs: 4, md: 5 }, bgcolor: '#fff', borderBottom: '1px solid', borderColor: 'divider' }}>
+    <Box sx={{ py: { xs: 5, md: 6 }, bgcolor: '#fff', borderBottom: '1px solid', borderColor: 'divider' }}>
       <Container maxWidth="lg">
         <Reveal>
         <Typography sx={{ textAlign: 'center', fontSize: '0.72rem', color: 'text.secondary', letterSpacing: '0.06em', mb: 3 }}>
-          EMPRESAS QUE CONFIAM NA HST PLUS
+          Organizações que confiam na HST Plus
         </Typography>
         <Grid container spacing={{ xs: 2, md: 3 }} justifyContent="center" alignItems="center">
           {logos.map((l) => (

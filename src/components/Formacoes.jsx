@@ -10,6 +10,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Chip from '@mui/material/Chip';
@@ -94,56 +95,60 @@ export default function Formacoes() {
                   </Grid>
                 </AccordionSummary>
                 <AccordionDetails sx={{ p: 0 }}>
-                  <Table size="small">
-                    <TableHead>
-                      <TableRow
-                        sx={{
-                          '& th': {
-                            bgcolor: '#EFEDE6',
-                            fontFamily: '"IBM Plex Mono"',
-                            fontSize: '0.68rem',
-                            letterSpacing: '0.04em',
-                          },
-                        }}
-                      >
-                        <TableCell>CURSO</TableCell>
-                        <TableCell align="right">BÁSICO</TableCell>
-                        <TableCell align="right">MÉDIO</TableCell>
-                        <TableCell align="right">AVANÇADO</TableCell>
-                      </TableRow>
-                    </TableHead>
-                    <TableBody>
-                      {cat.courses.map((c) => (
+                  <TableContainer sx={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
+                    <Table size="small" sx={{ minWidth: { xs: 480, sm: 0 } }}>
+                      <TableHead>
                         <TableRow
-                          key={c.name}
-                          hover
-                          component={RouterLink}
-                          to={`/formacoes/${c.slug}`}
                           sx={{
-                            cursor: 'pointer',
-                            textDecoration: 'none',
-                            '& td': { borderBottom: '1px solid', borderColor: 'divider' },
+                            '& th': {
+                              bgcolor: '#EFEDE6',
+                              fontFamily: '"IBM Plex Mono"',
+                              fontSize: { xs: '0.6rem', sm: '0.68rem' },
+                              letterSpacing: '0.04em',
+                              px: { xs: 1, sm: 2 },
+                              whiteSpace: 'nowrap',
+                            },
                           }}
                         >
-                          <TableCell sx={{ fontSize: '0.85rem', color: 'text.primary' }}>
-                            <Stack direction="row" alignItems="center" spacing={0.5}>
-                              <span>{c.name}</span>
-                              <ChevronRightIcon sx={{ fontSize: 16, color: 'text.secondary' }} />
-                            </Stack>
-                          </TableCell>
-                          <TableCell align="right" sx={{ fontFamily: '"IBM Plex Mono"', fontSize: '0.8rem', color: 'secondary.dark' }}>
-                            {c.basico}
-                          </TableCell>
-                          <TableCell align="right" sx={{ fontFamily: '"IBM Plex Mono"', fontSize: '0.8rem', color: 'primary.main' }}>
-                            {c.medio}
-                          </TableCell>
-                          <TableCell align="right" sx={{ fontFamily: '"IBM Plex Mono"', fontSize: '0.8rem', color: 'text.secondary' }}>
-                            {c.avancado}
-                          </TableCell>
+                          <TableCell>CURSO</TableCell>
+                          <TableCell align="right">BÁSICO</TableCell>
+                          <TableCell align="right">MÉDIO</TableCell>
+                          <TableCell align="right">AVANÇADO</TableCell>
                         </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
+                      </TableHead>
+                      <TableBody>
+                        {cat.courses.map((c) => (
+                          <TableRow
+                            key={c.name}
+                            hover
+                            component={RouterLink}
+                            to={`/formacoes/${c.slug}`}
+                            sx={{
+                              cursor: 'pointer',
+                              textDecoration: 'none',
+                              '& td': { borderBottom: '1px solid', borderColor: 'divider' },
+                            }}
+                          >
+                            <TableCell sx={{ fontSize: { xs: '0.78rem', sm: '0.85rem' }, color: 'text.primary', px: { xs: 1, sm: 2 } }}>
+                              <Stack direction="row" alignItems="center" spacing={0.5}>
+                                <span>{c.name}</span>
+                                <ChevronRightIcon sx={{ fontSize: 16, color: 'text.secondary', flexShrink: 0 }} />
+                              </Stack>
+                            </TableCell>
+                            <TableCell align="right" sx={{ fontFamily: '"IBM Plex Mono"', fontSize: { xs: '0.72rem', sm: '0.8rem' }, color: 'secondary.dark', px: { xs: 1, sm: 2 }, whiteSpace: 'nowrap' }}>
+                              {c.basico}
+                            </TableCell>
+                            <TableCell align="right" sx={{ fontFamily: '"IBM Plex Mono"', fontSize: { xs: '0.72rem', sm: '0.8rem' }, color: 'primary.main', px: { xs: 1, sm: 2 }, whiteSpace: 'nowrap' }}>
+                              {c.medio}
+                            </TableCell>
+                            <TableCell align="right" sx={{ fontFamily: '"IBM Plex Mono"', fontSize: { xs: '0.72rem', sm: '0.8rem' }, color: 'text.secondary', px: { xs: 1, sm: 2 }, whiteSpace: 'nowrap' }}>
+                              {c.avancado}
+                            </TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
                 </AccordionDetails>
               </Accordion>
             ))}

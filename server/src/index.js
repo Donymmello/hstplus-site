@@ -4,6 +4,7 @@ import cron from 'node-cron';
 import 'dotenv/config';
 import { refreshCache, readCache } from './fetchPosts.js';
 import { saveLead, readLeads } from './leads.js';
+import { readKpis, saveKpis } from './kpis.js';
 
 const app = express();
 app.use(cors());
@@ -38,6 +39,26 @@ app.get('/api/leads', async (req, res) => {
   }
   const leads = await readLeads();
   return res.json({ ok: true, leads });
+});
+
+// KPIs da secção Stats da homepage — leitura pública, escrita protegida por
+// chave (mesma ADMIN_KEY já usada em GET /api/leads) até haver um painel a sério.
+app.get('/api/kpis', async (_req, res) => {
+  const kpis = await readKpis();
+  res.json({ ok: true, kpis });
+});
+
+app.put('/api/kpis', async (req, res) => {
+  const key = req.query.key || req.headers['x-admin-key'];
+  if (!ADMIN_KEY || key !== ADMIN_KEY) {
+    return res.status(401).json({ ok: false, error: 'Não autorizado' });
+  }
+  try {
+    const kpis = await saveKpis(req.body);
+    return res.json({ ok: true, kpis });
+  } catch (e) {
+    return res.status(e.status || 500).json({ ok: false, error: e.message });
+  }
 });
 
 app.get('/api/health', (_req, res) => res.json({ ok: true }));

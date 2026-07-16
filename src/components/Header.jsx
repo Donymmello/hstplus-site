@@ -16,7 +16,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import logo from '../assets/logo.png';
-import { gradients } from '../theme';
+import { colors, gradients } from '../theme';
 
 // Importamos os cursos para listar no Mega Menu
 import { courseCatalog } from '../data/courses';
@@ -67,13 +67,13 @@ export default function Header() {
     <>
       <AppBar
         position="sticky"
-        elevation={scrolled ? 4 : 0}
-        sx={{ backgroundImage: gradients.primary, top: 0, transition: 'box-shadow 0.3s ease' }}
+        elevation={0}
+        sx={{ backgroundColor: 'rgba(255,255,255,.94)', backdropFilter: 'blur(18px)', color: colors.ink, top: 0, borderBottom: '1px solid', borderColor: scrolled ? 'divider' : 'rgba(21,32,30,.08)', boxShadow: scrolled ? '0 8px 30px rgba(21,32,30,.07)' : 'none', transition: 'border-color .25s ease, box-shadow .25s ease' }}
       >
         <Toolbar
           sx={{
             minHeight: { xs: 64, md: scrolled ? 58 : 72 },
-            px: { xs: 2, md: 5 },
+            maxWidth: 1240, width: '100%', mx: 'auto', px: { xs: 2, md: 3 },
             transition: 'min-height 0.25s ease',
           }}
         >
@@ -96,12 +96,12 @@ export default function Header() {
               }}
             />
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-              <Typography sx={{ color: '#fff', fontWeight: 700, fontSize: '0.9rem', lineHeight: 1 }}>
+              <Typography sx={{ color: 'text.primary', fontWeight: 700, fontSize: '0.9rem', lineHeight: 1 }}>
                 HST PLUS
               </Typography>
               <Typography
                 sx={{
-                  color: 'rgba(255,255,255,0.6)',
+                  color: 'text.secondary',
                   fontSize: '0.58rem',
                   letterSpacing: '0.08em',
                   maxHeight: scrolled ? 0 : 14,
@@ -119,7 +119,7 @@ export default function Header() {
           <Stack direction="row" spacing={0.5} sx={{ display: { xs: 'none', lg: 'flex' }, alignItems: 'center' }}>
             {/* Quem Somos e Soluções */}
             {links.slice(0, 2).map((l) => (
-              <Button key={l.to} component={RouterLink} to={l.to} sx={{ color: '#fff', fontSize: '0.72rem', px: 1.5 }}>
+              <Button key={l.to} component={RouterLink} to={l.to} sx={{ color: 'text.primary', fontSize: '0.78rem', px: 1.2 }}>
                 {l.label}
               </Button>
             ))}
@@ -142,7 +142,7 @@ export default function Header() {
                     }} 
                   />
                 }
-                sx={{ color: '#fff', fontSize: '0.72rem', px: 1.5 }}
+                sx={{ color: 'text.primary', fontSize: '0.78rem', px: 1.2 }}
               >
                 Formações
               </Button>
@@ -160,7 +160,7 @@ export default function Header() {
                     maxWidth: 900,
                     bgcolor: '#101725', // Fundo escuro premium
                     border: '1px solid rgba(255, 255, 255, 0.08)',
-                    borderRadius: '8px',
+                    borderRadius: 3,
                     p: 4,
                     mt: 1,
                     zIndex: 1300,
@@ -243,7 +243,7 @@ export default function Header() {
 
             {/* Restantes links (Blog e Contacto) */}
             {links.slice(2).map((l) => (
-              <Button key={l.to} component={RouterLink} to={l.to} sx={{ color: '#fff', fontSize: '0.72rem', px: 1.5 }}>
+              <Button key={l.to} component={RouterLink} to={l.to} sx={{ color: 'text.primary', fontSize: '0.78rem', px: 1.2 }}>
                 {l.label}
               </Button>
             ))}
@@ -252,7 +252,7 @@ export default function Header() {
           <IconButton
             aria-label="Abrir menu"
             onClick={() => setOpen(true)}
-            sx={{ color: '#fff', display: { xs: 'inline-flex', lg: 'none' }, ml: 1 }}
+            sx={{ color: 'text.primary', display: { xs: 'inline-flex', lg: 'none' }, ml: 1 }}
           >
             <MenuIcon />
           </IconButton>

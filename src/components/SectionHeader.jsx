@@ -26,17 +26,17 @@ export default function SectionHeader({
 }) {
   return (
     <Box sx={{ textAlign: align, mb }}>
-      {(index || eyebrow) && (
+      {eyebrow && (
         <Typography variant="overline" sx={{ color: dark ? 'warning.main' : color }}>
-          {index ? `${index} — ` : ''}
           {eyebrow}
         </Typography>
       )}
       <Typography
         variant="h2"
         sx={{
-          fontSize: { xs: '2rem', md: '2.4rem' },
-          mt: 1,
+          fontSize: { xs: '2.55rem', md: '3.35rem' },
+          maxWidth: align === 'center' ? 760 : 680,
+          mx: align === 'center' ? 'auto' : 0,
           mb: children ? 2 : 0,
           color: dark ? '#fff' : 'text.primary',
         }}
@@ -47,7 +47,7 @@ export default function SectionHeader({
         <Box
           sx={{
             color: dark ? 'rgba(255,255,255,0.8)' : 'text.secondary',
-            fontSize: '1rem',
+            fontSize: '1.02rem', lineHeight: 1.7,
             maxWidth: introWidth,
             mx: align === 'center' ? 'auto' : 0,
           }}

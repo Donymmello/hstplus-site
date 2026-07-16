@@ -2,73 +2,40 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
-import { company } from '../data/content';
-import Reveal from './Reveal';
+import PlayCircleOutlined from '@mui/icons-material/PlayCircleOutlined';
 import heroPhoto from '../assets/hero.jpg';
+import { company } from '../data/content';
+import { totalCourses } from '../data/courses';
+import Reveal from './Reveal';
+
+const metrics = [
+  { value: `${new Date().getFullYear() - company.founded}+`, label: 'anos de operação' },
+  { value: '100+', label: 'certificações técnicas' },
+  { value: `${totalCourses}+`, label: 'formações disponíveis' },
+];
 
 export default function Hero() {
   return (
-    <Box
-      id="top"
-      sx={{
-        position: 'relative',
-        overflow: 'hidden',
-        color: '#fff',
-        minHeight: { xs: '84dvh', md: '90dvh' },
-        display: 'flex',
-        alignItems: 'center',
-      }}
-    >
-      {/* Foto de fundo full-bleed com zoom lento perpétuo (Ken Burns) */}
-      <Box
-        component="img"
-        src={heroPhoto}
-        alt="Formação de segurança da HST Plus no terreno"
-        sx={{
-          position: 'absolute',
-          inset: 0,
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          transformOrigin: 'center',
-          animation: 'hstHeroZoom 24s ease-in-out infinite alternate',
-        }}
-      />
-
-      {/* Degradê da marca sobre a foto — legibilidade + acabamento premium.
-          Efeito de transparência: maroon/ink translúcidos, mais escuro na base
-          para o texto assentar e a secção esbater no conteúdo seguinte. */}
-      <Box
-        sx={{
-          position: 'absolute',
-          inset: 0,
-          backgroundImage:
-            'linear-gradient(180deg, rgba(20,24,26,0.55) 0%, rgba(46,8,16,0.58) 42%, rgba(20,24,26,0.88) 100%), radial-gradient(circle at 82% 78%, rgba(31,122,61,0.22), transparent 46%)',
-          pointerEvents: 'none',
-        }}
-      />
-
-      <Container maxWidth="md" sx={{ position: 'relative', textAlign: 'center', py: { xs: 10, md: 12 } }}>
-        <Reveal>
-          <Typography variant="overline" sx={{ color: 'warning.main' }}>
-            Consultoria · Formação · Inspeção — Moçambique, desde {company.founded}
-          </Typography>
-          <Typography
-            variant="h1"
-            sx={{ fontSize: { xs: '2.4rem', sm: '3.4rem', md: '4.4rem' }, mt: 1.5, mb: 2.5 }}
-          >
-            Transformamos riscos em resultados
-          </Typography>
-          <Typography sx={{ color: 'rgba(255,255,255,0.85)', fontSize: '1.05rem', maxWidth: 620, mx: 'auto', mb: 4 }}>
-            Soluções integradas de Saúde, Segurança no Trabalho, Qualidade e Meio Ambiente —
-            consultoria técnica, formação profissional e inspeção de equipamentos, para operações
-            mais seguras e em conformidade.
-          </Typography>
-          <Button href="#formacoes" variant="contained" color="secondary" size="large" endIcon={<ArrowOutwardIcon />}>
-            Ver Formações
-          </Button>
-        </Reveal>
+    <Box id="top" component="section" sx={{ position: 'relative', minHeight: { xs: 'auto', md: 'min(780px, calc(100dvh - 72px))' }, overflow: 'hidden', color: '#fff', display: 'flex', alignItems: 'center', py: { xs: 9, md: 7 } }}>
+      <Box component="img" src={heroPhoto} alt="Formação de segurança da HST Plus no terreno" fetchPriority="high" sx={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', animation: 'hstHeroZoom 20s ease-in-out infinite alternate' }} />
+      <Box sx={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(13,21,20,.97) 0%, rgba(13,21,20,.86) 42%, rgba(13,21,20,.35) 100%), linear-gradient(0deg, rgba(13,21,20,.72), transparent 42%)' }} />
+      <Container maxWidth="lg" sx={{ position: 'relative', width: '100%' }}>
+        <Box sx={{ maxWidth: 690 }}>
+          <Reveal y={18}>
+            <Typography variant="overline" sx={{ color: '#F6C859', display: 'block', mb: 2 }}>CONSULTORIA, FORMAÇÃO E INSPEÇÃO</Typography>
+            <Typography variant="h1" sx={{ fontSize: { xs: '3.4rem', sm: '4.5rem', md: '5.7rem' }, maxWidth: 670, textWrap: 'balance' }}>Segurança que sustenta operações de alto desempenho.</Typography>
+            <Typography sx={{ mt: 3, maxWidth: 570, fontSize: { xs: '1rem', md: '1.12rem' }, lineHeight: 1.7, color: 'rgba(255,255,255,.78)' }}>Capacitamos equipas, controlamos riscos e fortalecemos a conformidade das organizações que fazem Moçambique avançar.</Typography>
+            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.5} sx={{ mt: 4 }}>
+              <Button href="#contacto" variant="contained" color="secondary" endIcon={<ArrowOutwardIcon />}>Falar com um especialista</Button>
+              <Button href="#formacoes" variant="outlined" sx={{ color: '#fff', borderColor: 'rgba(255,255,255,.42)', '&:hover': { borderColor: '#fff', bgcolor: 'rgba(255,255,255,.08)' } }} startIcon={<PlayCircleOutlined />}>Explorar formações</Button>
+            </Stack>
+          </Reveal>
+        </Box>
+        <Stack direction={{ xs: 'column', sm: 'row' }} spacing={{ xs: 2, sm: 0 }} divider={<Box sx={{ display: { xs: 'none', sm: 'block' }, width: '1px', bgcolor: 'rgba(255,255,255,.22)' }} />} sx={{ mt: { xs: 7, md: 8 }, maxWidth: 660 }}>
+          {metrics.map((metric) => <Box key={metric.label} sx={{ flex: 1, pr: { sm: 3 }, pl: { sm: 3 }, '&:first-of-type': { pl: 0 } }}><Typography sx={{ fontFamily: 'IBM Plex Mono', fontWeight: 600, fontSize: { xs: '1.6rem', md: '1.9rem' }, fontVariantNumeric: 'tabular-nums' }}>{metric.value}</Typography><Typography sx={{ mt: .35, color: 'rgba(255,255,255,.62)', fontSize: '.78rem' }}>{metric.label}</Typography></Box>)}
+        </Stack>
       </Container>
     </Box>
   );
