@@ -10,8 +10,8 @@ import { gradients } from '../theme';
 import Reveal from './Reveal';
 import SectionHeader from './SectionHeader';
 import PhotoFrame from './PhotoFrame';
-import salaFormacao from '../assets/gallery8.jpg';
-import montagemAndaime from '../assets/gallery7.jpg';
+import salaFormacao from '../assets/aula-teorica.jpg';
+import montagemAndaime from '../assets/aula-pratica.jpg';
 
 function List({ items, color }) {
   return (

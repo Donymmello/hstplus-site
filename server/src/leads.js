@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { sendLeadNotification } from './mailer.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const LEADS_FILE = path.join(__dirname, '..', 'cache', 'leads.json');
@@ -40,10 +41,10 @@ export async function saveLead(payload) {
   existing.push(lead);
   await fs.writeFile(LEADS_FILE, JSON.stringify(existing, null, 2));
 
-  // TODO: quando houver um serviço de email configurado (ex: nodemailer +
-  // SMTP, ou Resend/Sendgrid), notificar aqui a equipa da HST Plus por
-  // email além de gravar em ficheiro. Por agora fica só persistido —
-  // consultar server/cache/leads.json ou criar um pequeno painel de leitura.
+  // O lead já está gravado nesta linha — o email é só uma notificação por
+  // cima. Se falhar (SMTP em baixo, credenciais erradas), o pedido nunca se
+  // perde, fica sempre disponível em GET /api/leads.
+  sendLeadNotification(lead).catch((e) => console.error('[leads] erro inesperado ao notificar:', e.message));
 
   return lead;
 }

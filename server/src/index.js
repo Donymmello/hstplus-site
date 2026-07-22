@@ -5,6 +5,8 @@ import 'dotenv/config';
 import { refreshCache, readCache } from './fetchPosts.js';
 import { saveLead, readLeads } from './leads.js';
 import { readKpis, saveKpis } from './kpis.js';
+import { readTurmas, readAllTurmas, saveTurmas } from './calendario.js';
+import { readDashboard, saveDashboard } from './dashboardPreview.js';
 
 const app = express();
 app.use(cors());
@@ -34,7 +36,8 @@ app.post('/api/leads', async (req, res) => {
 // Leitura simples dos pedidos recebidos — protegida por chave (?key=...) até
 // haver um painel de administração a sério.
 app.get('/api/leads', async (req, res) => {
-  if (!ADMIN_KEY || req.query.key !== ADMIN_KEY) {
+  const key = req.query.key || req.headers['x-admin-key'];
+  if (!ADMIN_KEY || key !== ADMIN_KEY) {
     return res.status(401).json({ ok: false, error: 'Não autorizado' });
   }
   const leads = await readLeads();
@@ -61,7 +64,60 @@ app.put('/api/kpis', async (req, res) => {
   }
 });
 
+// Calendário de próximas turmas — leitura pública, escrita protegida pela
+// mesma ADMIN_KEY. Turmas com data já passada são filtradas automaticamente
+// em readTurmas(). Enquanto o ficheiro não existir, devolve lista vazia (a
+// página mostra um estado "a confirmar", nunca datas inventadas).
+app.get('/api/calendario', async (_req, res) => {
+  const turmas = await readTurmas();
+  res.json({ ok: true, turmas });
+});
+
+// Só para o painel de administração — inclui turmas passadas, para poderem
+// ser editadas/apagadas em vez de ficarem invisíveis para sempre.
+app.get('/api/calendario/all', async (req, res) => {
+  const key = req.query.key || req.headers['x-admin-key'];
+  if (!ADMIN_KEY || key !== ADMIN_KEY) {
+    return res.status(401).json({ ok: false, error: 'Não autorizado' });
+  }
+  const turmas = await readAllTurmas();
+  res.json({ ok: true, turmas });
+});
+
+app.put('/api/calendario', async (req, res) => {
+  const key = req.query.key || req.headers['x-admin-key'];
+  if (!ADMIN_KEY || key !== ADMIN_KEY) {
+    return res.status(401).json({ ok: false, error: 'Não autorizado' });
+  }
+  try {
+    const turmas = await saveTurmas(req.body);
+    return res.json({ ok: true, turmas });
+  } catch (e) {
+    return res.status(e.status || 500).json({ ok: false, error: e.message });
+  }
+});
+
 app.get('/api/health', (_req, res) => res.json({ ok: true }));
+
+// Conteúdo do DashboardPreview.jsx (secção "Visibilidade Operacional" da
+// homepage) — leitura pública, escrita protegida pela mesma ADMIN_KEY.
+app.get('/api/dashboard-preview', async (_req, res) => {
+  const dashboard = await readDashboard();
+  res.json({ ok: true, dashboard });
+});
+
+app.put('/api/dashboard-preview', async (req, res) => {
+  const key = req.query.key || req.headers['x-admin-key'];
+  if (!ADMIN_KEY || key !== ADMIN_KEY) {
+    return res.status(401).json({ ok: false, error: 'Não autorizado' });
+  }
+  try {
+    const dashboard = await saveDashboard(req.body);
+    return res.json({ ok: true, dashboard });
+  } catch (e) {
+    return res.status(e.status || 500).json({ ok: false, error: e.message });
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`[server] hstplus-blog-api a correr na porta ${PORT}`);

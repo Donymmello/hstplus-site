@@ -19,6 +19,7 @@ import { company } from '../data/content';
 import { gradients } from '../theme';
 import Reveal from '../components/Reveal';
 import LeadFormDialog from '../components/LeadFormDialog';
+import coverImage from '../assets/nossas_formacoes1.jpg';
 
 export default function CourseDetailPage() {
   const { slug } = useParams();
@@ -54,8 +55,29 @@ export default function CourseDetailPage() {
 
   return (
     <>
-      <Box sx={{ backgroundImage: gradients.dark, color: '#fff', py: { xs: 6, md: 8 } }}>
-        <Container maxWidth="lg">
+      <Box sx={{ position: 'relative', color: '#fff', py: { xs: 6, md: 8 }, overflow: 'hidden' }}>
+        <Box
+          component="img"
+          src={coverImage}
+          alt=""
+          aria-hidden="true"
+          sx={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+          }}
+        />
+        <Box
+          sx={{
+            position: 'absolute',
+            inset: 0,
+            backgroundImage:
+              'linear-gradient(160deg, rgba(74,13,20,0.93) 0%, rgba(46,8,16,0.90) 55%, rgba(20,24,26,0.88) 130%)',
+          }}
+        />
+        <Container maxWidth="lg" sx={{ position: 'relative' }}>
           <Reveal>
             <Link
               component={RouterLink}

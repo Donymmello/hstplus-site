@@ -27,6 +27,7 @@ import { legal, certifications } from '../data/content';
 import { gradients } from '../theme';
 import Reveal from './Reveal';
 import SectionHeader from './SectionHeader';
+import formacoesPhoto from '../assets/nossas_formacoes1.jpg';
 
 export default function Formacoes() {
   const [expanded, setExpanded] = useState('panel0');
@@ -46,6 +47,34 @@ export default function Formacoes() {
             horárias definidas por nível — Básico, Médio e Avançado — organizadas por área de
             actuação.
           </SectionHeader>
+
+          <Reveal delay={0.1}>
+            <Box
+              sx={{
+                position: 'relative',
+                overflow: 'hidden',
+                aspectRatio: { xs: '4/3', md: '21/6' },
+                mb: 5,
+                '&:hover img': { transform: 'scale(1.04)' },
+              }}
+            >
+              <Box
+                component="img"
+                src={formacoesPhoto}
+                alt="Sessão de formação profissional em sala — HST Plus"
+                sx={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '50% 30%', transition: 'transform 0.6s ease' }}
+              />
+              <Box
+                sx={{
+                  position: 'absolute',
+                  inset: 0,
+                  backgroundImage:
+                    'linear-gradient(180deg, rgba(20,24,26,0) 35%, rgba(74,13,20,0.55) 78%, rgba(46,8,16,0.85) 100%)',
+                  pointerEvents: 'none',
+                }}
+              />
+            </Box>
+          </Reveal>
 
           <Box>
             {courseCatalog.map((cat, i) => (
@@ -155,7 +184,7 @@ export default function Formacoes() {
           </Box>
 
           <Stack alignItems="center" sx={{ mt: 4, mb: 9 }}>
-            <Button href="#contacto" variant="outlined" color="primary" endIcon={<ArrowOutwardIcon />}>
+            <Button component={RouterLink} to="/calendario" variant="outlined" color="primary" endIcon={<ArrowOutwardIcon />}>
               Pedir Calendário de Formações
             </Button>
           </Stack>
