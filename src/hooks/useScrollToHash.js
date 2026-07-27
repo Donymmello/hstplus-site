@@ -2,20 +2,27 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 /**
- * Quando se navega para "/#quem-somos" a partir de outra página (ex: da
- * Galeria de volta à Home), o React Router só troca de página — não faz
- * scroll até à âncora sozinho. Este hook trata disso.
+ * Corre em TODA a mudança de rota (não só quando o hash muda) — sem isto,
+ * navegar de "/galeria" (sem hash) para "/" (sem hash) não disparava nada,
+ * porque o valor de `hash` ficava igual ('' -> ''). Agora depende também de
+ * `pathname`, para cobrir esse caso.
+ *
+ * Com hash (ex: "/#quem-somos") -> scroll suave até à secção.
+ * Sem hash -> scroll instantâneo para o topo (nova página começa do início).
  */
 export default function useScrollToHash() {
-  const { hash } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    if (!hash) return;
+    if (!hash) {
+      window.scrollTo({ top: 0 });
+      return;
+    }
     // pequeno atraso para garantir que a página já montou todo o conteúdo
     const id = setTimeout(() => {
       const el = document.querySelector(hash);
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 80);
     return () => clearTimeout(id);
-  }, [hash]);
+  }, [pathname, hash]);
 }

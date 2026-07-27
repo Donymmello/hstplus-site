@@ -31,7 +31,7 @@ export default function Metodologia() {
     <Box sx={{ py: { xs: 8, md: 11 }, backgroundImage: gradients.surfaceLight }}>
       <Container maxWidth="lg">
         <Reveal>
-        <SectionHeader index="05" eyebrow="Método Aplicado" title="Aulas teóricas e práticas, para cada participante" mb={0} />
+        <SectionHeader index="06" eyebrow="Método Aplicado" title="Aulas teóricas e práticas, para cada participante" mb={0} />
         <Stack direction="row" spacing={1} justifyContent="center" flexWrap="wrap" useFlexGap sx={{ mt: 2, mb: 5 }}>
           {trainingApproach.map((t) => (
             <Chip key={t.title} label={t.title} size="small" sx={{ bgcolor: '#fff', fontWeight: 600 }} />

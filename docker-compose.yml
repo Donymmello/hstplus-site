@@ -21,7 +21,9 @@ services:
       - ./server/.env
     volumes:
       - blog-cache:/app/cache
+      - gallery-uploads:/app/uploads
     restart: unless-stopped
 
 volumes:
   blog-cache:
+  gallery-uploads:

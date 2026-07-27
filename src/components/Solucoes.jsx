@@ -3,86 +3,153 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
-import PolicyIcon from '@mui/icons-material/Policy';
-import SchoolIcon from '@mui/icons-material/School';
-import FactCheckIcon from '@mui/icons-material/FactCheck';
+import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
+import { totalCourses } from '../data/courses';
 import { gradients } from '../theme';
 import Reveal from './Reveal';
+import SectionHeader from './SectionHeader';
 
+// "spec" é a referência técnica de cada pilar (norma, quantidade) — não é
+// decoração, é o mesmo espírito de uma ficha/directório técnico.
 const pillars = [
   {
-    icon: PolicyIcon,
-    title: 'Consultoria',
-    text: 'Levantamento e análise de riscos, planos de segurança e emergência, políticas de SST e implementação de Sistemas de Gestão Integrada (ISO 9001, 14001 e 45001).',
-    href: '#quem-somos',
+    title: 'HSEQ',
+    text: 'Implementação e acompanhamento de Sistemas de Gestão da Qualidade, Ambiente e Segurança, alinhados às normas internacionais que operações exigentes precisam para trabalhar com os seus clientes.',
+    spec: 'ISO 9001 · 14001 · 45001',
+    href: '#contacto',
   },
   {
-    icon: SchoolIcon,
     title: 'Formação',
-    text: 'Mais de 30 formações técnicas e preventivas, com formadores experientes e conteúdo adaptado à realidade de cada equipa e sector de actividade.',
+    text: `Mais de ${totalCourses} formações técnicas e preventivas, com formadores experientes e conteúdo adaptado à realidade de cada equipa e sector de actividade.`,
+    spec: `${totalCourses}+ MÓDULOS`,
     href: '#formacoes',
   },
   {
-    icon: FactCheckIcon,
-    title: 'Inspeção de Qualidade',
-    text: 'Mais de 100 certificações em equipamentos de elevação de cargas e trabalho em altura, com padrões elevados de segurança e conformidade.',
+    title: 'Gestão de Risco',
+    text: 'Identificação, avaliação e mitigação de riscos operacionais — matrizes de risco e planos de contingência e resposta a emergências, à medida de cada actividade.',
+    spec: 'ISO 31000',
+    href: '#contacto',
+  },
+  {
+    title: 'Certificação',
+    text: 'Mais de 100 certificações emitidas em equipamentos de elevação de cargas e trabalho em altura, com padrões elevados de segurança e conformidade.',
+    spec: '100+ EMITIDAS',
     href: '#certificacoes',
   },
+  {
+    title: 'Consultoria',
+    text: 'Auditorias técnicas e acompanhamento no terreno, do diagnóstico à implementação dos planos de acção correctiva.',
+    spec: 'ON-SITE',
+    href: '#contacto',
+  },
 ];
+
+function PillarRow({ p, index, isLast }) {
+  return (
+    <Reveal delay={index * 0.06}>
+      <Box
+        component="a"
+        href={p.href}
+        sx={{
+          display: 'block',
+          textDecoration: 'none',
+          color: 'inherit',
+          borderBottom: isLast ? 'none' : '1px solid',
+          borderColor: 'divider',
+          borderLeft: '3px solid',
+          borderLeftColor: 'rgba(122,20,32,0.18)',
+          pl: { xs: 2, md: 3 },
+          py: { xs: 3, md: 3.5 },
+          transition: 'background-color 0.2s ease, border-left-color 0.2s ease',
+          '&:hover': { bgcolor: 'rgba(122,20,32,0.03)', borderLeftColor: 'primary.main' },
+          '&:hover .pillar-title': { color: 'primary.main' },
+          '&:hover .pillar-arrow': { transform: 'translateX(4px)', opacity: 1 },
+        }}
+      >
+        <Grid container spacing={{ xs: 1, md: 3 }} alignItems="center">
+          <Grid size={{ xs: 3, sm: 2, md: 1 }}>
+            <Typography
+              sx={{
+                fontFamily: '"Big Shoulders Display"',
+                fontWeight: 800,
+                fontSize: { xs: '1.5rem', md: '1.8rem' },
+                color: 'primary.main',
+              }}
+            >
+              {String(index + 1).padStart(2, '0')}
+            </Typography>
+          </Grid>
+
+          <Grid size={{ xs: 9, sm: 4, md: 2.5 }}>
+            <Typography
+              className="pillar-title"
+              sx={{
+                fontFamily: '"Big Shoulders Display"',
+                fontWeight: 700,
+                fontSize: { xs: '1.15rem', md: '1.3rem' },
+                transition: 'color 0.2s ease',
+              }}
+            >
+              {p.title}
+            </Typography>
+          </Grid>
+
+          <Grid size={{ xs: 12, sm: 6, md: 6.5 }} sx={{ order: { xs: 3, sm: 0 } }}>
+            <Typography sx={{ fontSize: '0.88rem', color: 'text.secondary', maxWidth: 520 }}>{p.text}</Typography>
+          </Grid>
+
+          <Grid size={{ xs: 12, md: 2 }} sx={{ order: { xs: 2, md: 0 } }}>
+            <Stack
+              direction="row"
+              alignItems="center"
+              justifyContent={{ xs: 'flex-start', md: 'flex-end' }}
+              spacing={1.2}
+              sx={{ mt: { xs: 0.5, md: 0 } }}
+            >
+              <Box
+                sx={{
+                  bgcolor: 'primary.main',
+                  color: '#fff',
+                  px: 1,
+                  py: 0.35,
+                  fontFamily: '"IBM Plex Mono"',
+                  fontSize: '0.62rem',
+                  letterSpacing: '0.04em',
+                  whiteSpace: 'nowrap',
+                  flexShrink: 0,
+                }}
+              >
+                {p.spec}
+              </Box>
+              <ArrowOutwardIcon
+                className="pillar-arrow"
+                sx={{ fontSize: 15, color: 'secondary.dark', opacity: 0.5, transition: 'all 0.2s ease', flexShrink: 0 }}
+              />
+            </Stack>
+          </Grid>
+        </Grid>
+      </Box>
+    </Reveal>
+  );
+}
 
 export default function Solucoes() {
   return (
     <Box id="solucoes" sx={{ py: { xs: 8, md: 11 }, backgroundImage: gradients.surfaceLight }}>
       <Container maxWidth="lg">
         <Reveal>
-        <Box sx={{ textAlign: 'center', mb: 6 }}>
-          <Typography variant="overline" sx={{ color: 'primary.main' }}>
-            01 — O Que Fazemos
-          </Typography>
-          <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.4rem' }, mt: 1 }}>
-            Três pilares, uma só missão de segurança
-          </Typography>
-        </Box>
+          <SectionHeader index="01" eyebrow="O Que Fazemos" title="Segurança não é um serviço isolado — é um sistema." mb={{ xs: 5, md: 6 }}>
+            Da avaliação de risco à certificação de equipamentos, cada frente entra num único
+            sistema de gestão integrada — pensado para operações que não podem parar por causa de
+            um acidente evitável.
+          </SectionHeader>
 
-        <Grid container spacing={3}>
-          {pillars.map((p, i) => {
-            const Icon = p.icon;
-            return (
-              <Grid size={{ xs: 12, md: 4 }} key={p.title}>
-                <Reveal delay={i * 0.12}>
-                  <Box
-                    component="a"
-                    href={p.href}
-                    sx={{
-                      display: 'block',
-                      textDecoration: 'none',
-                      color: 'inherit',
-                      height: '100%',
-                      p: 4,
-                      border: '1px solid',
-                      borderColor: 'divider',
-                      transition: 'border-color 0.2s ease, transform 0.2s ease',
-                      '&:hover': { borderColor: 'secondary.main', transform: 'translateY(-3px)' },
-                    }}
-                  >
-                    <Stack
-                      alignItems="center"
-                      justifyContent="center"
-                      sx={{ width: 56, height: 56, backgroundImage: gradients.primary, mb: 3 }}
-                    >
-                      <Icon sx={{ color: 'warning.main', fontSize: 28 }} />
-                    </Stack>
-                    <Typography variant="h4" sx={{ fontSize: '1.3rem', mb: 1.2 }}>
-                      {p.title}
-                    </Typography>
-                    <Typography sx={{ fontSize: '0.9rem', color: 'text.secondary' }}>{p.text}</Typography>
-                  </Box>
-                </Reveal>
-              </Grid>
-            );
-          })}
-        </Grid>
-      </Reveal>
+          <Box sx={{ borderTop: '1px solid', borderColor: 'divider' }}>
+            {pillars.map((p, i) => (
+              <PillarRow key={p.title} p={p} index={i} isLast={i === pillars.length - 1} />
+            ))}
+          </Box>
+        </Reveal>
       </Container>
     </Box>
   );

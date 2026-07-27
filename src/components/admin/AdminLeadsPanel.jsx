@@ -11,8 +11,8 @@ import Skeleton from '@mui/material/Skeleton';
 
 const API_URL = `${import.meta.env.VITE_API_URL || '/api'}/leads`;
 
-const TIPO_LABEL = { informacoes: 'Informações', cotacao: 'Cotação' };
-const TIPO_COLOR = { informacoes: 'default', cotacao: 'secondary' };
+const TIPO_LABEL = { informacoes: 'Informações', cotacao: 'Cotação', proposta: 'Proposta' };
+const TIPO_COLOR = { informacoes: 'default', cotacao: 'secondary', proposta: 'primary' };
 
 function formatDataHora(iso) {
   return new Date(iso).toLocaleString('pt-PT', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' });
@@ -44,13 +44,14 @@ export default function AdminLeadsPanel({ adminKey, onUnauthorized }) {
     <Box>
       <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 3, flexWrap: 'wrap', gap: 2 }}>
         <Typography sx={{ color: 'text.secondary', fontSize: '0.85rem' }}>
-          Pedidos de Informações/Cotação recebidos pelo site. Só leitura — se o email estiver
-          configurado, também chegam por email; isto fica sempre como registo de apoio.
+          Pedidos de Informações/Cotação/Proposta recebidos pelo site. Só leitura — se o email
+          estiver configurado, também chegam por email; isto fica sempre como registo de apoio.
         </Typography>
         <ToggleButtonGroup size="small" value={filtro} exclusive onChange={(_, v) => v && setFiltro(v)}>
           <ToggleButton value="todos">Todos</ToggleButton>
           <ToggleButton value="informacoes">Informações</ToggleButton>
           <ToggleButton value="cotacao">Cotação</ToggleButton>
+          <ToggleButton value="proposta">Proposta</ToggleButton>
         </ToggleButtonGroup>
       </Stack>
 
@@ -85,7 +86,7 @@ export default function AdminLeadsPanel({ adminKey, onUnauthorized }) {
               </Stack>
 
               {l.course && (
-                <Typography sx={{ fontSize: '0.82rem', color: 'primary.main', mb: 1 }}>Curso: {l.course}</Typography>
+                <Typography sx={{ fontSize: '0.82rem', color: 'primary.main', mb: 1 }}>Referência: {l.course}</Typography>
               )}
 
               <Stack direction="row" spacing={2} flexWrap="wrap" useFlexGap sx={{ mb: 1 }}>

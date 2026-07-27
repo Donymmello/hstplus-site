@@ -26,6 +26,7 @@ const links = [
   { to: '/', label: 'Inicio' },
   { to: '/#quem-somos', label: 'Quem Somos' },
   { to: '/#solucoes', label: 'Soluções' },
+  { to: '/#setores', label: 'Sectores' },
   { to: '/#blog', label: 'Blog' },
   { to: '/#contacto', label: 'Contacto' },
 ];
@@ -33,7 +34,7 @@ const links = [
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  
+
   // Controlo do Mega Menu por Hover (Desktop)
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
   const containerRef = useRef(null);
@@ -52,7 +53,7 @@ export default function Header() {
   const handleFormacoesClick = (e) => {
     e.preventDefault();
     setMegaMenuOpen(false); // Fecha o menu ao clicar
-    
+
     if (location.pathname === '/') {
       const element = document.getElementById('formacoes');
       if (element) {
@@ -60,6 +61,17 @@ export default function Header() {
       }
     } else {
       navigate('/#formacoes');
+    }
+  };
+
+  // Clicar no logo estando já na Home é um clique para o MESMO url — o
+  // React Router não navega, não re-renderiza nada, e por isso nenhum
+  // scroll é accionado sozinho. Se já estamos na home sem hash, tratamos
+  // isto à mão.
+  const handleLogoClick = (e) => {
+    if (location.pathname === '/' && !location.hash) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
@@ -72,19 +84,23 @@ export default function Header() {
       >
         <Toolbar
           sx={{
+            position: 'relative',
             minHeight: { xs: 64, md: scrolled ? 58 : 72 },
             maxWidth: 1240, width: '100%', mx: 'auto', px: { xs: 2, md: 3 },
             transition: 'min-height 0.25s ease',
           }}
         >
           <Stack
-            direction="row"
-            alignItems="center"
-            spacing={1.5}
-            sx={{ flexGrow: 1 }}
             component={RouterLink}
             to="/"
-            style={{ textDecoration: 'none' }}
+            onClick={handleLogoClick}
+            spacing={1.5}
+            sx={{
+              display: 'flex',       // Garante o flexbox
+              flexDirection: 'row',  // Substitui a prop direction="row"
+              alignItems: 'center',  // Substitui a prop solta alignItems="center"
+              textDecoration: 'none' // Pode mover o style para aqui também!
+            }}
           >
             <Box
               component="img"
@@ -115,6 +131,10 @@ export default function Header() {
             </Box>
           </Stack>
 
+          {/* Espaço vazio entre o logo e o menu — de propósito SEM link nenhum,
+              para não repetir o bug de "a barra toda é clicável" */}
+          <Box sx={{ flexGrow: 1 }} />
+
           {/* Menu Desktop */}
           <Stack direction="row" spacing={0.5} sx={{ display: { xs: 'none', lg: 'flex' }, alignItems: 'center' }}>
             {/* Quem Somos e Soluções */}
@@ -129,17 +149,16 @@ export default function Header() {
               ref={containerRef}
               onMouseEnter={() => setMegaMenuOpen(true)}
               onMouseLeave={() => setMegaMenuOpen(false)}
-              sx={{ position: 'relative' }}
             >
               <Button
                 onClick={handleFormacoesClick}
                 endIcon={
-                  <KeyboardArrowDownIcon 
-                    sx={{ 
-                      transform: megaMenuOpen ? 'rotate(180deg)' : 'none', 
+                  <KeyboardArrowDownIcon
+                    sx={{
+                      transform: megaMenuOpen ? 'rotate(180deg)' : 'none',
                       transition: 'transform 0.2s ease',
                       fontSize: '0.9rem !important'
-                    }} 
+                    }}
                   />
                 }
                 sx={{ color: 'text.primary', fontSize: '0.78rem', px: 1.2 }}
@@ -169,24 +188,24 @@ export default function Header() {
                   {/* Grid de Cursos dividida pelas Categorias */}
                   <Grid container spacing={3}>
                     {courseCatalog.map((cat) => (
-                      <Grid item xs={12} sm={4} key={cat.category}>
+                      <Grid size={{ xs: 12, sm: 4 }} key={cat.category}>
                         {/* Título da Categoria sutil no topo de cada coluna */}
-                        <Typography 
-                          sx={{ 
-                            fontSize: '0.65rem', 
-                            color: 'secondary.main', 
-                            fontWeight: 700, 
-                            letterSpacing: '0.1em',
+                        <Typography
+                          sx={{
+                            fontSize: '0.78rem',
+                            color: 'secondary.main',
+                            fontWeight: 700,
+                            letterSpacing: '0.08em',
                             textTransform: 'uppercase',
                             mb: 1.5,
-                            borderBottom: '1px solid rgba(255,255,255,0.05)',
-                            pb: 0.5
+                            borderBottom: '1px solid rgba(255,255,255,0.08)',
+                            pb: 0.8
                           }}
                         >
                           {cat.category}
                         </Typography>
                         {/* Lista dos Cursos de forma direta */}
-                        <Stack spacing={1}>
+                        <Stack spacing={1.2}>
                           {cat.courses.slice(0, 4).map((c) => ( // Mostra até 4 cursos em cada coluna
                             <Typography
                               key={c.name}
@@ -194,8 +213,8 @@ export default function Header() {
                               to="/#formacoes"
                               onClick={() => setMegaMenuOpen(false)}
                               sx={{
-                                fontSize: '0.75rem',
-                                color: '#d1d5db',
+                                fontSize: '0.92rem',
+                                color: 'rgba(255,255,255,0.92)',
                                 textDecoration: 'none',
                                 display: 'flex',
                                 alignItems: 'center',
@@ -206,7 +225,7 @@ export default function Header() {
                                 }
                               }}
                             >
-                              <ArrowRightIcon sx={{ fontSize: '1rem', color: 'rgba(255,255,255,0.3)' }} />
+                              <ArrowRightIcon sx={{ fontSize: '1.1rem', color: 'rgba(255,255,255,0.4)' }} />
                               {c.name}
                             </Typography>
                           ))}
@@ -216,13 +235,13 @@ export default function Header() {
                   </Grid>
 
                   {/* Linha Divisória e Botão Ver Todas */}
-                  <Box 
-                    sx={{ 
-                      mt: 3, 
-                      pt: 2, 
-                      borderTop: '1px solid rgba(255, 255, 255, 0.08)', 
-                      display: 'flex', 
-                      justifyContent: 'center' 
+                  <Box
+                    sx={{
+                      mt: 3,
+                      pt: 2,
+                      borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+                      display: 'flex',
+                      justifyContent: 'center'
                     }}
                   >
                     <Button

@@ -37,7 +37,7 @@ export default function Formacoes() {
       <Container maxWidth="lg">
         <Reveal>
           <SectionHeader
-            index="02"
+            index="03"
             eyebrow="Nossas Formações"
             title={`Catálogo de ${totalCourses}+ formações técnicas`}
             align="left"

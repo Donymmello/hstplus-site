@@ -3,6 +3,9 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 ::selection {
   background: #C81D2C;

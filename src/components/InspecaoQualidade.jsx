@@ -14,7 +14,7 @@ export default function InspecaoQualidade() {
     <Box sx={{ py: { xs: 8, md: 11 }, backgroundImage: gradients.surfaceAlt }}>
       <Container maxWidth="lg">
         <Reveal>
-          <SectionHeader index="04" eyebrow="Inspeção de Qualidade" title="Mais de 100 certificações em equipamentos" introWidth={680}>
+          <SectionHeader index="05" eyebrow="Inspeção de Qualidade" title="Mais de 100 certificações em equipamentos" introWidth={680}>
             {qualityInspection}
           </SectionHeader>
           <Grid container spacing={2} sx={{ maxWidth: 900, mx: 'auto' }}>

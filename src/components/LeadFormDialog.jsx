@@ -24,16 +24,37 @@ const emptyForm = {
 };
 
 /**
- * Formulário partilhado por "Pedir Informações" e "Pedir Cotação". O `type`
- * ('informacoes' | 'cotacao') só muda os textos e é enviado ao backend, para
- * a HST Plus conseguir distinguir os dois tipos de pedido.
+ * Formulário partilhado por "Pedir Informações", "Pedir Cotação" (ligado a um
+ * curso) e "Pedir Proposta" (pedido geral, sem curso associado, usado no
+ * Contacto). O `type` só muda os textos e é enviado ao backend, para a HST
+ * Plus conseguir distinguir os três tipos de pedido.
  */
+const TYPE_CONFIG = {
+  informacoes: {
+    title: 'Pedir Informações',
+    description: 'Preencha os seus dados e entraremos em contacto com mais informações sobre esta formação.',
+    mensagemLabel: 'Mensagem (opcional)',
+    mensagemRequired: false,
+  },
+  cotacao: {
+    title: 'Pedir Cotação',
+    description: 'Preencha os seus dados para recebermos os detalhes e enviarmos uma cotação personalizada.',
+    mensagemLabel: 'Detalhes do pedido (nº de formandos, datas, local...)',
+    mensagemRequired: true,
+  },
+  proposta: {
+    title: 'Pedir Proposta',
+    description: 'Preencha os seus dados e a nossa equipa prepara uma proposta à medida da sua empresa.',
+    mensagemLabel: 'Conte-nos um pouco sobre a sua necessidade (opcional)',
+    mensagemRequired: false,
+  },
+};
+
 export default function LeadFormDialog({ open, onClose, type = 'informacoes', courseName }) {
   const [form, setForm] = useState(emptyForm);
   const [status, setStatus] = useState('idle'); // idle | sending | sent | error
 
-  const isQuote = type === 'cotacao';
-  const title = isQuote ? 'Pedir Cotação' : 'Pedir Informações';
+  const { title, description, mensagemLabel, mensagemRequired } = TYPE_CONFIG[type] || TYPE_CONFIG.informacoes;
 
   const handleChange = (field) => (e) => setForm((f) => ({ ...f, [field]: e.target.value }));
 
@@ -96,9 +117,7 @@ export default function LeadFormDialog({ open, onClose, type = 'informacoes', co
           <DialogContent>
             <Stack spacing={2}>
               <Typography sx={{ fontSize: '0.85rem', color: 'text.secondary' }}>
-                {isQuote
-                  ? 'Preencha os seus dados para recebermos os detalhes e enviarmos uma cotação personalizada.'
-                  : 'Preencha os seus dados e entraremos em contacto com mais informações sobre esta formação.'}
+                {description}
               </Typography>
 
               <Typography sx={{ fontSize: '0.72rem', fontWeight: 700, color: 'primary.main', letterSpacing: '0.04em' }}>
@@ -117,8 +136,8 @@ export default function LeadFormDialog({ open, onClose, type = 'informacoes', co
               <TextField label="Cargo (opcional)" size="small" value={form.cargo} onChange={handleChange('cargo')} />
 
               <TextField
-                label={isQuote ? 'Detalhes do pedido (nº de formandos, datas, local...)' : 'Mensagem (opcional)'}
-                required={isQuote}
+                label={mensagemLabel}
+                required={mensagemRequired}
                 multiline
                 minRows={3}
                 size="small"

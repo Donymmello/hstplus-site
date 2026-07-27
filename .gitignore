@@ -27,3 +27,4 @@ dist-ssr
 server/.env
 server/cache/*.json
 server/node_modules
+server/uploads/

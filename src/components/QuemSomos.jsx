@@ -92,7 +92,7 @@ export default function QuemSomos() {
 
               {/* Header Editorial Técnico */}
               <SectionHeader
-                index="03"
+                index="04"
                 eyebrow="Quem Somos"
                 title="Uma equipa moçambicana dedicada à sua segurança"
                 align="left"

@@ -1,6 +1,7 @@
 import Hero from '../components/Hero';
 import ClientLogos from '../components/ClientLogos';
 import Solucoes from '../components/Solucoes';
+import Setores from '../components/Setores';
 import Formacoes from '../components/Formacoes';
 import Stats from '../components/Stats';
 import DashboardPreview from '../components/DashboardPreview';
@@ -20,17 +21,18 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <ClientLogos />
+      <QuemSomos />
       <Solucoes />
+      <Setores />
+      <ClientLogos />
       <Formacoes />
       <Stats />
       <DashboardPreview />
-      <QuemSomos />
-      <GaleriaCTA />
       <InspecaoQualidade />
       <Metodologia />
       <Consultoria />
       <Referencias />
+      <GaleriaCTA />
       <Blog />
       <Contacto />
     </>

@@ -16,7 +16,7 @@ export default function Consultoria() {
     <Box id="consultoria" sx={{ py: { xs: 8, md: 11 }, backgroundImage: gradients.surfaceAlt }}>
       <Container maxWidth="lg">
         <Reveal>
-        <SectionHeader index="06" eyebrow="Consultoria Especializada" title="Expertise comprovada, a nível nacional e internacional" mb={6} />
+        <SectionHeader index="07" eyebrow="Consultoria Especializada" title="Expertise comprovada, a nível nacional e internacional" mb={6} />
 
         <Grid container spacing={4}>
           <Grid size={{ xs: 12, md: 5 }}>

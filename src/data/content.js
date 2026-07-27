@@ -3,7 +3,7 @@ export const company = {
   fullName: 'HST Plus, Consultancy & Training',
   founded: 2018,
   phone1: '+258 21 081 064',
-  phone2: '+258 84 360 3393',
+  phone2: '',
   whatsapp: '+258 86 556 4580',
   email: 'info@hstplus.co.mz',
   emailCorporate: 'corporate@hstplus.co.mz',

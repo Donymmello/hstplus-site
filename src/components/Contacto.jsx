@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
@@ -13,9 +14,10 @@ import { company } from '../data/content';
 import { gradients } from '../theme';
 import Reveal from './Reveal';
 import SectionHeader from './SectionHeader';
+import LeadFormDialog from './LeadFormDialog';
 
 const contactLines = [
-  { icon: PhoneIcon, label: `${company.phone1} / ${company.phone2}`, href: `tel:${company.phone1.replace(/\s/g, '')}` },
+  { icon: PhoneIcon, label: `${company.phone1}  ${company.phone2}`, href: `tel:${company.phone1.replace(/\s/g, '')}` },
   { icon: WhatsAppIcon, label: company.whatsapp, href: `https://wa.me/${company.whatsapp.replace(/\D/g, '')}` },
   { icon: EmailIcon, label: company.email, href: `mailto:${company.email}` },
   { icon: LanguageIcon, label: company.web, href: `https://${company.web}` },
@@ -23,6 +25,8 @@ const contactLines = [
 ];
 
 export default function Contacto() {
+  const [dialogOpen, setDialogOpen] = useState(false);
+
   return (
     <Box id="contacto" sx={{ py: { xs: 8, md: 11 }, backgroundImage: gradients.dark, color: '#fff' }}>
       <Container maxWidth="lg">
@@ -66,7 +70,7 @@ export default function Contacto() {
                   );
                 })}
                 <Button
-                  href={`mailto:${company.email}`}
+                  onClick={() => setDialogOpen(true)}
                   variant="contained"
                   color="secondary"
                   size="large"
@@ -79,6 +83,8 @@ export default function Contacto() {
           </Grid>
         </Reveal>
       </Container>
+
+      <LeadFormDialog open={dialogOpen} onClose={() => setDialogOpen(false)} type="proposta" />
     </Box>
   );
 }

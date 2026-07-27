@@ -4,8 +4,10 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import WhatsAppButton from '../components/WhatsAppButton';
 import PageFade from '../components/PageFade';
+import useScrollToHash from '../hooks/useScrollToHash';
 
 export default function MainLayout() {
+  useScrollToHash();
   return (
     <>
       <TopBar />

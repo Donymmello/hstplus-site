@@ -14,9 +14,10 @@ import AdminCalendarioPanel from '../components/admin/AdminCalendarioPanel';
 import AdminKpisPanel from '../components/admin/AdminKpisPanel';
 import AdminLeadsPanel from '../components/admin/AdminLeadsPanel';
 import AdminDashboardPanel from '../components/admin/AdminDashboardPanel';
+import AdminGaleriaPanel from '../components/admin/AdminGaleriaPanel';
 
 const STORAGE_KEY = 'hstAdminKey';
-const TABS = ['calendario', 'kpis', 'leads', 'dashboard'];
+const TABS = ['calendario', 'kpis', 'leads', 'dashboard', 'galeria'];
 
 export default function AdminPage() {
   const [adminKey, setAdminKey] = useState(() => sessionStorage.getItem(STORAGE_KEY) || '');
@@ -108,6 +109,7 @@ export default function AdminPage() {
             <Tab label="KPIs" />
             <Tab label="Leads" />
             <Tab label="Dashboard" />
+            <Tab label="Galeria" />
           </Tabs>
         </Paper>
 
@@ -115,6 +117,7 @@ export default function AdminPage() {
         {TABS[tab] === 'kpis' && <AdminKpisPanel adminKey={adminKey} onUnauthorized={handleUnauthorized} />}
         {TABS[tab] === 'leads' && <AdminLeadsPanel adminKey={adminKey} onUnauthorized={handleUnauthorized} />}
         {TABS[tab] === 'dashboard' && <AdminDashboardPanel adminKey={adminKey} onUnauthorized={handleUnauthorized} />}
+        {TABS[tab] === 'galeria' && <AdminGaleriaPanel adminKey={adminKey} onUnauthorized={handleUnauthorized} />}
       </Container>
     </Box>
   );

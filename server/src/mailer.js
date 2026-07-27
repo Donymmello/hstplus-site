@@ -31,7 +31,7 @@ function getTransporter() {
   return transporter;
 }
 
-const TIPO_LABEL = { informacoes: 'Pedido de Informações', cotacao: 'Pedido de Cotação' };
+const TIPO_LABEL = { informacoes: 'Pedido de Informações', cotacao: 'Pedido de Cotação', proposta: 'Pedido de Proposta' };
 
 function buildEmail(lead) {
   const tipo = TIPO_LABEL[lead.type] || 'Novo contacto';

@@ -16,6 +16,7 @@ import { gradients } from '../theme';
 const quickLinks = [
   { to: '/#quem-somos', label: 'Quem Somos' },
   { to: '/galeria', label: 'Galeria' },
+  { to: '/#setores', label: 'Sectores' },
   { to: '/#formacoes', label: 'Formações' },
 ];
 
