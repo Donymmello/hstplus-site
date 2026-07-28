@@ -2,247 +2,259 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.hstplus.co.mz/</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/galeria</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.hstplus.co.mz/calendario</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.hstplus.co.mz/insights</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.hstplus.co.mz/formacoes/metodologia-5s</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/formacoes/metodologia-pdca</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/formacoes/sst-saude-e-seguranca-no-trabalho-geral-consciencializacao</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/formacoes/gestao-de-risco</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/formacoes/gestao-de-fadiga-e-stress</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/formacoes/primeiros-socorros</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/formacoes/prevencao-e-combate-a-incendios</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/formacoes/procedimentos-de-evacuacao-de-emergencia</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/formacoes/investigacao-de-acidentes-de-trabalho-analise-pos-evento</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/formacoes/hira-hazard-identification-and-risk-analysis</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/formacoes/condicoes-inseguras-checklist</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/formacoes/analise-e-causa-raiz</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/formacoes/hst-higiene-e-seguranca-no-trabalho</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/formacoes/gestao-de-ppe-equipamentos-de-protecao-individual</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/formacoes/seguranca-em-trabalhos-em-altura</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/formacoes/trabalhos-em-espacos-confinados</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/formacoes/resgate-em-altura-e-em-espacos-confinados</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/formacoes/procedimento-em-lockout-and-tagout-loto</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/formacoes/uso-de-gasmeter-atex-atmosferas-explosivas</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/formacoes/dangerous-goods-cargas-perigosas</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/formacoes/rigger-sinaleiro-amarrador-de-cargas</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/formacoes/uso-de-ferramentas-manuais-electricas</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/formacoes/manuseio-de-empilhadeira</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/formacoes/manuseio-de-camiao-munck</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/formacoes/manuseio-de-guindaste</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/formacoes/manuseio-de-ponte-rolante</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/formacoes/manuseio-de-plataforma-elevatoria</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/formacoes/direcao-defensiva-e-preventiva</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/formacoes/manuseio-de-empilhadeira-mini-empilhadeira</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/formacoes/manuseio-de-guindaste-mini-guindaste</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/formacoes/flag-man-sinalizador-de-transito-manobras</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/formacoes/montagem-e-inspecao-de-andaime</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/formacoes/supervisao-de-andaime</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/formacoes/icamento-de-cargas</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/setores/petroleo-e-gas</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/setores/mineracao</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/setores/construcao</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/setores/telecomunicacoes</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hstplus.co.mz/setores/energia</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

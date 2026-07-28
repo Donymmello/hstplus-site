@@ -15,7 +15,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo1.png';
 import { colors, gradients } from '../theme';
 
 // Importamos os cursos para listar no Mega Menu
@@ -27,6 +27,7 @@ const links = [
   { to: '/#quem-somos', label: 'Quem Somos' },
   { to: '/#solucoes', label: 'Soluções' },
   { to: '/#setores', label: 'Sectores' },
+  { to: '/insights', label: 'Insights' },
   { to: '/#blog', label: 'Blog' },
   { to: '/#contacto', label: 'Contacto' },
 ];

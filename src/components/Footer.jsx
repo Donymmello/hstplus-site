@@ -9,15 +9,17 @@ import IconButton from '@mui/material/IconButton';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo1.png';
 import { company, socials } from '../data/content';
 import { gradients } from '../theme';
+import NewsletterSignup from './NewsletterSignup';
 
 const quickLinks = [
   { to: '/#quem-somos', label: 'Quem Somos' },
   { to: '/galeria', label: 'Galeria' },
   { to: '/#setores', label: 'Sectores' },
   { to: '/#formacoes', label: 'Formações' },
+  { to: '/insights', label: 'Insights' },
 ];
 
 const socialIcons = [
@@ -99,12 +101,24 @@ export default function Footer() {
           </Grid>
         </Grid>
 
+        <Box sx={{ mt: 6, pt: 5, borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+          <Grid container>
+            <Grid size={{ xs: 12, md: 7 }}>
+              <NewsletterSignup
+                variant="dark"
+                title="Recebe os nossos Insights por email"
+                description="Artigos técnicos de HSEQ, sem spam."
+              />
+            </Grid>
+          </Grid>
+        </Box>
+
         <Stack
           direction={{ xs: 'column', sm: 'row' }}
           justifyContent="space-between"
           alignItems="center"
           spacing={1}
-          sx={{ mt: 6, pt: 3, borderTop: '1px solid rgba(255,255,255,0.1)', fontSize: '0.72rem' }}
+          sx={{ mt: 5, pt: 3, borderTop: '1px solid rgba(255,255,255,0.1)', fontSize: '0.72rem' }}
         >
           <Typography sx={{ fontSize: 'inherit' }}>
             © {new Date().getFullYear()} {company.fullName}. Todos os direitos reservados.

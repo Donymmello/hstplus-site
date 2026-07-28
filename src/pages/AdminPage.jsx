@@ -15,9 +15,11 @@ import AdminKpisPanel from '../components/admin/AdminKpisPanel';
 import AdminLeadsPanel from '../components/admin/AdminLeadsPanel';
 import AdminDashboardPanel from '../components/admin/AdminDashboardPanel';
 import AdminGaleriaPanel from '../components/admin/AdminGaleriaPanel';
+import AdminInsightsPanel from '../components/admin/AdminInsightsPanel';
+import AdminNewsletterPanel from '../components/admin/AdminNewsletterPanel';
 
 const STORAGE_KEY = 'hstAdminKey';
-const TABS = ['calendario', 'kpis', 'leads', 'dashboard', 'galeria'];
+const TABS = ['calendario', 'kpis', 'leads', 'dashboard', 'galeria', 'insights', 'newsletter'];
 
 export default function AdminPage() {
   const [adminKey, setAdminKey] = useState(() => sessionStorage.getItem(STORAGE_KEY) || '');
@@ -101,7 +103,9 @@ export default function AdminPage() {
           <Tabs
             value={tab}
             onChange={(_, v) => setTab(v)}
-            variant="fullWidth"
+            variant="scrollable"
+            scrollButtons="auto"
+            allowScrollButtonsMobile
             textColor="secondary"
             indicatorColor="secondary"
           >
@@ -110,6 +114,8 @@ export default function AdminPage() {
             <Tab label="Leads" />
             <Tab label="Dashboard" />
             <Tab label="Galeria" />
+            <Tab label="Insights" />
+            <Tab label="Newsletter" />
           </Tabs>
         </Paper>
 
@@ -118,6 +124,8 @@ export default function AdminPage() {
         {TABS[tab] === 'leads' && <AdminLeadsPanel adminKey={adminKey} onUnauthorized={handleUnauthorized} />}
         {TABS[tab] === 'dashboard' && <AdminDashboardPanel adminKey={adminKey} onUnauthorized={handleUnauthorized} />}
         {TABS[tab] === 'galeria' && <AdminGaleriaPanel adminKey={adminKey} onUnauthorized={handleUnauthorized} />}
+        {TABS[tab] === 'insights' && <AdminInsightsPanel adminKey={adminKey} onUnauthorized={handleUnauthorized} />}
+        {TABS[tab] === 'newsletter' && <AdminNewsletterPanel adminKey={adminKey} onUnauthorized={handleUnauthorized} />}
       </Container>
     </Box>
   );

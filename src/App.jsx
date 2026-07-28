@@ -8,6 +8,8 @@ import GaleriaPage from './pages/GaleriaPage';
 import CourseDetailPage from './pages/CourseDetailPage';
 import SectorDetailPage from './pages/SectorDetailPage';
 import CalendarioPage from './pages/CalendarioPage';
+import InsightsPage from './pages/InsightsPage';
+import InsightArticlePage from './pages/InsightArticlePage';
 import AdminPage from './pages/AdminPage';
 
 export default function App() {
@@ -23,6 +25,8 @@ export default function App() {
           <Route path="/formacoes/:slug" element={<CourseDetailPage />} />
           <Route path="/setores/:slug" element={<SectorDetailPage />} />
           <Route path="/calendario" element={<CalendarioPage />} />
+          <Route path="/insights" element={<InsightsPage />} />
+          <Route path="/insights/:slug" element={<InsightArticlePage />} />
         </Route>
         {/* Fora do MainLayout de propósito — ferramenta interna, sem header/footer/WhatsApp do site público */}
         <Route path="/admin" element={<AdminPage />} />
