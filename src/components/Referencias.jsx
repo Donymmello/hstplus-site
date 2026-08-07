@@ -53,6 +53,11 @@ export default function Referencias() {
               </BarChart>
             </ResponsiveContainer>
           </Box>
+          <Typography sx={{ fontSize: '0.72rem', color: 'text.secondary', mt: 2, pt: 2, borderTop: '1px solid', borderColor: 'divider' }}>
+            Nota metodológica: valores ilustrativos de avaliações internas realizadas em projectos
+            seleccionados, sujeitos a validação e actualização. Não representam uma medição
+            estatística formal nem foram auditados por terceiros independentes.
+          </Typography>
         </Box>
       </Reveal>
       </Container>

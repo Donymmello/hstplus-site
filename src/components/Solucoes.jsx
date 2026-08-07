@@ -15,7 +15,7 @@ const pillars = [
   {
     title: 'HSEQ',
     text: 'Implementação e acompanhamento de Sistemas de Gestão da Qualidade, Ambiente e Segurança, alinhados às normas internacionais que operações exigentes precisam para trabalhar com os seus clientes.',
-    spec: 'ISO 9001 · 14001 · 45001',
+    spec: 'REFERENCIAL SGI',
     href: '#contacto',
   },
   {
@@ -27,7 +27,7 @@ const pillars = [
   {
     title: 'Gestão de Risco',
     text: 'Identificação, avaliação e mitigação de riscos operacionais — matrizes de risco e planos de contingência e resposta a emergências, à medida de cada actividade.',
-    spec: 'ISO 31000',
+    spec: 'REFERENCIAL ISO 31000',
     href: '#contacto',
   },
   {

@@ -20,28 +20,30 @@ export default function Consultoria() {
 
         <Grid container spacing={4}>
           <Grid size={{ xs: 12, md: 5 }}>
-            {consultants.map((c) => (
-              <Paper key={c.name} elevation={0} sx={{ p: 4, bgcolor: '#fff', borderLeft: '4px solid', borderLeftColor: 'primary.main' }}>
-                <Stack direction="row" spacing={2} alignItems="center" sx={{ mb: 2.5 }}>
-                  <Avatar sx={{ bgcolor: 'primary.main', width: 52, height: 52 }}>
-                    <EngineeringIcon />
-                  </Avatar>
-                  <Box>
-                    <Typography sx={{ fontWeight: 700 }}>{c.name}</Typography>
-                    <Typography sx={{ fontSize: '0.75rem', color: 'text.secondary' }}>
-                      Especialista em Saúde e Segurança no Trabalho
-                    </Typography>
-                  </Box>
-                </Stack>
-                <Stack spacing={1}>
-                  {c.facts.map((f) => (
-                    <Typography key={f} sx={{ fontSize: '0.85rem', color: 'text.secondary' }}>
-                      · {f}
-                    </Typography>
-                  ))}
-                </Stack>
-              </Paper>
-            ))}
+            <Stack spacing={3}>
+              {consultants.map((c) => (
+                <Paper key={c.name} elevation={0} sx={{ p: 4, bgcolor: '#fff', borderLeft: '4px solid', borderLeftColor: 'primary.main' }}>
+                  <Stack direction="row" spacing={2} alignItems="center" sx={{ mb: 2.5 }}>
+                    <Avatar sx={{ bgcolor: 'primary.main', width: 52, height: 52 }}>
+                      <EngineeringIcon />
+                    </Avatar>
+                    <Box>
+                      <Typography sx={{ fontWeight: 700 }}>{c.name}</Typography>
+                      <Typography sx={{ fontSize: '0.75rem', color: 'text.secondary' }}>
+                        Especialista em Saúde e Segurança no Trabalho
+                      </Typography>
+                    </Box>
+                  </Stack>
+                  <Stack spacing={1}>
+                    {c.facts.map((f) => (
+                      <Typography key={f} sx={{ fontSize: '0.85rem', color: 'text.secondary' }}>
+                        · {f}
+                      </Typography>
+                    ))}
+                  </Stack>
+                </Paper>
+              ))}
+            </Stack>
           </Grid>
 
           <Grid size={{ xs: 12, md: 7 }}>

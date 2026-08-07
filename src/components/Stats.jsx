@@ -99,6 +99,9 @@ export default function Stats() {
               </Grid>
             ))}
           </Grid>
+          <Typography sx={{ fontSize: '0.72rem', color: 'text.secondary', textAlign: 'center', mt: 3 }}>
+            Números internos da HST Plus, actualizados periodicamente pela equipa de gestão.
+          </Typography>
         </Reveal>
       </Container>
     </Box>

@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
  */
 export default function Counter({ to, suffix = '', duration = 1400, sx }) {
   const ref = useRef(null);
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(null); // null = ainda não arrancou, não mostra "0"
   const started = useRef(false);
 
   useEffect(() => {
@@ -42,8 +42,9 @@ export default function Counter({ to, suffix = '', duration = 1400, sx }) {
 
   return (
     <Typography ref={ref} sx={sx}>
-      {value}
-      {suffix}
+      {/* Antes de arrancar, reserva o espaço do valor final (invisível) em
+          vez de mostrar "0" — evita o "salto" visual de 0 para o valor real. */}
+      {value === null ? <span style={{ visibility: 'hidden' }}>{to}{suffix}</span> : `${value}${suffix}`}
     </Typography>
   );
 }

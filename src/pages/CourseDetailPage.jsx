@@ -10,6 +10,7 @@ import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
 import Link from '@mui/material/Link';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import RequestQuoteIcon from '@mui/icons-material/RequestQuote';
 import InfoIcon from '@mui/icons-material/Info';
@@ -123,7 +124,7 @@ export default function CourseDetailPage() {
                 <Typography variant="h4" sx={{ fontSize: '1.1rem', mb: 1.5 }}>
                   Carga Horária
                 </Typography>
-                <Grid container spacing={1.5} sx={{ maxWidth: 480 }}>
+                <Grid container spacing={1.5} sx={{ maxWidth: 480, mb: 4 }}>
                   {durations.map((d) => (
                     <Grid size={{ xs: 4 }} key={d.label}>
                       <Paper variant="outlined" sx={{ p: 2, textAlign: 'center', borderColor: 'divider' }}>
@@ -137,6 +138,20 @@ export default function CourseDetailPage() {
                     </Grid>
                   ))}
                 </Grid>
+
+                <Stack
+                  direction="row"
+                  spacing={1.5}
+                  sx={{ p: 2.5, bgcolor: '#FFF8E1', border: '1px solid #F0B429' }}
+                >
+                  <WarningAmberIcon sx={{ color: '#B8860B', fontSize: 20, flexShrink: 0, mt: 0.2 }} />
+                  <Typography sx={{ fontSize: '0.82rem', color: 'text.primary', lineHeight: 1.6 }}>
+                    Esta formação é um dos requisitos para a execução segura desta actividade, mas
+                    não substitui, por si só, a aptidão médica, a avaliação prática individual, a
+                    autorização da entidade empregadora, nem os requisitos legais específicos
+                    aplicáveis ao local de trabalho.
+                  </Typography>
+                </Stack>
               </Reveal>
             </Grid>
 

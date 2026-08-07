@@ -105,10 +105,17 @@ export default function DashboardPreview() {
                       Resumo operacional
                     </Typography>
                   </Box>
-                  <Box sx={{ px: 1.2, py: 0.5, borderRadius: 1, bgcolor: 'rgba(71,181,113,.14)', color: '#83D9A5', fontSize: '.72rem' }}>
-                    Atualizado agora
+                  <Box sx={{ px: 1.2, py: 0.5, borderRadius: 1, bgcolor: 'rgba(240,180,41,.16)', color: '#F0B429', fontSize: '.68rem', fontWeight: 700, letterSpacing: '0.03em' }}>
+                    VERSÃO DEMONSTRATIVA
                   </Box>
                 </Stack>
+
+                <Box sx={{ px: { xs: 2, md: 3 }, py: 1, bgcolor: 'rgba(0,0,0,.15)' }}>
+                  <Typography sx={{ fontSize: '.7rem', color: 'rgba(255,255,255,.6)' }}>
+                    Conteúdos e indicadores ilustrativos, sujeitos a validação — não representam
+                    dados reais de nenhum cliente.
+                  </Typography>
+                </Box>
 
                 <Box sx={{ p: { xs: 2, md: 3 } }}>
                   <Grid container spacing={1.5}>

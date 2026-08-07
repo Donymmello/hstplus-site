@@ -2,10 +2,39 @@
 <html lang="pt-MZ">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/src/assets/logo1.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="HST Plus, Consultancy & Training — Consultoria, Gestão de Risco, Formação Profissional e Inspeção de Qualidade em Moçambique." />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#7A1420" />
+
+    <!-- SEO -->
     <title>HST Plus | Consultancy & Training</title>
+    <meta name="description" content="HST Plus, Consultancy & Training — Consultoria, Gestão de Risco, Formação Profissional e Inspeção de Qualidade em Moçambique." />
+    <link rel="canonical" href="https://www.hstplus.co.mz/" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook / LinkedIn / WhatsApp preview -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="HST Plus" />
+    <meta property="og:locale" content="pt_MZ" />
+    <meta property="og:url" content="https://www.hstplus.co.mz/" />
+    <meta property="og:title" content="HST Plus | Consultancy & Training" />
+    <meta property="og:description" content="Consultoria, Gestão de Risco, Formação Profissional e Inspeção de Qualidade em Moçambique — transformamos riscos em resultados." />
+    <meta property="og:image" content="https://www.hstplus.co.mz/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="HST Plus | Consultancy & Training" />
+    <meta name="twitter:description" content="Consultoria, Gestão de Risco, Formação Profissional e Inspeção de Qualidade em Moçambique." />
+    <meta name="twitter:image" content="https://www.hstplus.co.mz/og-image.jpg" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,7 +43,26 @@
     />
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Conteúdo estático de recurso — o React substitui isto assim que
+           monta com sucesso. Se o ficheiro principal de JavaScript nunca
+           chegar a carregar (falha de rede, bloqueio do browser, etc.),
+           isto fica visível em vez de um ecrã em branco. Nada disto depende
+           de React, CSS externo, ou fontes do Google — tem de funcionar
+           mesmo quando quase nada mais funciona. -->
+      <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;background:#F6F5F1;color:#14181A;">
+        <div style="text-align:center;max-width:420px;">
+          <div style="font-weight:800;font-size:1.3rem;color:#7A1420;margin-bottom:12px;">HST PLUS</div>
+          <p style="color:rgba(20,24,26,0.68);line-height:1.6;margin-bottom:20px;">
+            O site está a demorar mais que o normal a carregar. Se esta mensagem não desaparecer,
+            tenta recarregar a página ou contacta-nos directamente.
+          </p>
+          <a href="mailto:info@hstplus.co.mz" style="display:inline-block;background:#7A1420;color:#fff;text-decoration:none;padding:10px 22px;font-weight:600;font-size:0.85rem;">
+            info@hstplus.co.mz
+          </a>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

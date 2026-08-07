@@ -14,6 +14,7 @@ import { readDashboard, saveDashboard } from './dashboardPreview.js';
 import { readGaleria, addPhoto, saveMeta, UPLOAD_DIR } from './galeria.js';
 import { readPublished, findPublishedBySlug, readAll as readAllInsights, save as saveInsights, CATEGORIES, INSIGHTS_UPLOAD_DIR } from './insights.js';
 import { readSubscribers, subscribe } from './newsletter.js';
+import { renderInsightPrerender } from './prerender.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -301,6 +302,16 @@ app.get('/api/newsletter', async (req, res) => {
   }
   const subscribers = await readSubscribers();
   res.json({ ok: true, subscribers });
+});
+
+// ── Prerender (só para crawlers — ver nginx.conf) ──────────────────────────
+// O nginx só encaminha aqui pedidos de bots (WhatsApp, Facebook, LinkedIn,
+// Google...) a rotas de artigo. Visitantes humanos nunca chegam a este
+// endpoint — continuam a receber o SPA normal directamente do nginx.
+app.get('/prerender/insights/:slug', async (req, res) => {
+  const html = await renderInsightPrerender(req.params.slug);
+  if (!html) return res.status(404).send('Artigo não encontrado');
+  res.set('Content-Type', 'text/html; charset=utf-8').send(html);
 });
 
 app.listen(PORT, () => {

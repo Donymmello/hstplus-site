@@ -10,7 +10,7 @@ import { colors, gradients } from '../theme'; // Importando as tuas cores oficia
 import Reveal from './Reveal';
 import SectionHeader from './SectionHeader';
 import PhotoFrame from './PhotoFrame';
-import aboutPhoto from '../assets/about1.jpg';
+import aboutPhoto from '../assets/about.jpg';
 
 export default function QuemSomos() {
   return (
@@ -125,7 +125,8 @@ export default function QuemSomos() {
                   moçambicana fundada em {company.founded}, dedicada à Consultoria, Gestão de Riscos,
                   Formação Profissional e Inspeção de Qualidade. Trabalhamos com uma equipa
                   multidisciplinar, nacional e internacional, para reduzir a exposição a riscos
-                  laborais e assegurar o cumprimento integral da legislação em vigor.
+                  laborais e apoiar as organizações na implementação e melhoria da conformidade legal
+                  e operacional.
                 </Typography>
               </SectionHeader>
 

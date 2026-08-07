@@ -9,7 +9,7 @@ import IconButton from '@mui/material/IconButton';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import logo from '../assets/logo1.png';
+import logo from '../assets/logo.png';
 import { company, socials } from '../data/content';
 import { gradients } from '../theme';
 import NewsletterSignup from './NewsletterSignup';
@@ -44,23 +44,25 @@ export default function Footer() {
             </Typography>
 
             <Stack direction="row" spacing={1} sx={{ mt: 3 }}>
-              {socialIcons.map(({ key, Icon, label }) => (
-                <IconButton
-                  key={key}
-                  component="a"
-                  href={socials[key] || '#'}
-                  target={socials[key] ? '_blank' : undefined}
-                  rel="noreferrer"
-                  aria-label={label}
-                  sx={{
-                    color: 'rgba(255,255,255,0.75)',
-                    border: '1px solid rgba(255,255,255,0.15)',
-                    '&:hover': { color: '#fff', borderColor: 'rgba(255,255,255,0.4)' },
-                  }}
-                >
-                  <Icon fontSize="medium" />
-                </IconButton>
-              ))}
+              {socialIcons
+                .filter(({ key }) => socials[key])
+                .map(({ key, Icon, label }) => (
+                  <IconButton
+                    key={key}
+                    component="a"
+                    href={socials[key]}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={label}
+                    sx={{
+                      color: 'rgba(255,255,255,0.75)',
+                      border: '1px solid rgba(255,255,255,0.15)',
+                      '&:hover': { color: '#fff', borderColor: 'rgba(255,255,255,0.4)' },
+                    }}
+                  >
+                    <Icon fontSize="medium" />
+                  </IconButton>
+                ))}
             </Stack>
           </Grid>
 
@@ -123,9 +125,25 @@ export default function Footer() {
           <Typography sx={{ fontSize: 'inherit' }}>
             © {new Date().getFullYear()} {company.fullName}. Todos os direitos reservados.
           </Typography>
-          <Typography sx={{ fontSize: 'inherit' }}>
-            NUEL {company.nuel} · NUIT {company.nuit}
-          </Typography>
+          <Stack direction="row" spacing={2} alignItems="center">
+            <Link component={RouterLink} to="/privacidade" underline="hover" sx={{ color: 'inherit', fontSize: 'inherit' }}>
+              Privacidade
+            </Link>
+            <Link component={RouterLink} to="/termos" underline="hover" sx={{ color: 'inherit', fontSize: 'inherit' }}>
+              Termos
+            </Link>
+            <Link
+              component="button"
+              onClick={() => window.openCookiePreferences?.()}
+              underline="hover"
+              sx={{ color: 'inherit', fontSize: 'inherit', cursor: 'pointer' }}
+            >
+              Cookies
+            </Link>
+            <Typography sx={{ fontSize: 'inherit' }}>
+              NUEL {company.nuel} · NUIT {company.nuit}
+            </Typography>
+          </Stack>
         </Stack>
       </Container>
     </Box>

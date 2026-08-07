@@ -10,6 +10,9 @@ import SectorDetailPage from './pages/SectorDetailPage';
 import CalendarioPage from './pages/CalendarioPage';
 import InsightsPage from './pages/InsightsPage';
 import InsightArticlePage from './pages/InsightArticlePage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import TermsPage from './pages/TermsPage';
+import NotFoundPage from './pages/NotFoundPage';
 import AdminPage from './pages/AdminPage';
 
 export default function App() {
@@ -27,12 +30,16 @@ export default function App() {
           <Route path="/calendario" element={<CalendarioPage />} />
           <Route path="/insights" element={<InsightsPage />} />
           <Route path="/insights/:slug" element={<InsightArticlePage />} />
+          <Route path="/privacidade" element={<PrivacyPolicyPage />} />
+          <Route path="/termos" element={<TermsPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
         {/* Fora do MainLayout de propósito — ferramenta interna, sem header/footer/WhatsApp do site público */}
         <Route path="/admin" element={<AdminPage />} />
         {/* Compatibilidade com os links antigos, caso alguém os tenha guardado */}
         <Route path="/admin/calendario" element={<Navigate to="/admin" replace />} />
         <Route path="/admin/kpis" element={<Navigate to="/admin" replace />} />
+        <Route path="/admin/*" element={<Navigate to="/admin" replace />} />
       </Routes>
     </BrowserRouter>
   );
