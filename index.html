@@ -41,6 +41,32 @@
       href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Dados estruturados da organização — estáticos de propósito (não
+         dependem do React montar), para motores de busca lerem sempre a
+         identidade correcta da empresa. Detalhes por página (cursos,
+         artigos) são injectados em tempo de execução, ver src/components/Seo.jsx. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "HST Plus, Consultancy & Training",
+        "alternateName": "HST Plus",
+        "url": "https://www.hstplus.co.mz/",
+        "logo": "https://www.hstplus.co.mz/android-chrome-512x512.png",
+        "image": "https://www.hstplus.co.mz/og-image.jpg",
+        "email": "info@hstplus.co.mz",
+        "telephone": "+258 21 081 064",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Av. do Trabalho / Rua do Lago Amaramba, R/C Nº 37",
+          "addressLocality": "Maputo",
+          "addressCountry": "MZ"
+        },
+        "areaServed": "MZ",
+        "description": "Consultoria, Gestão de Risco, Formação Profissional e Inspeção de Qualidade em Moçambique."
+      }
+    </script>
   </head>
   <body>
     <div id="root">

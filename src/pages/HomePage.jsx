@@ -13,6 +13,7 @@ import Consultoria from '../components/Consultoria';
 import Referencias from '../components/Referencias';
 import Blog from '../components/Blog';
 import Contacto from '../components/Contacto';
+import Seo from '../components/Seo';
 import useScrollToHash from '../hooks/useScrollToHash';
 
 export default function HomePage() {
@@ -20,6 +21,7 @@ export default function HomePage() {
 
   return (
     <>
+      <Seo path="/" />
       <Hero />
       <QuemSomos />
       <Solucoes />

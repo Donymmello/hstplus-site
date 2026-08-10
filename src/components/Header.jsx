@@ -145,14 +145,28 @@ export default function Header() {
               </Button>
             ))}
 
-            {/* BOTÃO FORMAÇÕES COM HOVER ATIVO (MEGA MENU) */}
+            {/* BOTÃO FORMAÇÕES COM HOVER ATIVO (MEGA MENU) — também abre por
+                teclado (focus) e fecha com Escape, para não ficar preso a
+                um gesto de rato. */}
             <Box
               ref={containerRef}
               onMouseEnter={() => setMegaMenuOpen(true)}
               onMouseLeave={() => setMegaMenuOpen(false)}
+              onFocus={() => setMegaMenuOpen(true)}
+              onBlur={(e) => {
+                if (!e.currentTarget.contains(e.relatedTarget)) setMegaMenuOpen(false);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === 'Escape') {
+                  setMegaMenuOpen(false);
+                  e.currentTarget.querySelector('button')?.focus();
+                }
+              }}
             >
               <Button
                 onClick={handleFormacoesClick}
+                aria-expanded={megaMenuOpen}
+                aria-haspopup="true"
                 endIcon={
                   <KeyboardArrowDownIcon
                     sx={{

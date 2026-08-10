@@ -10,6 +10,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { gradients } from '../theme';
 import Reveal from '../components/Reveal';
 import NewsletterSignup from '../components/NewsletterSignup';
+import Seo, { SITE_URL } from '../components/Seo';
 
 const API_BASE = import.meta.env.VITE_API_URL || '/api';
 const API_ORIGIN = API_BASE.replace(/\/api\/?$/, '');
@@ -31,7 +32,6 @@ export default function InsightArticlePage() {
         if (r.status === 404) return setStatus('notfound');
         const data = await r.json();
         setArtigo(data.artigo);
-        document.title = `${data.artigo.title} — HST Plus`;
         setStatus('ok');
       })
       .catch(() => setStatus('error'));
@@ -42,6 +42,7 @@ export default function InsightArticlePage() {
   if (status === 'notfound' || status === 'error') {
     return (
       <Container maxWidth="sm" sx={{ py: 14, textAlign: 'center' }}>
+        <Seo title="Artigo não encontrado" noindex />
         <Typography variant="h2" sx={{ fontSize: '1.8rem', mb: 2 }}>
           Artigo não encontrado
         </Typography>
@@ -56,9 +57,28 @@ export default function InsightArticlePage() {
   }
 
   const paragraphs = artigo.body.split(/\n{2,}/).filter(Boolean);
+  const articleImage = artigo.coverImage ? `${SITE_URL}${artigo.coverImage}` : undefined;
+  const articleStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: artigo.title,
+    description: artigo.excerpt || artigo.title,
+    datePublished: artigo.date,
+    ...(articleImage ? { image: articleImage } : {}),
+    author: { '@type': 'Organization', name: 'HST Plus' },
+    publisher: { '@type': 'Organization', name: 'HST Plus' },
+  };
 
   return (
     <>
+      <Seo
+        title={artigo.title}
+        description={artigo.excerpt || artigo.title}
+        path={`/insights/${artigo.slug}`}
+        image={articleImage}
+        type="article"
+        structuredData={articleStructuredData}
+      />
       <Box sx={{ backgroundImage: gradients.dark, color: '#fff', py: { xs: 6, md: 8 } }}>
         <Container maxWidth="md">
           <Reveal>

@@ -58,6 +58,7 @@ export default function NewsletterSignup({ variant = 'light', title = 'Recebe os
       <Stack component="form" onSubmit={handleSubmit} direction={{ xs: 'column', sm: 'row' }} spacing={1}>
         <TextField
           type="email"
+          label="Email"
           required
           size="small"
           placeholder="o-teu-email@empresa.co.mz"
@@ -68,6 +69,8 @@ export default function NewsletterSignup({ variant = 'light', title = 'Recebe os
               ? {
                   bgcolor: 'rgba(255,255,255,0.06)',
                   input: { color: '#fff' },
+                  '& .MuiInputLabel-root': { color: 'rgba(255,255,255,0.6)' },
+                  '& .MuiInputLabel-root.Mui-focused': { color: '#fff' },
                   '& .MuiOutlinedInput-notchedOutline': { borderColor: 'rgba(255,255,255,0.2)' },
                   '&:hover .MuiOutlinedInput-notchedOutline': { borderColor: 'rgba(255,255,255,0.4)' },
                 }

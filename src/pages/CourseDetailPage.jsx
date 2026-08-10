@@ -11,6 +11,7 @@ import Chip from '@mui/material/Chip';
 import Link from '@mui/material/Link';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
+import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import RequestQuoteIcon from '@mui/icons-material/RequestQuote';
 import InfoIcon from '@mui/icons-material/Info';
@@ -20,6 +21,7 @@ import { company } from '../data/content';
 import { gradients } from '../theme';
 import Reveal from '../components/Reveal';
 import LeadFormDialog from '../components/LeadFormDialog';
+import Seo, { SITE_URL } from '../components/Seo';
 import coverImage from '../assets/nossas_formacoes1.jpg';
 
 export default function CourseDetailPage() {
@@ -28,13 +30,13 @@ export default function CourseDetailPage() {
   const [dialog, setDialog] = useState(null); // null | 'informacoes' | 'cotacao'
 
   useEffect(() => {
-    document.title = course ? `${course.name} — HST Plus` : 'Curso não encontrado — HST Plus';
     window.scrollTo({ top: 0 });
   }, [course]);
 
   if (!course) {
     return (
       <Container maxWidth="sm" sx={{ py: 14, textAlign: 'center' }}>
+        <Seo title="Curso não encontrado" noindex />
         <Typography variant="h2" sx={{ fontSize: '1.8rem', mb: 2 }}>
           Curso não encontrado
         </Typography>
@@ -48,6 +50,18 @@ export default function CourseDetailPage() {
     );
   }
 
+  const courseStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: course.name,
+    description: course.intro,
+    provider: {
+      '@type': 'Organization',
+      name: 'HST Plus, Consultancy & Training',
+      sameAs: SITE_URL,
+    },
+  };
+
   const durations = [
     { label: 'Básico', value: course.basico },
     { label: 'Médio', value: course.medio },
@@ -56,6 +70,12 @@ export default function CourseDetailPage() {
 
   return (
     <>
+      <Seo
+        title={course.name}
+        description={course.intro}
+        path={`/formacoes/${course.slug}`}
+        structuredData={courseStructuredData}
+      />
       <Box sx={{ position: 'relative', color: '#fff', py: { xs: 6, md: 8 }, overflow: 'hidden' }}>
         <Box
           component="img"
@@ -138,6 +158,24 @@ export default function CourseDetailPage() {
                     </Grid>
                   ))}
                 </Grid>
+
+                <Typography variant="h4" sx={{ fontSize: '1.1rem', mb: 1.5 }}>
+                  Certificação
+                </Typography>
+                <Stack
+                  direction="row"
+                  spacing={1.5}
+                  sx={{ p: 2.5, mb: 2, bgcolor: '#EEF1EC', border: '1px solid', borderColor: 'divider' }}
+                >
+                  <WorkspacePremiumIcon sx={{ color: 'primary.main', fontSize: 20, flexShrink: 0, mt: 0.2 }} />
+                  <Typography sx={{ fontSize: '0.82rem', color: 'text.primary', lineHeight: 1.6 }}>
+                    No final da formação, os participantes realizam uma avaliação (teórica e/ou
+                    prática) para medir o aproveitamento. Com base nesse resultado, a HST Plus emite
+                    um <strong>Certificado de Aproveitamento</strong> — este documento atesta a
+                    participação e o desempenho na formação, não sendo um certificado ou diploma
+                    académico nem uma qualificação profissional emitida por entidade reguladora.
+                  </Typography>
+                </Stack>
 
                 <Stack
                   direction="row"

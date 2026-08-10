@@ -27,6 +27,7 @@ import { gradients } from '../theme';
 import { company } from '../data/content';
 import Reveal from '../components/Reveal';
 import LeadFormDialog from '../components/LeadFormDialog';
+import Seo from '../components/Seo';
 
 const API_URL = `${import.meta.env.VITE_API_URL || '/api'}/calendario`;
 
@@ -75,7 +76,6 @@ export default function CalendarioPage() {
   const [filters, setFilters] = useState(emptyFilters);
 
   useEffect(() => {
-    document.title = 'Calendário de Formações — HST Plus';
     let cancelled = false;
     fetch(API_URL)
       .then((r) => r.json())
@@ -132,6 +132,11 @@ export default function CalendarioPage() {
 
   return (
     <>
+      <Seo
+        title="Calendário de Formações"
+        description="Próximas turmas de formação da HST Plus em Moçambique — datas, locais e vagas disponíveis."
+        path="/calendario"
+      />
       <Box sx={{ py: { xs: 7, md: 9 }, backgroundImage: gradients.dark, color: '#fff', textAlign: 'center' }}>
         <Container maxWidth="md">
           <Typography variant="overline" sx={{ color: 'warning.main' }}>

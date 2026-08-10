@@ -32,7 +32,7 @@ export default function ClientLogos() {
       <Container maxWidth="lg">
         <Reveal>
         <Typography sx={{ textAlign: 'center', fontSize: '0.72rem', color: 'text.secondary', letterSpacing: '0.06em', mb: 3 }}>
-          Organizações que confiam na HST Plus
+          Empresas que confiam na HST Plus
         </Typography>
         <Grid container spacing={{ xs: 2, md: 3 }} justifyContent="center" alignItems="center">
           {logos.map((l) => (

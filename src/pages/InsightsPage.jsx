@@ -11,6 +11,7 @@ import Divider from '@mui/material/Divider';
 import { gradients } from '../theme';
 import Reveal from '../components/Reveal';
 import NewsletterSignup from '../components/NewsletterSignup';
+import Seo from '../components/Seo';
 
 const API_BASE = import.meta.env.VITE_API_URL || '/api';
 const API_ORIGIN = API_BASE.replace(/\/api\/?$/, '');
@@ -25,7 +26,6 @@ export default function InsightsPage() {
   const [categoria, setCategoria] = useState('todas');
 
   useEffect(() => {
-    document.title = 'Insights — HST Plus';
     fetch(`${API_BASE}/insights`)
       .then((r) => r.json())
       .then((data) => {
@@ -44,6 +44,11 @@ export default function InsightsPage() {
 
   return (
     <>
+      <Seo
+        title="Insights"
+        description="Artigos técnicos de HSEQ da HST Plus — consultoria, gestão de risco, formação e inspecção de qualidade em Moçambique."
+        path="/insights"
+      />
       <Box sx={{ py: { xs: 7, md: 9 }, backgroundImage: gradients.dark, color: '#fff', textAlign: 'center' }}>
         <Container maxWidth="md">
           <Typography variant="overline" sx={{ color: 'warning.main' }}>

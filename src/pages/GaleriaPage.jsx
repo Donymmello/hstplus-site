@@ -12,6 +12,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
 import { gradients } from '../theme';
 import Reveal from '../components/Reveal';
+import Seo from '../components/Seo';
 
 // Fotos originais fornecidas pela HST Plus (Julho 2026) — usadas só como
 // rede de segurança, caso a API ainda não tenha nenhuma foto carregada via
@@ -48,7 +49,6 @@ export default function GaleriaPage() {
   const [openIndex, setOpenIndex] = useState(null);
 
   useEffect(() => {
-    document.title = 'Galeria — HST Plus';
     let cancelled = false;
     fetch(`${API_BASE}/galeria`)
       .then((r) => r.json())
@@ -74,6 +74,11 @@ export default function GaleriaPage() {
 
   return (
     <>
+      <Seo
+        title="Galeria"
+        description="Fotos da HST Plus no terreno — formações, inspecções e trabalho em altura em Moçambique."
+        path="/galeria"
+      />
       <Box sx={{ py: { xs: 7, md: 9 }, backgroundImage: gradients.dark, color: '#fff', textAlign: 'center' }}>
         <Container maxWidth="md">
           <Typography variant="overline" sx={{ color: 'warning.main' }}>

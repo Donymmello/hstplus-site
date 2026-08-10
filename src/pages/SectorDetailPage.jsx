@@ -19,6 +19,7 @@ import { company } from '../data/content';
 import { gradients } from '../theme';
 import Reveal from '../components/Reveal';
 import LeadFormDialog from '../components/LeadFormDialog';
+import Seo from '../components/Seo';
 
 function ListBlock({ icon: Icon, iconColor, title, items }) {
   return (
@@ -44,13 +45,13 @@ export default function SectorDetailPage() {
   const [dialog, setDialog] = useState(null); // null | 'informacoes' | 'cotacao'
 
   useEffect(() => {
-    document.title = sector ? `${sector.name} — HST Plus` : 'Sector não encontrado — HST Plus';
     window.scrollTo({ top: 0 });
   }, [sector]);
 
   if (!sector) {
     return (
       <Container maxWidth="sm" sx={{ py: 14, textAlign: 'center' }}>
+        <Seo title="Sector não encontrado" noindex />
         <Typography variant="h2" sx={{ fontSize: '1.8rem', mb: 2 }}>
           Sector não encontrado
         </Typography>
@@ -66,6 +67,7 @@ export default function SectorDetailPage() {
 
   return (
     <>
+      <Seo title={sector.name} description={sector.resumo} path={`/setores/${sector.slug}`} />
       <Box sx={{ backgroundImage: gradients.dark, color: '#fff', py: { xs: 6, md: 8 } }}>
         <Container maxWidth="lg">
           <Reveal>

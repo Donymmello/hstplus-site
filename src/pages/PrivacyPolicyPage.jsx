@@ -6,6 +6,7 @@ import Divider from '@mui/material/Divider';
 import Link from '@mui/material/Link';
 import { gradients } from '../theme';
 import { company } from '../data/content';
+import Seo from '../components/Seo';
 
 function Section({ title, children }) {
   return (
@@ -20,12 +21,16 @@ function Section({ title, children }) {
 
 export default function PrivacyPolicyPage() {
   useEffect(() => {
-    document.title = 'Política de Privacidade — HST Plus';
     window.scrollTo({ top: 0 });
   }, []);
 
   return (
     <>
+      <Seo
+        title="Política de Privacidade"
+        description="Como a HST Plus recolhe, usa e protege os dados pessoais de quem visita e contacta o site."
+        path="/privacidade"
+      />
       <Box sx={{ py: { xs: 6, md: 8 }, backgroundImage: gradients.dark, color: '#fff', textAlign: 'center' }}>
         <Container maxWidth="md">
           <Typography variant="overline" sx={{ color: 'warning.main' }}>

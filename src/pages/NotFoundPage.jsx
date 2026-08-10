@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -8,6 +7,7 @@ import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import HomeIcon from '@mui/icons-material/Home';
 import { gradients } from '../theme';
+import Seo from '../components/Seo';
 
 const suggestions = [
   { to: '/#formacoes', label: 'Ver Formações' },
@@ -17,12 +17,9 @@ const suggestions = [
 ];
 
 export default function NotFoundPage() {
-  useEffect(() => {
-    document.title = 'Página não encontrada — HST Plus';
-  }, []);
-
   return (
     <Box sx={{ py: { xs: 10, md: 14 }, backgroundImage: gradients.surfaceLight, minHeight: '70vh' }}>
+      <Seo title="Página não encontrada" noindex />
       <Container maxWidth="sm" sx={{ textAlign: 'center' }}>
         <Typography
           sx={{
