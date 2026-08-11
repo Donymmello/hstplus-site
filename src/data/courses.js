@@ -1,21 +1,29 @@
 // Catálogo de formações extraído da planilha "Para_designer1.xlsx"
 //
-// ⚠️ ATENÇÃO — dois avisos sobre dados provisórios:
-// 1. O ficheiro original só tinha "Básico" e "Reciclagem" por curso. Os
-//    valores de "medio" e "avancado" abaixo são temporários (básico +8h e
-//    +16h, só para a tabela de 3 colunas não ficar vazia) — não são dados
-//    reais da HST Plus.
-// 2. Os campos "intro" e "objectives" (usados na página de detalhe de cada
-//    curso) são texto genérico gerado por categoria, não texto redigido pela
-//    HST Plus especificamente para cada curso. Servem para o layout da
-//    página de detalhe não ficar vazio — revejam e substituam antes de
-//    publicar.
+// ⚠️ ATENÇÃO — avisos sobre a qualidade dos dados:
+// 1. As cargas horárias (basico/medio/avancado) foram alinhadas com a
+//    Factura Proforma Nº 2166 (QUOTE_PACOTE_2025_TRAINING_2166-2, Set/2025),
+//    que define os pacotes Standard (08h), Plus (16h) e Premium (24h) — sem
+//    incluir preços aqui de propósito.
+// 2. Dois pares de cursos que apareciam fundidos em um só (ex: "Manuseio de
+//    Empilhadeira / Mini-Empilhadeira") foram separados em cursos distintos,
+//    porque a cotação trata-os como dois cursos diferentes. Da mesma forma,
+//    "Montagem e Inspeção de Andaime" foi dividido em "Montagem de Andaime"
+//    e "Inspeção de Andaime". Já "Resgate em Altura" e "Resgate em Espaços
+//    Confinados" mantiveram-se como um curso só.
+// 3. Cursos novos que apareciam na cotação mas não no catálogo (Electricidade,
+//    Prevenção de Risco, Inspeção de Equipamentos, Manuseio de Multi-funções,
+//    Manuseio de Pórticos) foram adicionados com a carga horária padrão.
+// 4. Os campos "intro" e "objectives" (usados na página de detalhe de cada
+//    curso) continuam a ser texto genérico gerado por categoria, não texto
+//    redigido pela HST Plus especificamente para cada curso — continua por
+//    rever antes de publicar.
 
 function slugify(str) {
   return str
     .toLowerCase()
     .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[̀-ͯ]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)/g, '');
 }
@@ -84,11 +92,12 @@ const rawCatalog = [
       { name: 'Prevenção e Combate a Incêndios', basico: '08h', medio: '16h', avancado: '24h' },
       { name: 'Procedimentos de Evacuação de Emergência', basico: '08h', medio: '16h', avancado: '24h' },
       { name: 'Investigação de Acidentes de Trabalho (Análise pós-evento)', basico: '08h', medio: '16h', avancado: '24h' },
-      { name: 'HIRA – Hazard Identification and Risk Analysis', basico: '16h', medio: '24h', avancado: '32h' },
+      { name: 'HIRA – Hazard Identification and Risk Analysis', basico: '08h', medio: '16h', avancado: '24h' },
       { name: 'Condições Inseguras + CheckList', basico: '08h', medio: '16h', avancado: '24h' },
       { name: 'Análise e Causa Raiz', basico: '08h', medio: '16h', avancado: '24h' },
-      { name: 'HST – Higiene e Segurança no Trabalho', basico: '16h', medio: '24h', avancado: '32h' },
+      { name: 'HST – Higiene e Segurança no Trabalho', basico: '08h', medio: '16h', avancado: '24h' },
       { name: 'Gestão de PPE (Equipamentos de Proteção Individual)', basico: '08h', medio: '16h', avancado: '24h' },
+      { name: 'Prevenção de Risco', basico: '08h', medio: '16h', avancado: '24h' },
     ],
   },
   {
@@ -102,6 +111,7 @@ const rawCatalog = [
       { name: 'Dangerous Goods (Cargas Perigosas)', basico: '08h', medio: '16h', avancado: '24h' },
       { name: 'Rigger (Sinaleiro/Amarrador de Cargas)', basico: '08h', medio: '16h', avancado: '24h' },
       { name: 'Uso de Ferramentas Manuais Eléctricas', basico: '08h', medio: '16h', avancado: '24h' },
+      { name: 'Electricidade', basico: '08h', medio: '16h', avancado: '24h' },
     ],
   },
   {
@@ -109,21 +119,25 @@ const rawCatalog = [
     courses: [
       { name: 'Manuseio de Empilhadeira', basico: '08h', medio: '16h', avancado: '24h' },
       { name: 'Manuseio de Camião Munck', basico: '08h', medio: '16h', avancado: '24h' },
-      { name: 'Manuseio de Guindaste', basico: '16h', medio: '24h', avancado: '32h' },
+      { name: 'Manuseio de Guindaste', basico: '08h', medio: '16h', avancado: '24h' },
       { name: 'Manuseio de Ponte Rolante', basico: '08h', medio: '16h', avancado: '24h' },
       { name: 'Manuseio de Plataforma Elevatória', basico: '08h', medio: '16h', avancado: '24h' },
       { name: 'Direção Defensiva e Preventiva', basico: '08h', medio: '16h', avancado: '24h' },
-      { name: 'Manuseio de Empilhadeira / Mini-Empilhadeira', basico: '08h', medio: '16h', avancado: '24h' },
-      { name: 'Manuseio de Guindaste / Mini-Guindaste', basico: '08h', medio: '16h', avancado: '24h' },
+      { name: 'Manuseio de Mini-Empilhadeira', basico: '08h', medio: '16h', avancado: '24h' },
+      { name: 'Manuseio de Mini-Guindaste', basico: '08h', medio: '16h', avancado: '24h' },
+      { name: 'Manuseio de Multi-funções', basico: '08h', medio: '16h', avancado: '24h' },
+      { name: 'Manuseio de Pórticos', basico: '08h', medio: '16h', avancado: '24h' },
     ],
   },
   {
     category: 'Estruturas, Elevação e Montagem',
     courses: [
       { name: 'Flag Man (Sinalizador de Trânsito/Manobras)', basico: '08h', medio: '16h', avancado: '24h' },
-      { name: 'Montagem e Inspeção de Andaime', basico: '16h', medio: '24h', avancado: '32h' },
+      { name: 'Montagem de Andaime', basico: '08h', medio: '16h', avancado: '24h' },
+      { name: 'Inspeção de Andaime', basico: '08h', medio: '16h', avancado: '24h' },
       { name: 'Supervisão de Andaime', basico: '08h', medio: '16h', avancado: '24h' },
       { name: 'Içamento de Cargas', basico: '08h', medio: '16h', avancado: '24h' },
+      { name: 'Inspeção de Equipamentos', basico: '08h', medio: '16h', avancado: '24h' },
     ],
   },
 ];

@@ -50,7 +50,7 @@ export default function Formacoes() {
             introWidth={640}
           >
             Formadores experientes e conteúdo adaptado à realidade de cada equipa, com cargas
-            horárias definidas por nível — Básico, Médio e Avançado — organizadas por área de
+            horárias definidas por pacote — Standard, Plus e Premium — organizadas por área de
             actuação.
           </SectionHeader>
 
@@ -210,9 +210,9 @@ export default function Formacoes() {
                           }}
                         >
                           <TableCell>CURSO</TableCell>
-                          <TableCell align="right">BÁSICO</TableCell>
-                          <TableCell align="right">MÉDIO</TableCell>
-                          <TableCell align="right">AVANÇADO</TableCell>
+                          <TableCell align="right">STANDARD</TableCell>
+                          <TableCell align="right">PLUS</TableCell>
+                          <TableCell align="right">PREMIUM</TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody>

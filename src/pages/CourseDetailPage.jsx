@@ -62,10 +62,10 @@ export default function CourseDetailPage() {
     },
   };
 
-  const durations = [
-    { label: 'Básico', value: course.basico },
-    { label: 'Médio', value: course.medio },
-    { label: 'Avançado', value: course.avancado },
+  const packages = [
+    { label: 'Standard', value: course.basico },
+    { label: 'Plus', value: course.medio },
+    { label: 'Premium', value: course.avancado },
   ];
 
   return (
@@ -145,14 +145,14 @@ export default function CourseDetailPage() {
                   Carga Horária
                 </Typography>
                 <Grid container spacing={1.5} sx={{ maxWidth: 480, mb: 4 }}>
-                  {durations.map((d) => (
-                    <Grid size={{ xs: 4 }} key={d.label}>
+                  {packages.map((p) => (
+                    <Grid size={{ xs: 4 }} key={p.label}>
                       <Paper variant="outlined" sx={{ p: 2, textAlign: 'center', borderColor: 'divider' }}>
                         <Typography sx={{ fontFamily: '"IBM Plex Mono"', fontSize: '0.68rem', color: 'text.secondary', mb: 0.5 }}>
-                          {d.label.toUpperCase()}
+                          {p.label.toUpperCase()}
                         </Typography>
                         <Typography sx={{ fontFamily: '"Big Shoulders Display"', fontWeight: 800, fontSize: '1.6rem', color: 'primary.main' }}>
-                          {d.value}
+                          {p.value}
                         </Typography>
                       </Paper>
                     </Grid>
