@@ -35,6 +35,7 @@ const links = [
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
 
   // Controlo do Mega Menu por Hover (Desktop)
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
@@ -43,8 +44,23 @@ export default function Header() {
   const navigate = useNavigate();
   const location = useLocation();
 
+  // Esconde o header ao rolar para baixo (a partir de ~60px), mostra de
+  // volta ao primeiro sinal de scroll para cima — mesmo que seja só 1px.
+  // Abaixo de 60px fica sempre visível (não esconde perto do topo).
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
+    let lastY = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 60);
+      if (y <= 60) {
+        setHidden(false);
+      } else if (y > lastY) {
+        setHidden(true); // a descer
+      } else if (y < lastY) {
+        setHidden(false); // a subir, nem que seja pouco
+      }
+      lastY = y;
+    };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -81,7 +97,18 @@ export default function Header() {
       <AppBar
         position="sticky"
         elevation={0}
-        sx={{ backgroundColor: 'rgba(255,255,255,.94)', backdropFilter: 'blur(18px)', color: colors.ink, top: 0, borderBottom: '1px solid', borderColor: scrolled ? 'divider' : 'rgba(21,32,30,.08)', boxShadow: scrolled ? '0 8px 30px rgba(21,32,30,.07)' : 'none', transition: 'border-color .25s ease, box-shadow .25s ease' }}
+        sx={{
+          backgroundColor: 'rgba(255,255,255,.94)',
+          backdropFilter: 'blur(18px)',
+          color: colors.ink,
+          top: 0,
+          borderBottom: '1px solid',
+          borderColor: scrolled ? 'divider' : 'rgba(21,32,30,.08)',
+          boxShadow: scrolled ? '0 8px 30px rgba(21,32,30,.07)' : 'none',
+          transform: hidden ? 'translateY(-100%)' : 'translateY(0)',
+          pointerEvents: hidden ? 'none' : 'auto',
+          transition: 'transform .3s ease, border-color .25s ease, box-shadow .25s ease',
+        }}
       >
         <Toolbar
           sx={{

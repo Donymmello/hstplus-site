@@ -23,19 +23,6 @@ export const socials = {
   linkedin: '',
 };
  
-export const solutions = [
-  'Consultoria, Acessória em Saúde, Segurança e Meio Ambiente (SSMA)',
-  'Inspeção de Qualidade',
-  'Levantamento e Análise de Riscos',
-  'Distribuição e fornecimento de Equipamentos de Proteção Individual (EPI)',
-  'Elaboração de Plano de Segurança e Emergência',
-  'Projectos de Sinalização de Segurança',
-  'Desenvolvimento de Políticas de Saúde e Segurança',
-  'Organização de Campanhas de Sensibilização',
-  'Implementação de Sistema de Gestão Integrada (SGI – ISO 9001, 14001 & 45001)',
-  'Formação e Capacitação Profissional',
-];
- 
 export const values = [
   { title: 'Integridade', text: 'Honestidade e justiça direccionada em nossas acções.' },
   { title: 'Respeito', text: 'Firmar a conduta ética e relação de confiança com o cliente.' },
@@ -49,16 +36,15 @@ export const trainingApproach = [
   { title: 'Microlearning', text: 'Dividir o conhecimento em curtas e simples sessões ajustadas à realidade do dia-a-dia.' },
 ];
  
-export const measuringInstruments = [
-  'Termómetro IBUTG', 'Sonómetro', 'Dosímetro', 'Anemómetro',
-  'Luxímetro', 'Medidor de CO2, PM10 e 2.5', 'Humidade relativa', 'Vibração do corpo inteiro, mãos e braço',
-];
- 
 export const specializedServices = [
   'Ensaios e análises técnicas: ar, solo, água, afluentes e efluentes',
   'Higiene ocupacional: partículas, gases, vapores, ruído, vibração, conforto térmico e luminância',
-  'Projectos e manutenção de sistemas de detecção e combate a incêndios',
-  'Prevenção e resposta a emergências, com equipas especializadas',
+  'Levantamento e análise de riscos',
+  'Distribuição e fornecimento de Equipamentos de Proteção Individual (EPI)',
+  'Elaboração de planos de segurança e resposta a emergências',
+  'Projectos de sinalização de segurança',
+  'Desenvolvimento de políticas de saúde e segurança',
+  'Organização de campanhas de sensibilização',
 ];
  
 export const methodology = {
@@ -84,6 +70,7 @@ export const differentiators = [
 export const consultants = [
   {
     name: 'Francisco Mateus',
+    role: 'Especialista em Saúde e Segurança no Trabalho',
     facts: [
       '17 anos de experiência profissional em Saúde e Segurança no Trabalho',
       '12 anos dedicados como formador de HSE',
@@ -93,6 +80,7 @@ export const consultants = [
   },
   {
     name: 'Dino Ramos',
+    role: 'Sales Consultant | Admin',
     facts: [
       'Mais de 5 anos de experiência profissional nas áreas de Administração, Certificação e Consultoria em Saúde e Segurança no Trabalho (HST Plus)',
       'Formador e Instrutor em Trabalhos em Altura, com mais de 64 horas de prática e instrução em campo',
@@ -120,7 +108,7 @@ export const certifications = [
  
 export const clients = [
   'Uni-Span', 'Terminais do Norte', 'Mota-Engil Engenharia', 'TCPI International',
-  'Manica Moçambique Terminais', 'LC Power', 'Gabriel Couto', 'Protecna', 'Tata',
+  'Manica Moçambique Terminais', 'LC Power', 'Gabriel Couto', 'Protecna',
 ];
  
 export const resultsChart = {

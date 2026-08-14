@@ -12,7 +12,7 @@ import Reveal from './Reveal';
 
 const metrics = [
   { value: `${new Date().getFullYear() - company.founded}+`, label: 'anos de operação' },
-  { value: '100+', label: 'certificações técnicas' },
+  { value: '100+', label: 'equipamentos certificados' },
   { value: `${totalCourses}+`, label: 'formações disponíveis' },
 ];
 
@@ -26,7 +26,7 @@ export default function Hero() {
           <Reveal y={18}>
             <Typography variant="overline" sx={{ color: '#F6C859', display: 'block', mb: 2 }}>CONSULTORIA, FORMAÇÃO E INSPEÇÃO</Typography>
             <Typography variant="h1" sx={{ fontSize: { xs: '3.4rem', sm: '4.5rem', md: '5.7rem' }, maxWidth: 670, textWrap: 'balance' }}>Segurança que sustenta operações de alto desempenho.</Typography>
-            <Typography sx={{ mt: 3, maxWidth: 570, fontSize: { xs: '1rem', md: '1.12rem' }, lineHeight: 1.7, color: 'rgba(255,255,255,.78)' }}>Capacitamos equipas, controlamos riscos e fortalecemos a conformidade das organizações que fazem Moçambique avançar.</Typography>
+            <Typography sx={{ mt: 3, maxWidth: 570, fontSize: { xs: '1rem', md: '1.12rem' }, lineHeight: 1.7, color: 'rgba(255,255,255,.78)' }}>Apoiamos as organizações na implementação e melhoria da conformidade legal e operacional.</Typography>
             <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.5} sx={{ mt: 4 }}>
               <Button href="#contacto" variant="contained" color="secondary" endIcon={<ArrowOutwardIcon />}>Falar com um especialista</Button>
               <Button href="#formacoes" variant="outlined" sx={{ color: '#fff', borderColor: 'rgba(255,255,255,.42)', '&:hover': { borderColor: '#fff', bgcolor: 'rgba(255,255,255,.08)' } }} startIcon={<PlayCircleOutlined />}>Explorar formações</Button>

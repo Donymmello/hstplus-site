@@ -19,12 +19,9 @@ import Button from '@mui/material/Button';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
-import Paper from '@mui/material/Paper';
 import Divider from '@mui/material/Divider';
 import { courseCatalog, totalCourses, allCourses } from '../data/courses';
 import { resolveAcademias } from '../data/academias';
-import { legal, certifications } from '../data/content';
 import { gradients } from '../theme';
 import Reveal from './Reveal';
 import SectionHeader from './SectionHeader';
@@ -253,66 +250,11 @@ export default function Formacoes() {
             ))}
           </Box>
 
-          <Stack alignItems="center" sx={{ mt: 4, mb: 9 }}>
+          <Stack alignItems="center" sx={{ mt: 4, mb: 1 }}>
             <Button component={RouterLink} to="/calendario" variant="outlined" color="primary" endIcon={<ArrowOutwardIcon />}>
               Pedir Calendário de Formações
             </Button>
           </Stack>
-
-          <Divider sx={{ mb: 7 }} />
-
-          <Box id="certificacoes">
-            <Typography sx={{ fontFamily: '"IBM Plex Mono"', fontSize: '0.72rem', color: 'primary.main', letterSpacing: '0.06em', mb: 1 }}>
-              LEGALIDADE &amp; CERTIFICAÇÕES
-            </Typography>
-            <Typography variant="h4" sx={{ fontSize: { xs: '1.4rem', md: '1.7rem' }, mb: 4 }}>
-              Transparência, segurança e responsabilidade
-            </Typography>
-
-            <Grid container spacing={2} sx={{ mb: 5 }}>
-              {certifications.map((c, i) => (
-                <Grid size={{ xs: 12, sm: 6, md: 3 }} key={c.title}>
-                  <Reveal delay={i * 0.1}>
-                    <Paper
-                      variant="outlined"
-                      sx={{
-                        p: 3,
-                        height: '100%',
-                        borderColor: 'divider',
-                        textAlign: 'center',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                      }}
-                    >
-                      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                        <VerifiedUserIcon sx={{ color: 'secondary.main', fontSize: 30, mb: 1.5 }} />
-                        <Typography sx={{ fontWeight: 700, fontSize: '0.95rem' }}>{c.title}</Typography>
-                        <Typography sx={{ fontSize: '0.78rem', color: 'text.secondary', mb: 1 }}>{c.subtitle}</Typography>
-                      </Box>
-                      <Typography sx={{ fontFamily: '"IBM Plex Mono"', fontSize: '0.68rem', color: 'primary.main', mt: 1.5 }}>
-                        {c.code}
-                      </Typography>
-                    </Paper>
-                  </Reveal>
-                </Grid>
-              ))}
-            </Grid>
-
-            <Typography sx={{ fontSize: '0.85rem', color: 'text.secondary', textAlign: 'center', maxWidth: 780, mx: 'auto', mb: 3 }}>
-              {legal.text}
-            </Typography>
-            <Grid container spacing={2} justifyContent="center">
-              {legal.registrations.map((r) => (
-                <Grid size={{ xs: 12, sm: 'auto' }} key={r.label}>
-                  <Typography sx={{ fontSize: '0.72rem', color: 'text.secondary', textAlign: 'center' }}>
-                    {r.label}: <strong style={{ fontFamily: '"IBM Plex Mono"' }}>{r.value}</strong>
-                  </Typography>
-                </Grid>
-              ))}
-            </Grid>
-          </Box>
         </Reveal>
       </Container>
     </Box>

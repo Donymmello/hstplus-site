@@ -14,6 +14,8 @@ import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import RequestQuoteIcon from '@mui/icons-material/RequestQuote';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import EngineeringIcon from '@mui/icons-material/Engineering';
+import Chip from '@mui/material/Chip';
 import { findSectorBySlug } from '../data/sectors';
 import { company } from '../data/content';
 import { gradients } from '../theme';
@@ -94,6 +96,35 @@ export default function SectorDetailPage() {
           <Grid container spacing={{ xs: 5, md: 6 }}>
             <Grid size={{ xs: 12, md: 7 }}>
               <Reveal>
+                {sector.ambito && (
+                  <Stack
+                    direction="row"
+                    spacing={1.5}
+                    sx={{ p: 2.5, mb: 4, bgcolor: '#EEF1EC', border: '1px solid', borderColor: 'divider' }}
+                  >
+                    <EngineeringIcon sx={{ color: 'primary.main', fontSize: 20, flexShrink: 0, mt: 0.2 }} />
+                    <Box sx={{ fontSize: '0.82rem', color: 'text.primary', lineHeight: 1.7 }}>
+                      <Typography component="span" sx={{ display: 'block', fontSize: 'inherit' }}>
+                        <strong>Âmbito:</strong> {sector.ambito}
+                      </Typography>
+                      {sector.perfilTecnico && (
+                        <Typography component="span" sx={{ display: 'block', fontSize: 'inherit', mt: 0.8 }}>
+                          <strong>Perfil técnico de referência:</strong> {sector.perfilTecnico}
+                        </Typography>
+                      )}
+                      {sector.normas && sector.normas.length > 0 && (
+                        <Stack direction="row" spacing={0.8} flexWrap="wrap" useFlexGap sx={{ mt: 1.2 }}>
+                          <Typography component="span" sx={{ fontSize: 'inherit', mr: 0.5 }}>
+                            <strong>Normas de referência:</strong>
+                          </Typography>
+                          {sector.normas.map((n) => (
+                            <Chip key={n} label={n} size="small" sx={{ height: 20, fontSize: '0.68rem', bgcolor: '#fff' }} />
+                          ))}
+                        </Stack>
+                      )}
+                    </Box>
+                  </Stack>
+                )}
                 <ListBlock icon={WarningAmberIcon} iconColor="primary.main" title="Principais riscos" items={sector.riscos} />
                 <ListBlock icon={CheckCircleIcon} iconColor="secondary.main" title="Soluções HST Plus" items={sector.solucoes} />
                 <ListBlock icon={TrendingUpIcon} iconColor="warning.main" title="Resultados esperados" items={sector.resultados} />

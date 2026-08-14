@@ -11,7 +11,6 @@ import manica from '../assets/clients/manica.jpg';
 import lcpower from '../assets/clients/lcpower.png';
 import gabrielCouto from '../assets/clients/gabriel-couto.jpg';
 import protecna from '../assets/clients/protecna.jpg';
-import tata from '../assets/clients/tata.png';
 import Reveal from './Reveal';
 
 const logos = [
@@ -23,7 +22,6 @@ const logos = [
   { src: lcpower, alt: 'LC Power' },
   { src: gabrielCouto, alt: 'Gabriel Couto' },
   { src: protecna, alt: 'Protecna' },
-  { src: tata, alt: 'Tata' },
 ];
 
 export default function ClientLogos() {
@@ -36,7 +34,7 @@ export default function ClientLogos() {
         </Typography>
         <Grid container spacing={{ xs: 2, md: 3 }} justifyContent="center" alignItems="center">
           {logos.map((l) => (
-            <Grid size={{ xs: 4, sm: 3, md: 1.33 }} key={l.alt} sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Grid size={{ xs: 6, sm: 3, md: 1.5 }} key={l.alt} sx={{ display: 'flex', justifyContent: 'center' }}>
               <Box
                 component="img"
                 src={l.src}

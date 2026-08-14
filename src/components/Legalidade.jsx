@@ -15,7 +15,11 @@ export default function Legalidade() {
     <Box id="certificacoes" sx={{ py: { xs: 8, md: 11 }, backgroundImage: gradients.surfaceLight }}>
       <Container maxWidth="lg">
         <Reveal>
-        <SectionHeader index="07" eyebrow="Legalidade &amp; Certificações" title="Transparência, segurança e responsabilidade" mb={6} />
+        <SectionHeader index="03" eyebrow="Legalidade &amp; Acreditações" title="A HST Plus enquanto organização" introWidth={680} mb={6}>
+          Acreditações, associações profissionais e registos legais da própria HST Plus — distintos
+          dos certificados de participação/aproveitamento emitidos aos formandos, que estão
+          detalhados em cada página de formação.
+        </SectionHeader>
 
         <Grid container spacing={2} sx={{ mb: 5 }}>
           {certifications.map((c, i) => (

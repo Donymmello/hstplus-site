@@ -173,7 +173,7 @@ export default function CourseDetailPage() {
                     prática) para medir o aproveitamento. Com base nesse resultado, a HST Plus emite
                     um <strong>Certificado de Aproveitamento</strong> — este documento atesta a
                     participação e o desempenho na formação, não sendo um certificado ou diploma
-                    académico nem uma qualificação profissional emitida por entidade reguladora.
+                    académico mas sim qualificação profissional.
                   </Typography>
                 </Stack>
 

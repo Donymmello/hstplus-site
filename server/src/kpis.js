@@ -10,7 +10,11 @@ const KPIS_FILE = path.join(__dirname, '..', 'cache', 'kpis.json');
 const DEFAULT_KPIS = [
   { id: 'anos', value: new Date().getFullYear() - 2018, suffix: '+', label: 'Anos no terreno' },
   { id: 'certificacoes', value: 100, suffix: '+', label: 'Certificações em equipamentos' },
-  { id: 'formacoes', value: 20, suffix: '+', label: 'Formações técnicas' },
+  // ponytail: valor fixo, não deriva de src/data/courses.js porque o build
+  // Docker da api usa ./server como contexto isolado (não vê src/ do
+  // frontend). Se o catálogo de cursos mudar, actualizar aqui também — ou
+  // ajustar via Admin > KPIs, que é a fonte da verdade depois do 1º arranque.
+  { id: 'formacoes', value: 40, suffix: '+', label: 'Formações técnicas' },
   { id: 'clientes', value: 9, suffix: '+', label: 'Empresas clientes' },
 ];
 

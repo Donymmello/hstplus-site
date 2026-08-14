@@ -1,6 +1,8 @@
 import Hero from '../components/Hero';
 import ClientLogos from '../components/ClientLogos';
+import Legalidade from '../components/Legalidade';
 import Solucoes from '../components/Solucoes';
+import Servicos from '../components/Servicos';
 import Setores from '../components/Setores';
 import Formacoes from '../components/Formacoes';
 import Stats from '../components/Stats';
@@ -24,7 +26,9 @@ export default function HomePage() {
       <Seo path="/" />
       <Hero />
       <QuemSomos />
+      <Legalidade />
       <Solucoes />
+      <Servicos />
       <Setores />
       <ClientLogos />
       <Formacoes />

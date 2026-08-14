@@ -14,4 +14,4 @@ Este é um projeto full-stack rodando em Node.js e React.
 - recharts
 
 ## Última Atualização Automática
-Data: 8/11/2026, 1:37:01 PM
+Data: 8/14/2026, 10:24:48 AM

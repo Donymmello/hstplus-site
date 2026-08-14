@@ -39,8 +39,7 @@ export default function Contacto() {
             introWidth={520}
             mb={6}
           >
-            Somos gratos pela confiança depositada em nossa experiência desde {company.founded}
-            para cuidar da vossa empresa e do vosso activo mais valioso — a vossa equipa.
+            Somos gratos pela confiança depositada em nossa experiência desde {company.founded} para cuidar da vossa empresa e do vosso activo mais valioso a vossa equipa.
           </SectionHeader>
 
           <Grid container justifyContent="center">

@@ -38,7 +38,7 @@ const FALLBACK = {
   chart: [42, 58, 48, 70, 63, 88, 76, 94],
   activity: [
     { id: 'a1', text: 'Plano de emergência — revisão aprovada' },
-    { id: 'a2', text: 'Formação em altura — equipa certificada' },
+    { id: 'a2', text: 'Formação de trabalho em altura — equipa certificada' },
     { id: 'a3', text: 'Inspeção de equipamentos — relatório emitido' },
   ],
 };
