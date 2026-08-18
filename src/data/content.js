@@ -18,9 +18,9 @@ export const company = {
 // Preenche com os endereços reais das páginas da HST Plus. Deixa '' (vazio) para
 // esconder o ícone correspondente automaticamente.
 export const socials = {
-  facebook: '',
-  instagram: '',
-  linkedin: '',
+  facebook: 'https://www.facebook.com/profile.php?id=61564756258213',
+  instagram: 'https://www.instagram.com/hstplus_/',
+  linkedin: 'https://www.linkedin.com/company/86152728/',
 };
  
 export const values = [
