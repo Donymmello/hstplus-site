@@ -91,3 +91,26 @@ export async function sendLeadNotification(lead) {
     return { sent: false, reason: e.message };
   }
 }
+
+// Aviso por email quando algo parte a sério no servidor (excepção não
+// apanhada, promise rejeitada sem .catch). Reaproveita o mesmo SMTP e o
+// mesmo destinatário dos leads (LEADS_NOTIFY_TO/ALERTS_NOTIFY_TO) — sem
+// isto configurado, o erro fica só nos logs do Docker, como antes.
+export async function sendAlert(subject, message) {
+  const t = getTransporter();
+  const to = process.env.ALERTS_NOTIFY_TO || process.env.LEADS_NOTIFY_TO;
+  if (!t || !to) return { sent: false, reason: 'not_configured' };
+
+  try {
+    await t.sendMail({
+      from: process.env.SMTP_FROM || process.env.SMTP_USER,
+      to,
+      subject: `[HST Plus API] ${subject}`,
+      text: message,
+    });
+    return { sent: true };
+  } catch (e) {
+    console.error('[mailer] falha ao enviar alerta:', e.message);
+    return { sent: false, reason: e.message };
+  }
+}

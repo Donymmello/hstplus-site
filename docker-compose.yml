@@ -10,6 +10,11 @@ services:
     depends_on:
       - api
     restart: unless-stopped
+    # nginx só serve ficheiros estáticos — 128MB é folgado. Sem isto, um
+    # container com fuga de memória podia consumir toda a RAM da VPS e
+    # derrubar o outro serviço também.
+    mem_limit: 128m
+    mem_reservation: 64m
 
   api:
     build:
@@ -23,6 +28,12 @@ services:
       - blog-cache:/app/cache
       - gallery-uploads:/app/uploads
     restart: unless-stopped
+    # ponytail: limites conservadores para uma VPS pequena (1-2GB). Se um dia
+    # o upload de galeria ou o cache de posts começar a bater no tecto (ver
+    # `docker stats`), sobe para 384m/512m — não há cálculo exacto por trás
+    # deste número, só margem de segurança para o volume de tráfego actual.
+    mem_limit: 256m
+    mem_reservation: 128m
 
 volumes:
   blog-cache:

@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import rateLimit from 'express-rate-limit';
 import cron from 'node-cron';
 import multer from 'multer';
 import path from 'node:path';
@@ -15,12 +16,44 @@ import { readGaleria, addPhoto, saveMeta, UPLOAD_DIR } from './galeria.js';
 import { readPublished, findPublishedBySlug, readAll as readAllInsights, save as saveInsights, CATEGORIES, INSIGHTS_UPLOAD_DIR } from './insights.js';
 import { readSubscribers, subscribe } from './newsletter.js';
 import { renderInsightPrerender } from './prerender.js';
+import { backupCache } from './backup.js';
+import { sendAlert } from './mailer.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const app = express();
-app.use(cors());
+
+// Só o próprio site (e localhost em dev) pode chamar a API a partir do
+// browser. Defenível via .env (CORS_ORIGIN, separado por vírgulas) para
+// cobrir outros ambientes sem editar código.
+const CORS_ORIGINS = (process.env.CORS_ORIGIN || 'https://www.hstplus.co.mz,https://hstplus.co.mz,http://localhost:5173')
+  .split(',')
+  .map((o) => o.trim())
+  .filter(Boolean);
+app.use(cors({ origin: CORS_ORIGINS }));
 app.use(express.json());
+
+// Limite geral para toda a API — trava scraping/DoS básico sem incomodar uso
+// normal (site público + painel admin). Endpoints de escrita pública têm um
+// limite à parte, mais apertado (ver formLimiter abaixo).
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  limit: 300,
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+app.use('/api/', apiLimiter);
+
+// Só para os formulários públicos (leads + newsletter) — estes é que são o
+// alvo real de spam/bots. Uma pessoa real não submete o mesmo formulário
+// mais de 5x em 15 min.
+const formLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  limit: 5,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { ok: false, error: 'Demasiados pedidos — tenta novamente daqui a alguns minutos.' },
+});
 
 // Serve as fotos da galeria carregadas via /admin (ver POST /api/galeria/upload
 // mais abaixo). O nginx, em produção, faz proxy de /uploads/* para aqui —
@@ -33,13 +66,23 @@ const CRON_SCHEDULE = process.env.CRON_SCHEDULE || '0 */6 * * *';
 // Chave simples para proteger a leitura dos pedidos (ver .env.example).
 const ADMIN_KEY = process.env.ADMIN_KEY || '';
 
+// Só por header — nunca por query string (?key=...), que fica gravada em
+// logs de acesso do nginx/Caddy e no histórico do navegador.
+function requireAdminKey(req, res, next) {
+  const key = req.headers['x-admin-key'];
+  if (!ADMIN_KEY || key !== ADMIN_KEY) {
+    return res.status(401).json({ ok: false, error: 'Não autorizado' });
+  }
+  next();
+}
+
 app.get('/api/posts', async (_req, res) => {
   const cache = await readCache();
   res.json(cache);
 });
 
 // Recebe os pedidos de "Pedir Informações" / "Pedir Cotação" (ver LeadFormDialog.jsx)
-app.post('/api/leads', async (req, res) => {
+app.post('/api/leads', formLimiter, async (req, res) => {
   try {
     const lead = await saveLead(req.body || {});
     res.status(201).json({ ok: true, id: lead.id });
@@ -50,11 +93,7 @@ app.post('/api/leads', async (req, res) => {
 
 // Leitura simples dos pedidos recebidos — protegida por chave (?key=...) até
 // haver um painel de administração a sério.
-app.get('/api/leads', async (req, res) => {
-  const key = req.query.key || req.headers['x-admin-key'];
-  if (!ADMIN_KEY || key !== ADMIN_KEY) {
-    return res.status(401).json({ ok: false, error: 'Não autorizado' });
-  }
+app.get('/api/leads', requireAdminKey, async (_req, res) => {
   const leads = await readLeads();
   return res.json({ ok: true, leads });
 });
@@ -66,11 +105,7 @@ app.get('/api/kpis', async (_req, res) => {
   res.json({ ok: true, kpis });
 });
 
-app.put('/api/kpis', async (req, res) => {
-  const key = req.query.key || req.headers['x-admin-key'];
-  if (!ADMIN_KEY || key !== ADMIN_KEY) {
-    return res.status(401).json({ ok: false, error: 'Não autorizado' });
-  }
+app.put('/api/kpis', requireAdminKey, async (req, res) => {
   try {
     const kpis = await saveKpis(req.body);
     return res.json({ ok: true, kpis });
@@ -90,20 +125,12 @@ app.get('/api/calendario', async (_req, res) => {
 
 // Só para o painel de administração — inclui turmas passadas, para poderem
 // ser editadas/apagadas em vez de ficarem invisíveis para sempre.
-app.get('/api/calendario/all', async (req, res) => {
-  const key = req.query.key || req.headers['x-admin-key'];
-  if (!ADMIN_KEY || key !== ADMIN_KEY) {
-    return res.status(401).json({ ok: false, error: 'Não autorizado' });
-  }
+app.get('/api/calendario/all', requireAdminKey, async (_req, res) => {
   const turmas = await readAllTurmas();
   res.json({ ok: true, turmas });
 });
 
-app.put('/api/calendario', async (req, res) => {
-  const key = req.query.key || req.headers['x-admin-key'];
-  if (!ADMIN_KEY || key !== ADMIN_KEY) {
-    return res.status(401).json({ ok: false, error: 'Não autorizado' });
-  }
+app.put('/api/calendario', requireAdminKey, async (req, res) => {
   try {
     const turmas = await saveTurmas(req.body);
     return res.json({ ok: true, turmas });
@@ -121,11 +148,7 @@ app.get('/api/dashboard-preview', async (_req, res) => {
   res.json({ ok: true, dashboard });
 });
 
-app.put('/api/dashboard-preview', async (req, res) => {
-  const key = req.query.key || req.headers['x-admin-key'];
-  if (!ADMIN_KEY || key !== ADMIN_KEY) {
-    return res.status(401).json({ ok: false, error: 'Não autorizado' });
-  }
+app.put('/api/dashboard-preview', requireAdminKey, async (req, res) => {
   try {
     const dashboard = await saveDashboard(req.body);
     return res.json({ ok: true, dashboard });
@@ -172,11 +195,7 @@ app.get('/api/galeria', async (_req, res) => {
 
 // Upload de uma foto nova. multipart/form-data: campo "foto" (ficheiro) +
 // campo opcional "caption" (texto).
-app.post('/api/galeria/upload', (req, res) => {
-  const key = req.query.key || req.headers['x-admin-key'];
-  if (!ADMIN_KEY || key !== ADMIN_KEY) {
-    return res.status(401).json({ ok: false, error: 'Não autorizado' });
-  }
+app.post('/api/galeria/upload', requireAdminKey, (req, res) => {
   uploadGaleria.single('foto')(req, res, async (err) => {
     if (err) {
       return res.status(400).json({ ok: false, error: err.message });
@@ -195,11 +214,7 @@ app.post('/api/galeria/upload', (req, res) => {
 });
 
 // Substitui legendas/ordem — IDs omitidos são apagados (metadados + ficheiro).
-app.put('/api/galeria', async (req, res) => {
-  const key = req.query.key || req.headers['x-admin-key'];
-  if (!ADMIN_KEY || key !== ADMIN_KEY) {
-    return res.status(401).json({ ok: false, error: 'Não autorizado' });
-  }
+app.put('/api/galeria', requireAdminKey, async (req, res) => {
   try {
     const fotos = await saveMeta(req.body);
     return res.json({ ok: true, fotos });
@@ -251,20 +266,12 @@ app.get('/api/insights/:slug', async (req, res) => {
 });
 
 // Admin — inclui rascunhos.
-app.get('/api/admin/insights', async (req, res) => {
-  const key = req.query.key || req.headers['x-admin-key'];
-  if (!ADMIN_KEY || key !== ADMIN_KEY) {
-    return res.status(401).json({ ok: false, error: 'Não autorizado' });
-  }
+app.get('/api/admin/insights', requireAdminKey, async (_req, res) => {
   const artigos = await readAllInsights();
   res.json({ ok: true, artigos });
 });
 
-app.put('/api/insights', async (req, res) => {
-  const key = req.query.key || req.headers['x-admin-key'];
-  if (!ADMIN_KEY || key !== ADMIN_KEY) {
-    return res.status(401).json({ ok: false, error: 'Não autorizado' });
-  }
+app.put('/api/insights', requireAdminKey, async (req, res) => {
   try {
     const artigos = await saveInsights(req.body);
     return res.json({ ok: true, artigos });
@@ -273,11 +280,7 @@ app.put('/api/insights', async (req, res) => {
   }
 });
 
-app.post('/api/insights/upload-cover', (req, res) => {
-  const key = req.query.key || req.headers['x-admin-key'];
-  if (!ADMIN_KEY || key !== ADMIN_KEY) {
-    return res.status(401).json({ ok: false, error: 'Não autorizado' });
-  }
+app.post('/api/insights/upload-cover', requireAdminKey, (req, res) => {
   uploadInsightCover.single('capa')(req, res, (err) => {
     if (err) return res.status(400).json({ ok: false, error: err.message });
     if (!req.file) return res.status(400).json({ ok: false, error: 'Nenhum ficheiro enviado (campo "capa")' });
@@ -286,7 +289,7 @@ app.post('/api/insights/upload-cover', (req, res) => {
 });
 
 // ── Newsletter ──────────────────────────────────────────────────────────
-app.post('/api/newsletter/subscribe', async (req, res) => {
+app.post('/api/newsletter/subscribe', formLimiter, async (req, res) => {
   try {
     const result = await subscribe(req.body?.email);
     return res.status(201).json({ ok: true, ...result });
@@ -295,11 +298,7 @@ app.post('/api/newsletter/subscribe', async (req, res) => {
   }
 });
 
-app.get('/api/newsletter', async (req, res) => {
-  const key = req.query.key || req.headers['x-admin-key'];
-  if (!ADMIN_KEY || key !== ADMIN_KEY) {
-    return res.status(401).json({ ok: false, error: 'Não autorizado' });
-  }
+app.get('/api/newsletter', requireAdminKey, async (_req, res) => {
   const subscribers = await readSubscribers();
   res.json({ ok: true, subscribers });
 });
@@ -314,8 +313,38 @@ app.get('/prerender/insights/:slug', async (req, res) => {
   res.set('Content-Type', 'text/html; charset=utf-8').send(html);
 });
 
+// Rede de segurança — só dispara se alguma rota futura esquecer o try/catch
+// e deixar um erro passar por next(err) ou lançar de forma síncrona.
+// eslint-disable-next-line no-unused-vars
+app.use((err, _req, res, _next) => {
+  console.error('[express] erro não tratado numa rota:', err);
+  sendAlert('Erro não tratado numa rota', String(err.stack || err)).catch(() => {});
+  res.status(500).json({ ok: false, error: 'Erro interno' });
+});
+
 app.listen(PORT, () => {
   console.log(`[server] hstplus-blog-api a correr na porta ${PORT}`);
+});
+
+// Última linha de defesa — sem isto, uma excepção não apanhada ou uma
+// promise rejeitada sem .catch mata o processo em silêncio (só visível em
+// `docker logs`, que ninguém vê às 3h da manhã). O `restart: unless-stopped`
+// no docker-compose já traz o container de volta sozinho; isto garante que
+// também fica um aviso por email antes de sair.
+// ponytail: sem cooldown entre alertas — se entrar em crash-loop, recebes um
+// email por cada reinício. Aceitável para o volume de tráfego actual; se um
+// dia isso incomodar, adicionar um cooldown simples (ex: ficheiro com
+// timestamp do último alerta).
+process.on('uncaughtException', (err) => {
+  console.error('[process] uncaughtException:', err);
+  sendAlert('Exceção não apanhada — processo vai reiniciar', String(err.stack || err))
+    .catch(() => {})
+    .finally(() => process.exit(1));
+});
+
+process.on('unhandledRejection', (reason) => {
+  console.error('[process] unhandledRejection:', reason);
+  sendAlert('Promise rejeitada sem .catch', String(reason?.stack || reason)).catch(() => {});
 });
 
 // Actualiza a cache uma vez no arranque (não bloqueia o servidor se falhar)...
@@ -324,4 +353,12 @@ refreshCache().catch((e) => console.error('[startup] falha ao actualizar cache:'
 // ...e depois no horário definido.
 cron.schedule(CRON_SCHEDULE, () => {
   refreshCache().catch((e) => console.error('[cron] falha ao actualizar cache:', e.message));
+});
+
+// Backup diário dos ficheiros de dados (leads, subscritores, calendário,
+// KPIs, insights) — mais uma vez no arranque, para nunca passar mais de um
+// dia sem cópia mesmo que o container reinicie antes das 03:00.
+backupCache().catch((e) => console.error('[startup] falha ao criar backup:', e.message));
+cron.schedule('0 3 * * *', () => {
+  backupCache().catch((e) => console.error('[cron] falha ao criar backup:', e.message));
 });
