@@ -10,7 +10,7 @@ export const academiasRaw = [
     {
       id: 'trabalho-em-altura',
       title: 'Academia de Trabalho em Altura',
-      description: 'Da segurança básica ao resgate técnico, para quem trabalha acima do solo.',
+      description: 'Segurança, resgate e montagem de andaime, para quem trabalha acima do solo.',
       courseNames: [
         'Segurança em Trabalhos em Altura',
         'Resgate em Altura e em Espaços Confinados',
@@ -22,7 +22,7 @@ export const academiasRaw = [
     {
       id: 'lifting',
       title: 'Academia de Lifting',
-      description: 'Elevação e movimentação de cargas — do sinaleiro ao operador de guindaste.',
+      description: 'Formação para sinaleiros, operadores de guindaste e de ponte rolante.',
       courseNames: [
         'Içamento de Cargas',
         'Rigger (Sinaleiro/Amarrador de Cargas)',

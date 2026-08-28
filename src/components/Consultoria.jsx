@@ -46,10 +46,10 @@ export default function Consultoria() {
         </Grid>
 
         <Typography sx={{ color: 'text.secondary', maxWidth: 780 }}>
-          Nem todos os riscos no ambiente de trabalho são visíveis. A nossa equipa de
-          consultores qualificados identifica ameaças ocultas e promove acções que garantem a
-          segurança e o cumprimento legal da organização — apoiada por tecnologia moderna de
-          avaliação ambiental e uma rede de expertise multidisciplinar.
+          Nem todos os riscos no ambiente de trabalho são visíveis a olho nu. A nossa equipa
+          identifica-os no terreno, com equipamento de medição ambiental, e acompanha a
+          organização até o plano de acção correctiva estar implementado — não só entregue num
+          relatório.
         </Typography>
       </Reveal>
       </Container>

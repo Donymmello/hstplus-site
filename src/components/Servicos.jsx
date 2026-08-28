@@ -15,8 +15,8 @@ export default function Servicos() {
       <Container maxWidth="lg">
         <Reveal>
           <SectionHeader index="02b" eyebrow="Serviços Especializados" title="Cobertura técnica, ponta a ponta" introWidth={680}>
-            Da avaliação ambiental à resposta a emergências — serviços técnicos que apoiam a
-            conformidade e a segurança da tua operação.
+            Ensaios técnicos, higiene ocupacional, EPI e planos de emergência — serviços que
+            apoiam a conformidade e a segurança da tua operação.
           </SectionHeader>
           <Grid container spacing={2} sx={{ maxWidth: 900, mx: 'auto' }}>
             {specializedServices.map((s) => (

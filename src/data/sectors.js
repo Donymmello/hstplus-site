@@ -118,7 +118,7 @@ export const sectors = [
   {
     slug: 'energia',
     name: 'Energia',
-    resumo: 'Da geração à distribuição, cada elo da cadeia tem o seu próprio perfil de risco.',
+    resumo: 'Cada etapa da cadeia energética — geração, transmissão, distribuição — tem o seu próprio perfil de risco.',
     ambito: 'Subestações, linhas de transmissão, centrais e procedimentos de bloqueio (LOTO).',
     perfilTecnico: 'Engenheiro Electrotécnico com certificação em risco eléctrico e arco voltaico.',
     normas: ['NFPA 70E', 'IEC 60364'],

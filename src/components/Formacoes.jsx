@@ -47,7 +47,7 @@ export default function Formacoes() {
             introWidth={640}
           >
             Formadores experientes e conteúdo adaptado à realidade de cada equipa, com cargas
-            horárias definidas por pacote — Standard, Plus e Premium — organizadas por área de
+            horárias definidas por pacote Standard, Plus e Premium organizadas por área de
             actuação.
           </SectionHeader>
 

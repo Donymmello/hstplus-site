@@ -67,7 +67,7 @@ export default function Blog() {
         {showFallback && (
           <Box sx={{ textAlign: 'center', py: 4 }}>
             <Typography sx={{ color: 'text.secondary', mb: 2 }}>
-              Ainda sem publicações ligadas por aqui — segue-nos directamente nas redes sociais.
+              Ainda sem publicações ligadas por aqui segue-nos directamente nas redes sociais.
             </Typography>
             <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
               {socials.facebook && (

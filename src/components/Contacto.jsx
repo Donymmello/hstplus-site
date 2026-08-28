@@ -34,12 +34,13 @@ export default function Contacto() {
           <SectionHeader
             index="10"
             eyebrow="Fale Connosco"
-            title="Fazemos diferente"
+            title="Contacto directo com a equipa técnica"
             dark
             introWidth={520}
             mb={6}
           >
-            Somos gratos pela confiança depositada em nossa experiência desde {company.founded} para cuidar da vossa empresa e do vosso activo mais valioso a vossa equipa.
+            Desde {company.founded} que respondemos por telefone, WhatsApp ou email — sem
+            formulários que ninguém responde.
           </SectionHeader>
 
           <Grid container justifyContent="center">

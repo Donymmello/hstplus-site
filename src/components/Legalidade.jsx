@@ -16,7 +16,7 @@ export default function Legalidade() {
       <Container maxWidth="lg">
         <Reveal>
         <SectionHeader index="03" eyebrow="Legalidade &amp; Acreditações" title="A HST Plus enquanto organização" introWidth={680} mb={6}>
-          Acreditações, associações profissionais e registos legais da própria HST Plus — distintos
+          Acreditações, associações profissionais e registos legais da própria HST Plus distintos
           dos certificados de participação/aproveitamento emitidos aos formandos, que estão
           detalhados em cada página de formação.
         </SectionHeader>

@@ -22,8 +22,8 @@ export default function Setores() {
       <Container maxWidth="lg">
         <Reveal>
           <SectionHeader index="02" eyebrow="Sectores" title="Cada indústria tem o seu próprio perfil de risco" introWidth={620}>
-            Adaptamos consultoria, formação e inspecção à realidade concreta de cada sector — não
-            um pacote genérico de segurança.
+            Consultoria, formação e inspecção adaptadas à realidade concreta de cada sector, sem
+            pacotes-padrão.
           </SectionHeader>
 
           {/* Selector — lista de sectores, não uma grelha de cartões.

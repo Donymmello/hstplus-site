@@ -90,7 +90,7 @@ export default function InsightsPage() {
                   Os primeiros artigos estão a caminho
                 </Typography>
                 <Typography sx={{ color: 'text.secondary', maxWidth: 460, mx: 'auto' }}>
-                  Ainda não publicámos nenhum Insight — subscreve para seres avisado assim que
+                  Ainda não publicámos nenhum Insight. Subscreve para seres avisado assim que
                   sair o primeiro.
                 </Typography>
               </Box>

@@ -112,7 +112,7 @@ export default function DashboardPreview() {
 
                 <Box sx={{ px: { xs: 2, md: 3 }, py: 1, bgcolor: 'rgba(0,0,0,.15)' }}>
                   <Typography sx={{ fontSize: '.7rem', color: 'rgba(255,255,255,.6)' }}>
-                    Conteúdos e indicadores ilustrativos, sujeitos a validação — não representam
+                    Conteúdos e indicadores ilustrativos, sujeitos a validação não representam
                     dados reais de nenhum cliente.
                   </Typography>
                 </Box>

@@ -57,7 +57,7 @@ export default class ErrorBoundary extends Component {
             Algo correu mal
           </Typography>
           <Typography sx={{ color: 'rgba(20,24,26,0.68)', mb: 4, maxWidth: 440, mx: 'auto' }}>
-            Encontrámos um erro inesperado. A nossa equipa já foi avisada — tenta voltar à página
+            Encontrámos um erro inesperado. A nossa equipa já foi avisada, tenta voltar à página
             inicial, ou contacta-nos se o problema continuar.
           </Typography>
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.5} justifyContent="center">

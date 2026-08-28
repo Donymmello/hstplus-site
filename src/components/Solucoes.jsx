@@ -138,10 +138,9 @@ export default function Solucoes() {
     <Box id="solucoes" sx={{ py: { xs: 8, md: 11 }, backgroundImage: gradients.surfaceLight }}>
       <Container maxWidth="lg">
         <Reveal>
-          <SectionHeader index="01" eyebrow="O Que Fazemos" title="Segurança não é um serviço isolado — é um sistema." mb={{ xs: 5, md: 6 }}>
-            Da avaliação de risco à certificação de equipamentos, cada frente entra num único
-            sistema de gestão integrada — pensado para operações que não podem parar por causa de
-            um acidente evitável.
+          <SectionHeader index="01" eyebrow="O Que Fazemos" title="Cinco frentes, uma só equipa de segurança" mb={{ xs: 5, md: 6 }}>
+            HSEQ, formação, gestão de risco, certificação e consultoria — tratados pela mesma
+            equipa, para que a tua operação não pare por causa de um acidente evitável.
           </SectionHeader>
 
           <Box sx={{ borderTop: '1px solid', borderColor: 'divider' }}>
