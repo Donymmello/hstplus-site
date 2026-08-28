@@ -37,22 +37,28 @@ function IconBadge({ children }) {
 
 export default function TopBar() {
   return (
-    <Box sx={{ backgroundImage: gradients.primary, display: { xs: 'none', md: 'block' } }}>
+    <Box sx={{ backgroundImage: gradients.primary }}>
       <Container maxWidth="lg">
         {/* Uma única linha flex, largura total, sem Stacks aninhadas — telefone/email
-            fixos à esquerda (flex-start), redes sociais fixas à direita (flex-end). */}
+            fixos à esquerda (flex-start), redes sociais fixas à direita (flex-end).
+            Em ecrãs de telemóvel (xs) não há largura para o texto do telefone/email
+            ao lado dos 3 ícones sociais — por isso o texto some abaixo de `sm` e
+            fica só o ícone, que continua clicável (tel:/mailto:). A partir de `sm`
+            (tablets) volta a mostrar o texto completo, como no desktop. */}
         <Box
           sx={{
             width: '100%',
-            height: 50,
+            minHeight: { xs: 40, md: 50 },
+            py: { xs: 0.6, md: 0 },
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'space-between',
+            gap: 1,
           }}
         >
           {/* Grupo esquerdo: telefone + email */}
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: { xs: '14px', md: '32px' } }}>
             <Box
               component="a"
               href={`tel:${company.phone1.replace(/\s/g, '')}`}
@@ -67,7 +73,9 @@ export default function TopBar() {
               <IconBadge>
                 <PhoneIcon sx={{ fontSize: 14, color: '#fff', display: 'block' }} />
               </IconBadge>
-              <Typography sx={{ fontSize: '0.85rem', lineHeight: 1 }}>{company.phone1}</Typography>
+              <Typography sx={{ display: { xs: 'none', sm: 'block' }, fontSize: '0.85rem', lineHeight: 1 }}>
+                {company.phone1}
+              </Typography>
             </Box>
 
             <Box
@@ -84,12 +92,14 @@ export default function TopBar() {
               <IconBadge>
                 <EmailIcon sx={{ fontSize: 14, color: '#fff', display: 'block' }} />
               </IconBadge>
-              <Typography sx={{ fontSize: '0.85rem', lineHeight: 1 }}>{company.email}</Typography>
+              <Typography sx={{ display: { xs: 'none', sm: 'block' }, fontSize: '0.85rem', lineHeight: 1 }}>
+                {company.email}
+              </Typography>
             </Box>
           </Box>
 
           {/* Grupo direito: redes sociais */}
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: '18px' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: { xs: '10px', md: '18px' } }}>
             {socialIcons.map(({ key, Icon, label }) => (
               <IconButton
                 key={key}
