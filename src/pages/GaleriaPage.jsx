@@ -27,13 +27,13 @@ import espacoConfinadoTerminais from '../assets/gallery/espaco-confinado-termina
 import visitaTerreno from '../assets/gallery/visita-terreno-unispan.jpg';
 
 const FALLBACK_PHOTOS = [
-  { url: formacaoAltura1, caption: 'Formação em segurança para trabalho em altura — equipa Uni-Span' },
-  { url: avaliacaoEscrita, caption: 'Avaliação escrita durante a formação — Uni-Span' },
-  { url: equipaUnispan1, caption: 'Equipa formada em Saúde e Segurança no Trabalho — Uni-Span' },
+  { url: formacaoAltura1, caption: 'Formação em segurança para trabalho em altura equipa Uni-Span' },
+  { url: avaliacaoEscrita, caption: 'Avaliação escrita durante a formação Uni-Span' },
+  { url: equipaUnispan1, caption: 'Equipa formada em Saúde e Segurança no Trabalho Uni-Span' },
   { url: equipaUnispan2, caption: 'Formação técnica com a equipa Uni-Span' },
   { url: encerramentoFormacao, caption: 'Encerramento de formação com a equipa Uni-Span' },
-  { url: espacoConfinadoTerminais, caption: 'Formação de Trabalho em Espaço Confinado — Terminais do Norte' },
-  { url: visitaTerreno, caption: 'Visita técnica ao terreno — equipa Uni-Span' },
+  { url: espacoConfinadoTerminais, caption: 'Formação de Trabalho em Espaço Confinado Terminais do Norte' },
+  { url: visitaTerreno, caption: 'Visita técnica ao terreno equipa Uni-Span' },
 ];
 
 // As fotos carregadas via admin vêm como caminhos relativos ("/uploads/galeria/xxx.jpg"),
@@ -76,7 +76,7 @@ export default function GaleriaPage() {
     <>
       <Seo
         title="Galeria"
-        description="Fotos da HST Plus no terreno — formações, inspecções e trabalho em altura em Moçambique."
+        description="Fotos da HST Plus no terreno formações, inspecções e trabalho em altura em Moçambique."
         path="/galeria"
       />
       <Box sx={{ py: { xs: 7, md: 9 }, backgroundImage: gradients.dark, color: '#fff', textAlign: 'center' }}>

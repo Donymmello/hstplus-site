@@ -38,7 +38,7 @@ function validateCards(cards) {
   }
   return cards.map((c, i) => {
     if (!c.id || typeof c.label !== 'string' || typeof c.value === 'undefined') {
-      throw Object.assign(new Error(`Card inválido no índice ${i} — precisa de id, label e value`), { status: 400 });
+      throw Object.assign(new Error(`Card inválido no índice ${i} precisa de id, label e value`), { status: 400 });
     }
     return {
       id: c.id,
@@ -55,7 +55,7 @@ function validateActivity(activity) {
   }
   return activity.map((a, i) => {
     if (!a.id || typeof a.text !== 'string' || !a.text.trim()) {
-      throw Object.assign(new Error(`Item de actividade inválido no índice ${i} — precisa de id e text`), { status: 400 });
+      throw Object.assign(new Error(`Item de actividade inválido no índice ${i} precisa de id e text`), { status: 400 });
     }
     return { id: a.id, text: a.text.trim() };
   });

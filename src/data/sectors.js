@@ -96,7 +96,7 @@ export const sectors = [
   {
     slug: 'telecomunicacoes',
     name: 'Telecomunicações',
-    resumo: 'Torres, postes e tecto — a maior parte do risco está literalmente no ar.',
+    resumo: 'Torres, postes e tecto a maior parte do risco está literalmente no ar.',
     riscos: [
       'Trabalho em altura em torres e postes de telecomunicações',
       'Trabalhos com risco eléctrico em proximidade de instalações activas',
@@ -118,7 +118,7 @@ export const sectors = [
   {
     slug: 'energia',
     name: 'Energia',
-    resumo: 'Cada etapa da cadeia energética — geração, transmissão, distribuição — tem o seu próprio perfil de risco.',
+    resumo: 'Cada etapa da cadeia energética geração, transmissão, distribuição tem o seu próprio perfil de risco.',
     ambito: 'Subestações, linhas de transmissão, centrais e procedimentos de bloqueio (LOTO).',
     perfilTecnico: 'Engenheiro Electrotécnico com certificação em risco eléctrico e arco voltaico.',
     normas: ['NFPA 70E', 'IEC 60364'],

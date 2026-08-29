@@ -37,7 +37,7 @@ export async function saveKpis(payload) {
 
   const clean = payload.map((item, i) => {
     if (!item.id || typeof item.label !== 'string' || Number.isNaN(Number(item.value))) {
-      const err = new Error(`KPI inválido no índice ${i} — precisa de id, value (número) e label`);
+      const err = new Error(`KPI inválido no índice ${i} precisa de id, value (número) e label`);
       err.status = 400;
       throw err;
     }

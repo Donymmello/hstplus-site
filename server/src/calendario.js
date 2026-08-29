@@ -47,7 +47,7 @@ export async function saveTurmas(payload) {
 
   const clean = payload.map((item, i) => {
     if (!item.id || typeof item.curso !== 'string' || !DATE_RE.test(item.data)) {
-      const err = new Error(`Turma inválida no índice ${i} — precisa de id, curso e data no formato AAAA-MM-DD`);
+      const err = new Error(`Turma inválida no índice ${i} precisa de id, curso e data no formato AAAA-MM-DD`);
       err.status = 400;
       throw err;
     }

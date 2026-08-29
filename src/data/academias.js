@@ -47,7 +47,7 @@ export const academiasRaw = [
     {
       id: 'emergencia',
       title: 'Academia de Emergência',
-      description: 'Reconhecer, responder e investigar — preparação para quando algo corre mal.',
+      description: 'Reconhecer, responder e investigar preparação para quando algo corre mal.',
       courseNames: [
         'Primeiros Socorros',
         'Prevenção e Combate a Incêndios',

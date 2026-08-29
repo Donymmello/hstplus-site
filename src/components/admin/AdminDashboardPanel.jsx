@@ -112,7 +112,7 @@ export default function AdminDashboardPanel({ adminKey, onUnauthorized }) {
   return (
     <Box>
       <Typography sx={{ color: 'text.secondary', fontSize: '0.85rem', mb: 3 }}>
-        Conteúdo da secção "Visibilidade Operacional" da homepage — é uma prévia ilustrativa, não
+        Conteúdo da secção "Visibilidade Operacional" da homepage é uma prévia ilustrativa, não
         dados reais em tempo real. Usa números plausíveis, não a operação exacta de hoje.
       </Typography>
 

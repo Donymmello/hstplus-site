@@ -15,7 +15,7 @@ export default function Servicos() {
       <Container maxWidth="lg">
         <Reveal>
           <SectionHeader index="02b" eyebrow="Serviços Especializados" title="Cobertura técnica, ponta a ponta" introWidth={680}>
-            Ensaios técnicos, higiene ocupacional, EPI e planos de emergência — serviços que
+            Ensaios técnicos, higiene ocupacional, EPI e planos de emergência serviços que
             apoiam a conformidade e a segurança da tua operação.
           </SectionHeader>
           <Grid container spacing={2} sx={{ maxWidth: 900, mx: 'auto' }}>

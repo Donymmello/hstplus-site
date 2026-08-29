@@ -13,7 +13,7 @@ function getTransporter() {
   if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS) {
     if (!warnedMissingConfig) {
       console.warn(
-        '[mailer] SMTP não configurado (SMTP_HOST/SMTP_USER/SMTP_PASS em falta) — ' +
+        '[mailer] SMTP não configurado (SMTP_HOST/SMTP_USER/SMTP_PASS em falta) ' +
           'leads continuam a ser gravados normalmente, mas nenhum email de notificação será enviado. ' +
           'Ver server/.env.example.'
       );
@@ -46,7 +46,7 @@ function buildEmail(lead) {
   ];
 
   const text = [
-    `${tipo} — recebido via site HST Plus`,
+    `${tipo} recebido via site HST Plus`,
     '',
     ...linhas.map(([k, v]) => `${k}: ${v}`),
     '',

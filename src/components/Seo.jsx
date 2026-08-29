@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 const SITE_URL = 'https://www.hstplus.co.mz';
 const DEFAULT_IMAGE = `${SITE_URL}/og-image.jpg`;
 const DEFAULT_DESCRIPTION =
-  'HST Plus, Consultancy & Training — Consultoria, Gestão de Risco, Formação Profissional e Inspeção de Qualidade em Moçambique.';
+  'HST Plus, Consultancy & Training Consultoria, Gestão de Risco, Formação Profissional e Inspeção de Qualidade em Moçambique.';
 
 function upsertMeta(attr, key, content) {
   if (!content) return;
@@ -52,7 +52,7 @@ export default function Seo({
   structuredData,
 }) {
   const url = `${SITE_URL}${path}`;
-  const fullTitle = title ? `${title} — HST Plus` : 'HST Plus | Consultancy & Training';
+  const fullTitle = title ? `${title} HST Plus` : 'HST Plus | Consultancy & Training';
 
   useEffect(() => {
     document.title = fullTitle;

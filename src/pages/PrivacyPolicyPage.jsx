@@ -86,7 +86,7 @@ export default function PrivacyPolicyPage() {
             <Typography sx={{ mb: 2 }}>
               Recolhemos nome, email, telefone, organização, cargo (opcional) e a mensagem que
               escrever, incluindo o curso ou sector a que o pedido se refere, quando aplicável. Estes
-              dados são usados exclusivamente para responder ao seu pedido — não são vendidos nem
+              dados são usados exclusivamente para responder ao seu pedido não são vendidos nem
               partilhados com terceiros para fins de marketing.
             </Typography>
 
@@ -96,12 +96,11 @@ export default function PrivacyPolicyPage() {
             <Typography sx={{ mb: 2 }}>
               Se subscrever a newsletter, recolhemos apenas o seu endereço de email, usado para
               enviar novos artigos publicados em Insights. Pode cancelar a subscrição a qualquer
-              momento contactando-nos directamente (o link de auto-cancelamento está ainda em
-              desenvolvimento).
+              momento contactando-nos directamente.
             </Typography>
 
             <Typography sx={{ fontWeight: 600, color: 'text.primary', mb: 0.5 }}>
-              Google Analytics (quando activo)
+              Google Analytics
             </Typography>
             <Typography>
               Quando activado, o site pode usar o Google Analytics para perceber, de forma agregada
@@ -114,9 +113,9 @@ export default function PrivacyPolicyPage() {
           <Section title="3. Onde ficam guardados os seus dados">
             <Typography>
               Os dados recolhidos pelos formulários ficam guardados nos nossos servidores, geridos
-              directamente pela equipa técnica da HST Plus — não usamos plataformas de terceiros
+              directamente pela equipa técnica da HST Plus não usamos plataformas de terceiros
               (tipo CRMs externos ou serviços de marketing) para armazenar estes dados. Podemos usar
-              um serviço de email (SMTP) apenas para nos notificar de novos pedidos — esse serviço
+              um serviço de email (SMTP) apenas para nos notificar de novos pedidos esse serviço
               não guarda nem processa os seus dados para outros fins.
             </Typography>
           </Section>
@@ -125,7 +124,7 @@ export default function PrivacyPolicyPage() {
             <Typography>
               Guardamos os pedidos de contacto pelo tempo necessário para lhes dar resposta e para
               fins de registo comercial legítimo. Se quiser que os seus dados sejam apagados antes
-              disso, contacte-nos — ver secção 6.
+              disso, contacte-nos ver secção 6.
             </Typography>
           </Section>
 
@@ -142,7 +141,7 @@ export default function PrivacyPolicyPage() {
             </Typography>
             <Typography>
               O painel de administração interno (uso exclusivo da equipa HST Plus) usa armazenamento
-              local do browser (sessionStorage) apenas para manter a sessão de login activa — este
+              local do browser (sessionStorage) apenas para manter a sessão de login activa este
               dado nunca sai do seu próprio dispositivo e não depende do seu consentimento de cookies.
             </Typography>
           </Section>

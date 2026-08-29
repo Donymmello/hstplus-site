@@ -65,7 +65,7 @@ export default function AdminKpisPanel({ adminKey, onUnauthorized }) {
       const data = await res.json();
       if (!res.ok || !data.ok) throw new Error(data.error || 'Falha ao gravar');
       setKpis(data.kpis);
-      setToast({ severity: 'success', message: 'KPIs actualizados — já reflectem no site.' });
+      setToast({ severity: 'success', message: 'KPIs actualizados já reflectem no site.' });
     } catch (e) {
       setToast({ severity: 'error', message: e.message });
     } finally {

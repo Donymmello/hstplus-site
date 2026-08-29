@@ -157,7 +157,7 @@ export default function InsightsPage() {
             <NewsletterSignup
               variant="light"
               title="Recebe os próximos artigos por email"
-              description="Sem spam — só um aviso quando publicarmos conteúdo novo."
+              description="Sem spam só um aviso quando publicarmos conteúdo novo."
             />
           </Box>
         </Container>

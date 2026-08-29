@@ -44,7 +44,7 @@ export default function AdminLeadsPanel({ adminKey, onUnauthorized }) {
     <Box>
       <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 3, flexWrap: 'wrap', gap: 2 }}>
         <Typography sx={{ color: 'text.secondary', fontSize: '0.85rem' }}>
-          Pedidos de Informações/Cotação/Proposta recebidos pelo site. Só leitura — se o email
+          Pedidos de Informações/Cotação/Proposta recebidos pelo site. Só leitura se o email
           estiver configurado, também chegam por email; isto fica sempre como registo de apoio.
         </Typography>
         <ToggleButtonGroup size="small" value={filtro} exclusive onChange={(_, v) => v && setFiltro(v)}>

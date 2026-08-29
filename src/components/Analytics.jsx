@@ -5,7 +5,7 @@ const GA_ID = import.meta.env.VITE_GA_ID;
 
 function loadGA() {
   if (!GA_ID) {
-    console.info('[analytics] VITE_GA_ID não definido — Google Analytics desligado.');
+    console.info('[analytics] VITE_GA_ID não definido Google Analytics desligado.');
     return;
   }
   // Evita carregar duas vezes (ex: em StrictMode/HMR)

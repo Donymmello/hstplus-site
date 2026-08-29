@@ -52,7 +52,7 @@ const formLimiter = rateLimit({
   limit: 5,
   standardHeaders: true,
   legacyHeaders: false,
-  message: { ok: false, error: 'Demasiados pedidos — tenta novamente daqui a alguns minutos.' },
+  message: { ok: false, error: 'Demasiados pedidos tenta novamente daqui a alguns minutos.' },
 });
 
 // Serve as fotos da galeria carregadas via /admin (ver POST /api/galeria/upload
@@ -181,7 +181,7 @@ const uploadGaleria = multer({
   limits: { fileSize: 8 * 1024 * 1024 }, // 8MB
   fileFilter: (_req, file, cb) => {
     if (!ALLOWED_MIME.has(file.mimetype)) {
-      return cb(new Error('Formato não suportado — usa JPG, PNG ou WEBP'));
+      return cb(new Error('Formato não suportado usa JPG, PNG ou WEBP'));
     }
     cb(null, true);
   },
@@ -244,7 +244,7 @@ const uploadInsightCover = multer({
   limits: { fileSize: 8 * 1024 * 1024 },
   fileFilter: (_req, file, cb) => {
     if (!ALLOWED_MIME.has(file.mimetype)) {
-      return cb(new Error('Formato não suportado — usa JPG, PNG ou WEBP'));
+      return cb(new Error('Formato não suportado usa JPG, PNG ou WEBP'));
     }
     cb(null, true);
   },
@@ -337,7 +337,7 @@ app.listen(PORT, () => {
 // timestamp do último alerta).
 process.on('uncaughtException', (err) => {
   console.error('[process] uncaughtException:', err);
-  sendAlert('Exceção não apanhada — processo vai reiniciar', String(err.stack || err))
+  sendAlert('Exceção não apanhada processo vai reiniciar', String(err.stack || err))
     .catch(() => {})
     .finally(() => process.exit(1));
 });

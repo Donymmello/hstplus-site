@@ -39,8 +39,7 @@ export default function Footer() {
               <Typography sx={{ color: '#fff', fontWeight: 700, fontSize: '0.95rem' }}>HST PLUS</Typography>
             </Stack>
             <Typography sx={{ fontSize: '0.82rem', maxWidth: 280 }}>
-              Consultoria, Gestão de Risco, Formação Profissional e Inspeção de Qualidade —
-              Moçambique, desde {company.founded}.
+              Consultoria, Gestão de Risco, Formação Profissional e Inspeção de Qualidade em Moçambique, desde {company.founded}.
             </Typography>
 
             <Stack direction="row" spacing={1} sx={{ mt: 3 }}>

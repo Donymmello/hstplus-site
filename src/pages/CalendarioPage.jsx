@@ -134,7 +134,7 @@ export default function CalendarioPage() {
     <>
       <Seo
         title="Calendário de Formações"
-        description="Próximas turmas de formação da HST Plus em Moçambique — datas, locais e vagas disponíveis."
+        description="Próximas turmas de formação da HST Plus em Moçambique datas, locais e vagas disponíveis."
         path="/calendario"
       />
       <Box sx={{ py: { xs: 7, md: 9 }, backgroundImage: gradients.dark, color: '#fff', textAlign: 'center' }}>
@@ -146,7 +146,7 @@ export default function CalendarioPage() {
             Calendário de Formações
           </Typography>
           <Typography sx={{ color: 'rgba(255,255,255,0.78)', mt: 1.5, maxWidth: 560, mx: 'auto' }}>
-            Próximas turmas abertas — consulta as datas e garante o lugar da tua equipa com antecedência.
+            Próximas turmas abertas consulta as datas e garante o lugar da tua equipa com antecedência.
           </Typography>
         </Container>
       </Box>

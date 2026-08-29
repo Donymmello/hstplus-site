@@ -39,7 +39,7 @@ export default function Contacto() {
             introWidth={520}
             mb={6}
           >
-            Desde {company.founded} que respondemos por telefone, WhatsApp ou email — sem
+            Desde {company.founded} que respondemos por telefone, WhatsApp ou email sem
             formulários que ninguém responde.
           </SectionHeader>
 

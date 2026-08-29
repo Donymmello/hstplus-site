@@ -48,7 +48,7 @@ export default function Consultoria() {
         <Typography sx={{ color: 'text.secondary', maxWidth: 780 }}>
           Nem todos os riscos no ambiente de trabalho são visíveis a olho nu. A nossa equipa
           identifica-os no terreno, com equipamento de medição ambiental, e acompanha a
-          organização até o plano de acção correctiva estar implementado — não só entregue num
+          organização até o plano de acção correctiva estar implementado não só entregue num
           relatório.
         </Typography>
       </Reveal>

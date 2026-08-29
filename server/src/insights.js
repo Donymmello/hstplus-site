@@ -59,7 +59,7 @@ export async function save(payload) {
   const usedSlugs = new Set();
   const clean = payload.map((item, i) => {
     if (!item.title || typeof item.title !== 'string' || !item.title.trim()) {
-      throw Object.assign(new Error(`Artigo inválido no índice ${i} — falta o título`), { status: 400 });
+      throw Object.assign(new Error(`Artigo inválido no índice ${i} falta o título`), { status: 400 });
     }
     if (!item.body || typeof item.body !== 'string' || !item.body.trim()) {
       throw Object.assign(new Error(`Artigo "${item.title}" precisa de conteúdo (body)`), { status: 400 });

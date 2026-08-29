@@ -60,7 +60,7 @@ ${artigo.body
   .join('\n')}`;
 
   return renderMetaHtml({
-    title: `${artigo.title} — HST Plus`,
+    title: `${artigo.title} HST Plus`,
     description: artigo.excerpt || artigo.title,
     image,
     url,

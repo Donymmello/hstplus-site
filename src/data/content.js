@@ -94,7 +94,7 @@ export const legal = {
   text: 'A HST Plus, Consultancy & Training está sujeita à legislação moçambicana, incluindo a lei da formação profissional e a lei de certificação (Lei n.º 26/2022, Decreto n.º 91/2021). A HST Plus possui as licenças e autorizações necessárias para operar, incluindo a licença de funcionamento e a autorização para ministrar formações.',
   registrations: [
     { label: 'Alvará (Balcão de Atendimento Único, Jul/2018)', value: '2846/07/01PS/2018' },
-    { label: 'NUEL — Conservatória de Registo das Entidades Legais', value: '101045706' },
+    { label: 'NUEL Conservatória de Registo das Entidades Legais', value: '101045706' },
     { label: 'Boletim da República (Nov/2018)', value: 'BR 218 · III Série · 2018' },
   ],
 };
@@ -102,8 +102,8 @@ export const legal = {
 export const certifications = [
   { title: 'ISO 9001:2015', subtitle: 'Certificação de Qualidade pelo British Standards (BS), 2024', code: 'Certificado nº 601 068' },
   { title: 'OSHAcademy', subtitle: 'Provedor de Treinamento Autorizado (ATP)', code: 'Membro nº 367' },
-  { title: 'LEEA', subtitle: 'Membro desde 2023 — Órgão britânico para profissionais da indústria de elevação', code: 'Membro nº 9 972' },
-  { title: 'BSI', subtitle: 'Membro desde 2020 — normas globais e suporte a organizações', code: 'Membro nº 20 686 503' },
+  { title: 'LEEA', subtitle: 'Membro desde 2023 Órgão britânico para profissionais da indústria de elevação', code: 'Membro nº 9 972' },
+  { title: 'BSI', subtitle: 'Membro desde 2020 normas globais e suporte a organizações', code: 'Membro nº 20 686 503' },
 ];
  
 export const clients = [
@@ -127,5 +127,5 @@ export const inspectionCategories = [
   { title: 'Equipamentos de Elevação e Cargas', items: ['Gruas e Guindastes', 'Empilhadores', 'Plataformas Elevatórias'] },
   { title: 'Máquinas e Equipamentos Industriais', items: ['Escavadoras e Retroescavadoras', 'Bulldozers', 'Geradores'] },
   { title: 'Equipamentos de Proteção e Segurança (HST)', items: ['Equipamentos de Proteção Individual (EPIs)', 'Sistemas de Emergência', 'Cintos de Segurança'] },
-  { title: 'Normas e Referenciais Aplicados', items: ['ISO 9001 (Qualidade)', 'ISO 14001 (Gestão Ambiental) — referencial', 'ISO 45001 (Saúde e Segurança Ocupacional) — referencial', 'Normas BSI, EN, NP e ABNT'] },
+  { title: 'Normas e Referenciais Aplicados', items: ['ISO 9001 (Qualidade)', 'ISO 14001 (Gestão Ambiental) referencial', 'ISO 45001 (Saúde e Segurança Ocupacional) referencial', 'Normas BSI, EN, NP e ABNT'] },
 ];

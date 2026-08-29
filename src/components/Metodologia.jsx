@@ -41,7 +41,7 @@ export default function Metodologia() {
         <Grid container spacing={4}>
           <Grid size={{ xs: 12, md: 6 }}>
             <Box sx={{ height: '100%', borderTop: '3px solid', borderTopColor: 'primary.main' }}>
-              <PhotoFrame src={salaFormacao} alt="Formação teórica em sala — Uni-Span, Temane" ratio="16/9" />
+              <PhotoFrame src={salaFormacao} alt="Formação teórica em sala Uni-Span, Temane" ratio="16/9" />
               <Box sx={{ bgcolor: '#EFEDE6', p: { xs: 3, md: 4 } }}>
                 <Typography variant="h4" sx={{ fontSize: '1.15rem', mb: 2.5 }}>
                   Nas aulas teóricas

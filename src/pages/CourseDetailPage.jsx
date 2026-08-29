@@ -171,7 +171,7 @@ export default function CourseDetailPage() {
                   <Typography sx={{ fontSize: '0.82rem', color: 'text.primary', lineHeight: 1.6 }}>
                     No final da formação, os participantes realizam uma avaliação (teórica e/ou
                     prática) para medir o aproveitamento. Com base nesse resultado, a HST Plus emite
-                    um <strong>Certificado de Aproveitamento</strong> — este documento atesta a
+                    um <strong>Certificado de Aproveitamento</strong> este documento atesta a
                     participação e o desempenho na formação, não sendo um certificado ou diploma
                     académico mas sim qualificação profissional.
                   </Typography>

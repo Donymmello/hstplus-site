@@ -26,7 +26,7 @@ const pillars = [
   },
   {
     title: 'Gestão de Risco',
-    text: 'Identificação, avaliação e mitigação de riscos operacionais — matrizes de risco e planos de contingência e resposta a emergências, à medida de cada actividade.',
+    text: 'Identificação, avaliação e mitigação de riscos operacionais matrizes de risco e planos de contingência e resposta a emergências, à medida de cada actividade.',
     spec: 'REFERENCIAL ISO 31000',
     href: '#contacto',
   },
@@ -139,7 +139,7 @@ export default function Solucoes() {
       <Container maxWidth="lg">
         <Reveal>
           <SectionHeader index="01" eyebrow="O Que Fazemos" title="Cinco frentes, uma só equipa de segurança" mb={{ xs: 5, md: 6 }}>
-            HSEQ, formação, gestão de risco, certificação e consultoria — tratados pela mesma
+            HSEQ, formação, gestão de risco, certificação e consultoria tratados pela mesma
             equipa, para que a tua operação não pare por causa de um acidente evitável.
           </SectionHeader>
 

@@ -111,8 +111,7 @@ export default function AdminGaleriaPanel({ adminKey, onUnauthorized }) {
   return (
     <Box>
       <Typography sx={{ color: 'text.secondary', fontSize: '0.85rem', mb: 3 }}>
-        Fotos da página <code>/galeria</code>. Enviadas aqui, ficam disponíveis no site na hora —
-        sem precisar de deploy. Formatos aceites: JPG, PNG, WEBP (até 8MB).
+        Fotos da página <code>/galeria</code>. Enviadas aqui, ficam disponíveis no site na hora sem precisar de deploy. Formatos aceites: JPG, PNG, WEBP (até 8MB).
       </Typography>
 
       <Paper variant="outlined" sx={{ p: 3, borderColor: 'divider', mb: 4 }}>
@@ -124,7 +123,7 @@ export default function AdminGaleriaPanel({ adminKey, onUnauthorized }) {
             label="Legenda (opcional)"
             value={caption}
             onChange={(e) => setCaption(e.target.value)}
-            placeholder="ex: Formação em espaço confinado — Terminais do Norte"
+            placeholder="ex: Formação em espaço confinado Terminais do Norte"
           />
           <Button
             variant="contained"
@@ -154,7 +153,7 @@ export default function AdminGaleriaPanel({ adminKey, onUnauthorized }) {
       {status === 'ok' && photos.length === 0 && (
         <Paper variant="outlined" sx={{ p: 5, textAlign: 'center', borderColor: 'divider', borderStyle: 'dashed' }}>
           <Typography sx={{ color: 'text.secondary' }}>
-            Ainda não há fotos carregadas — o site está a mostrar as fotos originais como reserva.
+            Ainda não há fotos carregadas o site está a mostrar as fotos originais como reserva.
           </Typography>
         </Paper>
       )}
